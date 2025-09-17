@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=3 uid="uid://up5oqlkg1nol"]
+
+[ext_resource type="Script" uid="uid://kp27jt7ojbgt" path="res://cat_1.gd" id="1_ggf0m"]
+[ext_resource type="Texture2D" uid="uid://bexa0f5xhmqjx" path="res://catsheet2.png" id="2_ggf0m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3l7b"]
+size = Vector2(84, 100)
+
+[sub_resource type="Animation" id="Animation_koqrr"]
+resource_name = "Cat1"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 8]
+}
+
+[sub_resource type="Animation" id="Animation_ggf0m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sbu5m"]
+resource_name = "Jump"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.24, 0.75),
+"transitions": PackedFloat32Array(1, 2.928177, 2.219139),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -6), Vector2(0, 13)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sbu5m"]
+_data = {
+&"Cat1": SubResource("Animation_koqrr"),
+&"Jump": SubResource("Animation_sbu5m"),
+&"RESET": SubResource("Animation_ggf0m")
+}
+
+[node name="Cat" type="Area2D"]
+script = ExtResource("1_ggf0m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_i3l7b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5185185, 0.5185185)
+texture = ExtResource("2_ggf0m")
+hframes = 8
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_sbu5m")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

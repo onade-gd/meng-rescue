@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://budxylqe7vgvt"]
+
+[ext_resource type="Script" uid="uid://7nc5rx3t84bp" path="res://mainscript.gd" id="1_r0du0"]
+[ext_resource type="PackedScene" uid="uid://ct6scr2dqbdmj" path="res://MainCharController.tscn" id="3_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://c0x5sg30o15fk" path="res://summoner.tscn" id="4_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://ep800oxm3d5w" path="res://MainChar.tscn" id="4_fos0i"]
+[ext_resource type="PackedScene" uid="uid://bwrj7yih23guk" path="res://UI_InGame.tscn" id="6_3dxm6"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r0du0")
+
+[node name="MainCharController" parent="." instance=ExtResource("3_cm0pq")]
+position = Vector2(360, 1110)
+scale = Vector2(1.2, 1.2)
+
+[node name="MainChar" parent="." instance=ExtResource("4_fos0i")]
+position = Vector2(363, 1113)
+
+[node name="Summoner" parent="." instance=ExtResource("4_cm0pq")]
+position = Vector2(180, 42)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.2
+autostart = true
+
+[node name="UI" parent="." instance=ExtResource("6_3dxm6")]
+layout_mode = 1
+
+[connection signal="summon" from="." to="Summoner" method="_on_main_summon"]
+[connection signal="hp" from="MainChar" to="." method="_on_main_char_hp"]
+[connection signal="scoresignal" from="MainChar" to="." method="_on_main_char_scoresignal"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://ep800oxm3d5w"]
+
+[ext_resource type="Script" uid="uid://c40uhisflcmpt" path="res://main_char.gd" id="1_yl4dq"]
+[ext_resource type="Texture2D" uid="uid://bxix301dhbnea" path="res://charsheet.png" id="2_yl4dq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_haold"]
+size = Vector2(24, 24)
+
+[sub_resource type="Animation" id="Animation_yl4dq"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+
+[sub_resource type="Animation" id="Animation_t6e7v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+
+[sub_resource type="Animation" id="Animation_ltut8"]
+resource_name = "leftright"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ltut8"]
+_data = {
+&"RESET": SubResource("Animation_t6e7v"),
+&"idle": SubResource("Animation_yl4dq"),
+&"leftright": SubResource("Animation_ltut8")
+}
+
+[node name="MainChar" type="CharacterBody2D"]
+script = ExtResource("1_yl4dq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_haold")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_yl4dq")
+hframes = 6
+vframes = 3
+frame = 13
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ltut8")
+}
