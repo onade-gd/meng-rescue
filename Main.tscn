@@ -19,10 +19,6 @@ script = ExtResource("1_r0du0")
 position = Vector2(360, 1110)
 scale = Vector2(1.2, 1.2)
 
-[node name="MainChar" parent="." instance=ExtResource("4_fos0i")]
-position = Vector2(363, 1113)
-scale = Vector2(0.6, 0.6)
-
 [node name="Summoner" parent="." instance=ExtResource("4_cm0pq")]
 position = Vector2(180, 42)
 
@@ -33,7 +29,12 @@ autostart = true
 [node name="UI" parent="." instance=ExtResource("6_3dxm6")]
 layout_mode = 1
 
+[node name="MainChar" parent="." instance=ExtResource("4_fos0i")]
+z_index = 1
+position = Vector2(363, 1113)
+scale = Vector2(0.6, 0.6)
+
 [connection signal="summon" from="." to="Summoner" method="_on_main_summon"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="hp" from="MainChar" to="." method="_on_main_char_hp"]
 [connection signal="scoresignal" from="MainChar" to="." method="_on_main_char_scoresignal"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

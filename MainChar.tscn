@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ep800oxm3d5w"]
+[gd_scene load_steps=13 format=3 uid="uid://ep800oxm3d5w"]
 
 [ext_resource type="Script" uid="uid://c40uhisflcmpt" path="res://main_char.gd" id="1_yl4dq"]
 [ext_resource type="Texture2D" uid="uid://bxix301dhbnea" path="res://charsheet.png" id="2_yl4dq"]
+[ext_resource type="Texture2D" uid="uid://dw0h0520kpcgb" path="res://ripple.png" id="3_t6e7v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_haold"]
-size = Vector2(24, 24)
+size = Vector2(254, 24)
 
 [sub_resource type="Animation" id="Animation_t6e7v"]
 length = 0.001
@@ -19,6 +20,100 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [13]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:jump_able")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:jump")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:duck_able")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:duck")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:collision_layer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CPUParticles2D:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_yl4dq"]
@@ -46,22 +141,169 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(2, 2, 2, 2),
+"handle_modes": PackedInt32Array(2, 0, 0, 2),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.033333335, -0.16666667, 0, 0, 2, -0.033333335, -0.16666667, 0, 0, 3, -0.03333334, -0.16666667, 0, 0),
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6)
+"times": PackedFloat32Array(0, 0.07742264, 0.20439781, 0.6)
+}
+
+[sub_resource type="Animation" id="Animation_bshmp"]
+resource_name = "jump"
+step = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(4, -0.25, 0, 0.25, 0, 5, -0.033333335, -0.16666667, 0, 0, 6, -0.033333335, -0.16666667, 0, 0, 7, -0.03333334, -0.16666667, 0, 0, 8, -0.03333333, -0.16666667, 0, 0, 9, -0.03333333, -0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:jump_able")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.1641532e-10, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("Sprite2D:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.2, -433.5, 0, -0.25, 233.5, 0, 0),
+"times": PackedFloat32Array(0.2, 0.85)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:jump")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.19766994, 0.6349724),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:duck_able")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:collision_layer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.20300432, 0.70967627),
+"transitions": PackedFloat32Array(0, 0),
+"update": 1,
+"values": [2, 1]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CPUParticles2D:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.18256204, 0.70155984),
+"transitions": PackedFloat32Array(0, 0),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_bw2ia"]
+resource_name = "duck"
+step = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(10, -0.25, 0, 0.25, 0, 10, -0.25, 0, 0.25, 0, 11, -0.25, 0, 0.25, 0, 11, -0.25, 0, 0.25, 0, 12, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.14596178, 0.15, 0.7784628, 0.8)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:duck")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.13960202, 0.78685147),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:collision_layer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.13925089, 0.7818183),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 1]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ltut8"]
 _data = {
 &"RESET": SubResource("Animation_t6e7v"),
+&"duck": SubResource("Animation_bw2ia"),
 &"idle": SubResource("Animation_yl4dq"),
+&"jump": SubResource("Animation_bshmp"),
 &"leftright": SubResource("Animation_ltut8")
 }
+
+[sub_resource type="Curve" id="Curve_t6e7v"]
+_limits = [0.5, 1.5, 0.0, 1.0]
+_data = [Vector2(0, 0.65730345), 0.0, -0.033345584, 0, 0, Vector2(1, 0.9719102), 0.9691011, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ltut8"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="MainChar" type="CharacterBody2D"]
 script = ExtResource("1_yl4dq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -93)
 shape = SubResource("RectangleShape2D_haold")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -74,3 +316,18 @@ frame = 13
 libraries = {
 &"": SubResource("AnimationLibrary_ltut8")
 }
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-6, 158)
+texture = ExtResource("3_t6e7v")
+lifetime = 0.5700000000000001
+speed_scale = 0.3
+direction = Vector2(0, 1)
+spread = 0.0
+initial_velocity_min = 100.0
+initial_velocity_max = 500.0
+scale_amount_curve = SubResource("Curve_t6e7v")
+color_ramp = SubResource("Gradient_ltut8")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyu0f7i8jgf2l"]
+
+[ext_resource type="Texture2D" uid="uid://dw0h0520kpcgb" path="res://ripple.png" id="1_lfj1i"]
+[ext_resource type="Script" uid="uid://dgcuaqgtywg85" path="res://ripple.gd" id="2_0iq33"]
+
+[node name="ripple" type="Node2D"]
+script = ExtResource("2_0iq33")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lfj1i")

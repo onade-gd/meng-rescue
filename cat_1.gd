@@ -6,7 +6,7 @@ func _process(delta: float) -> void:
 		animation.play("Cat1")
 		translate(Vector2.DOWN*150*delta)
 	else:
-		animation.play("Jump")
+		animation.play("jump")
 		await animation.animation_finished
 		get_node(".").queue_free()
 
