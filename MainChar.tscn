@@ -6,21 +6,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_haold"]
 size = Vector2(24, 24)
 
-[sub_resource type="Animation" id="Animation_yl4dq"]
-resource_name = "idle"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [13]
-}
-
 [sub_resource type="Animation" id="Animation_t6e7v"]
 length = 0.001
 tracks/0/type = "value"
@@ -36,8 +21,24 @@ tracks/0/keys = {
 "values": [13]
 }
 
+[sub_resource type="Animation" id="Animation_yl4dq"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+
 [sub_resource type="Animation" id="Animation_ltut8"]
 resource_name = "leftright"
+length = 0.7
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -45,9 +46,9 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(),
-"points": PackedFloat32Array(),
-"times": PackedFloat32Array()
+"handle_modes": PackedInt32Array(2, 2, 2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.033333335, -0.16666667, 0, 0, 2, -0.033333335, -0.16666667, 0, 0, 3, -0.03333334, -0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ltut8"]

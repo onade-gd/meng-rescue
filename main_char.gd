@@ -9,9 +9,14 @@ func _process(delta: float) -> void:
 	speed = (_prev_position - global_position)/delta
 	_prev_position = global_position
 	print(speed)
-	if speed in range(1.0,-1.0):
+	if speed.x < -5:
+			$Sprite2D.flip_h = false
+			$AnimationPlayer.play("leftright")
+	elif speed.x > 5:
+			$Sprite2D.flip_h = true
+			$AnimationPlayer.play("leftright")
+	else:
 		$AnimationPlayer.play("idle")
-	#elif speed in range(1.1,70) or speed in rang
 	if health == 0:
 		alive = false
 	if alive:

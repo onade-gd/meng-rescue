@@ -21,6 +21,7 @@ scale = Vector2(1.2, 1.2)
 
 [node name="MainChar" parent="." instance=ExtResource("4_fos0i")]
 position = Vector2(363, 1113)
+scale = Vector2(0.6, 0.6)
 
 [node name="Summoner" parent="." instance=ExtResource("4_cm0pq")]
 position = Vector2(180, 42)
