@@ -15,3 +15,7 @@ func _on_main_char_scoresignal(value) -> void:
 	
 func _on_main_char_hp(value) -> void:
 	$UI/VBoxContainer/MarginContainer3/Health.text = str("health:",value)
+
+
+func _on_small_pressed() -> void:
+	get_window().size = Vector2i(792, 1408)

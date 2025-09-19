@@ -40,6 +40,7 @@ func _process(delta: float) -> void:
 		get_node(".").queue_free()
 
 func score(value):
+	$AnimationPlayer.play()
 	scoresignal.emit(value)
 	
 func damage(value):

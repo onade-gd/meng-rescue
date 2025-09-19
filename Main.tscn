@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://budxylqe7vgvt"]
+[gd_scene load_steps=11 format=3 uid="uid://budxylqe7vgvt"]
 
 [ext_resource type="Script" uid="uid://7nc5rx3t84bp" path="res://mainscript.gd" id="1_r0du0"]
 [ext_resource type="PackedScene" uid="uid://ct6scr2dqbdmj" path="res://MainCharController.tscn" id="3_cm0pq"]
@@ -6,6 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://ep800oxm3d5w" path="res://MainChar.tscn" id="4_fos0i"]
 [ext_resource type="PackedScene" uid="uid://bwrj7yih23guk" path="res://UI_InGame.tscn" id="6_3dxm6"]
 [ext_resource type="Texture2D" uid="uid://dw0h0520kpcgb" path="res://ripple.png" id="6_lgr22"]
+
+[sub_resource type="Gradient" id="Gradient_3dxm6"]
+offsets = PackedFloat32Array(0, 0.55333334)
+colors = PackedColorArray(0.5745135, 0.86136836, 0.94049597, 1, 0.3647059, 0.74509805, 0.84313726, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lgr22"]
+gradient = SubResource("Gradient_3dxm6")
 
 [sub_resource type="Curve" id="Curve_trn2v"]
 _limits = [0.5, 1.5, 0.0, 1.0]
@@ -23,6 +30,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r0du0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(351.9486, 638.6153)
+rotation = 1.5707964
+scale = Vector2(20.463137, 11.624994)
+texture = SubResource("GradientTexture2D_lgr22")
 
 [node name="MainCharController" parent="." instance=ExtResource("3_cm0pq")]
 position = Vector2(360, 1110)
@@ -56,7 +69,13 @@ initial_velocity_max = 500.0
 scale_amount_curve = SubResource("Curve_trn2v")
 color_ramp = SubResource("Gradient_03owx")
 
+[node name="small" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
 [connection signal="summon" from="." to="Summoner" method="_on_main_summon"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="hp" from="MainChar" to="." method="_on_main_char_hp"]
 [connection signal="scoresignal" from="MainChar" to="." method="_on_main_char_scoresignal"]
+[connection signal="pressed" from="small" to="." method="_on_small_pressed"]
