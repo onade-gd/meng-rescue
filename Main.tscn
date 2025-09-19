@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://budxylqe7vgvt"]
+[gd_scene load_steps=9 format=3 uid="uid://budxylqe7vgvt"]
 
 [ext_resource type="Script" uid="uid://7nc5rx3t84bp" path="res://mainscript.gd" id="1_r0du0"]
 [ext_resource type="PackedScene" uid="uid://ct6scr2dqbdmj" path="res://MainCharController.tscn" id="3_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://c0x5sg30o15fk" path="res://summoner.tscn" id="4_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://ep800oxm3d5w" path="res://MainChar.tscn" id="4_fos0i"]
 [ext_resource type="PackedScene" uid="uid://bwrj7yih23guk" path="res://UI_InGame.tscn" id="6_3dxm6"]
+[ext_resource type="Texture2D" uid="uid://dw0h0520kpcgb" path="res://ripple.png" id="6_lgr22"]
+
+[sub_resource type="Curve" id="Curve_trn2v"]
+_limits = [0.5, 1.5, 0.0, 1.0]
+_data = [Vector2(0, 0.65730345), 0.0, -0.033345584, 0, 0, Vector2(1, 0.9719102), 0.9691011, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_03owx"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -33,6 +42,19 @@ layout_mode = 1
 z_index = 1
 position = Vector2(363, 1113)
 scale = Vector2(0.6, 0.6)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="MainChar"]
+position = Vector2(-6, 158)
+amount = 4
+texture = ExtResource("6_lgr22")
+lifetime = 0.5700000000000001
+speed_scale = 0.3
+direction = Vector2(0, 1)
+spread = 0.0
+initial_velocity_min = 100.0
+initial_velocity_max = 500.0
+scale_amount_curve = SubResource("Curve_trn2v")
+color_ramp = SubResource("Gradient_03owx")
 
 [connection signal="summon" from="." to="Summoner" method="_on_main_summon"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

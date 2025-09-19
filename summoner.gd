@@ -8,7 +8,7 @@ var spawnentity
 
 func _on_main_summon() -> void:
 	summonblock = randi_range(1,3)
-	spawnentity = randi_range(1,4)
+	spawnentity = randi_range(1,2)
 	match summonblock:
 		1: summonpos = $Area2D.global_position
 		2: summonpos = $Area2D2.global_position

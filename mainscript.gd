@@ -1,6 +1,8 @@
 extends Control
 signal summon
 @onready var Character = $MainChar
+@export var minimum_distance : float
+@export var rarity : int
 var score : int = 0 
 func _on_timer_timeout() -> void:
 	summon.emit()

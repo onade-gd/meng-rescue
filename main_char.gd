@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_up") and jump_able == true:
 		$AnimationPlayer.play("jump")
 	if Input.is_action_just_pressed("ui_down") and duck_able == true and jump == false:
-		$AnimationPlayer.play("duck")
+		$AnimationPlayer.play("duck",-1,1.5)
 		print("down")
 	if $AnimationPlayer.current_animation != "jump":
 		if $AnimationPlayer.current_animation != "duck":
