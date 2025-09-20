@@ -87,11 +87,11 @@ script = ExtResource("1_ggf0m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_i3l7b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 0.028129602)
-scale = Vector2(0.5185185, 0.5185185)
 texture = ExtResource("2_ggf0m")
 vframes = 3
 region_enabled = true

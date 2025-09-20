@@ -18,4 +18,4 @@ func _on_main_char_hp(value) -> void:
 
 
 func _on_small_pressed() -> void:
-	get_window().size = Vector2i(792, 1408)
+	get_window().size = Vector2i(720, 1280)

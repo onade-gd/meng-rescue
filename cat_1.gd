@@ -7,7 +7,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if alive:
 		$AnimationPlayer.play("Cat1")
-		translate(Vector2.DOWN*250*delta)
+		translate(Vector2.DOWN*500*delta)
 	else:
 		$AnimationPlayer.play("jump")
 		await $AnimationPlayer.animation_finished

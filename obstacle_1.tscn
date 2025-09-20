@@ -10,11 +10,12 @@ size = Vector2(126, 10)
 script = ExtResource("1_dnddi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_x84vb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 3.1415927
-scale = Vector2(0.9794268, 0.07422642)
+scale = Vector2(1.958, 0.148)
 texture = ExtResource("1_c1gob")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

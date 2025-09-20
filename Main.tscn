@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://budxylqe7vgvt"]
+[gd_scene load_steps=11 format=3 uid="uid://budxylqe7vgvt"]
 
 [ext_resource type="Script" uid="uid://7nc5rx3t84bp" path="res://mainscript.gd" id="1_r0du0"]
 [ext_resource type="PackedScene" uid="uid://ct6scr2dqbdmj" path="res://MainCharController.tscn" id="3_cm0pq"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://ep800oxm3d5w" path="res://MainChar.tscn" id="4_fos0i"]
 [ext_resource type="PackedScene" uid="uid://bwrj7yih23guk" path="res://UI_InGame.tscn" id="6_3dxm6"]
 [ext_resource type="Texture2D" uid="uid://dw0h0520kpcgb" path="res://ripple.png" id="6_lgr22"]
-[ext_resource type="Texture2D" uid="uid://c41aqfwhssgul" path="res://tile map button.png" id="7_lgr22"]
 
 [sub_resource type="Gradient" id="Gradient_3dxm6"]
 offsets = PackedFloat32Array(0, 0.55333334)
@@ -33,17 +32,16 @@ grow_vertical = 2
 script = ExtResource("1_r0du0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(359.5582, 640.55975)
+position = Vector2(716.8684, 1277.5039)
 rotation = 1.5707964
-scale = Vector2(20.037601, 11.28048)
+scale = Vector2(39.94211, 22.446424)
 texture = SubResource("GradientTexture2D_lgr22")
 
 [node name="MainCharController" parent="." instance=ExtResource("3_cm0pq")]
-position = Vector2(360, 1110)
-scale = Vector2(1.2, 1.2)
+position = Vector2(720, 2220)
 
 [node name="Summoner" parent="." instance=ExtResource("4_cm0pq")]
-position = Vector2(180, 42)
+position = Vector2(360, 42)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.2
@@ -54,8 +52,7 @@ layout_mode = 1
 
 [node name="MainChar" parent="." instance=ExtResource("4_fos0i")]
 z_index = 1
-position = Vector2(363, 1113)
-scale = Vector2(0.6, 0.6)
+position = Vector2(717, 2196)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="MainChar"]
 position = Vector2(-6, 158)
@@ -67,6 +64,8 @@ direction = Vector2(0, 1)
 spread = 0.0
 initial_velocity_min = 100.0
 initial_velocity_max = 500.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_trn2v")
 color_ramp = SubResource("Gradient_03owx")
 
@@ -74,14 +73,7 @@ color_ramp = SubResource("Gradient_03owx")
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(55, 56)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("7_lgr22")
-hframes = 7
-vframes = 6
-frame = 1
+scale = Vector2(11.142898, 13.399999)
 
 [connection signal="summon" from="." to="Summoner" method="_on_main_summon"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
