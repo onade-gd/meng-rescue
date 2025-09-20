@@ -1,0 +1,96 @@
+[gd_scene load_steps=4 format=4 uid="uid://dxih0pkgolrr7"]
+
+[ext_resource type="Texture2D" uid="uid://c5wweh6c5cmih" path="res://tilemapobstacle1.png" id="1_xw401"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x373v"]
+texture = ExtResource("1_xw401")
+texture_region_size = Vector2i(200, 200)
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(100, 100)
+0:0/0/z_index = 1
+2:0/size_in_atlas = Vector2i(4, 2)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(300, 100)
+2:0/0/z_index = 1
+0:2/size_in_atlas = Vector2i(2, 2)
+0:2/0 = 0
+0:2/0/texture_origin = Vector2i(100, -100)
+2:2/size_in_atlas = Vector2i(4, 2)
+2:2/0 = 0
+2:2/0/texture_origin = Vector2i(100, 100)
+6:4/size_in_atlas = Vector2i(3, 2)
+6:4/0 = 0
+6:4/0/texture_origin = Vector2i(200, 100)
+6:0/size_in_atlas = Vector2i(4, 4)
+6:0/0 = 0
+6:0/0/texture_origin = Vector2i(-300, 300)
+6:0/0/z_index = 1
+10:0/size_in_atlas = Vector2i(2, 2)
+10:0/0 = 0
+10:0/0/texture_origin = Vector2i(100, 100)
+10:0/0/z_index = 1
+10:2/size_in_atlas = Vector2i(2, 2)
+10:2/0 = 0
+10:2/0/texture_origin = Vector2i(100, -100)
+9:4/animation_columns = 1
+9:4/animation_frame_0/duration = 1.0
+9:4/animation_frame_1/duration = 1.0
+9:4/0 = 0
+9:4/0/z_index = 1
+10:4/size_in_atlas = Vector2i(2, 1)
+10:4/animation_columns = 1
+10:4/animation_frame_0/duration = 1.0
+10:4/animation_frame_1/duration = 1.0
+10:4/0 = 0
+10:4/0/texture_origin = Vector2i(-100, 0)
+10:4/0/z_index = 1
+12:4/size_in_atlas = Vector2i(2, 1)
+12:4/animation_columns = 1
+12:4/animation_frame_0/duration = 1.0
+12:4/animation_frame_1/duration = 1.0
+12:4/0 = 0
+12:4/0/texture_origin = Vector2i(-100, 0)
+12:4/0/z_index = 1
+12:2/size_in_atlas = Vector2i(2, 2)
+12:2/0 = 0
+12:2/0/texture_origin = Vector2i(100, -100)
+12:0/size_in_atlas = Vector2i(2, 2)
+12:0/0 = 0
+12:0/0/texture_origin = Vector2i(100, 100)
+12:0/0/z_index = 1
+14:0/size_in_atlas = Vector2i(2, 5)
+14:0/0 = 0
+14:0/0/texture_origin = Vector2i(100, 400)
+14:0/0/z_index = 2
+16:0/size_in_atlas = Vector2i(3, 5)
+16:0/0 = 0
+16:0/0/texture_origin = Vector2i(200, 0)
+19:0/size_in_atlas = Vector2i(3, 5)
+19:0/animation_frame_0/duration = 1.0
+19:0/animation_frame_1/duration = 1.0
+19:0/0 = 0
+19:0/0/texture_origin = Vector2i(0, 400)
+19:0/0/z_index = 1
+0:4/size_in_atlas = Vector2i(2, 1)
+0:4/animation_columns = 1
+0:4/animation_frame_0/duration = 1.0
+0:4/animation_frame_1/duration = 1.0
+0:4/0 = 0
+0:4/0/texture_origin = Vector2i(-100, 0)
+0:4/0/z_index = 1
+2:4/size_in_atlas = Vector2i(4, 2)
+2:4/animation_columns = 1
+2:4/animation_frame_0/duration = 1.0
+2:4/animation_frame_1/duration = 1.0
+2:4/0 = 0
+2:4/0/texture_origin = Vector2i(-100, 100)
+2:4/0/z_index = 1
+
+[sub_resource type="TileSet" id="TileSet_apoy5"]
+tile_size = Vector2i(200, 200)
+sources/1 = SubResource("TileSetAtlasSource_x373v")
+
+[node name="TileMapLayer" type="TileMapLayer"]
+tile_map_data = PackedByteArray("AAABAAwAAQAOAAAAAAAFAAwAAQAOAAAAAAAFAAgAAQAOAAAAAAABAAgAAQAOAAAAAAABAAQAAQAOAAAAAAABAAoAAQAQAAAAAAABAAYAAQAQAAAAAAABAAIAAQAQAAAAAAAAAAwAAQATAAAAAAAAAAgAAQATAAAAAAABAP//AQAKAAAAAAABAP7/AQAKAAIAAAAAAP//AQAKAAQAAAADAPz/AQAMAAAAAAADAPv/AQAMAAIAAAACAPz/AQAMAAQAAAAFAPb/AQACAAAAAAAEAPb/AQACAAIAAAADAPb/AQACAAQAAAAFAPT/AQAOAAAAAAAFAPL/AQAQAAAAAAAEAPT/AQATAAAAAAADAPX/AQAMAAAAAAADAPT/AQAMAAIAAAACAPX/AQAMAAQAAAADAPP/AQAGAAAAABAAAPP/AQAGAAQAABACAPP/AQAJAAQAAAABAO//AQAOAAAAAAAFAO//AQAKAAAAAAAFAO7/AQAKAAIAAAAFAO3/AQAMAAAAAAAFAOz/AQAMAAIAAAAEAO//AQAKAAQAAAAEAO3/AQAMAAQAAAADAOn/AQACAAAAAAACAOn/AQACAAIAAAABAOn/AQACAAQAAAACAOb/AQACAAAAABADAOb/AQACAAIAABAEAOb/AQACAAQAABADAOT/AQAAAAAAAAADAOP/AQAAAAIAAAACAOT/AQAAAAQAAAAEAOL/AQAAAAQAAAAFAOL/AQAAAAAAAAAFAOH/AQAAAAIAAAAFAOT/AQAKAAAAAAAFAOP/AQAKAAIAAAAEAOT/AQAKAAQAAAABAO3/AQAQAAAAAAAAAO//AQATAAAAAAACAPr/AQAGAAAAAAAEAPr/AQAGAAQAAAADAPr/AQAJAAQAAAAFAAQAAQAAAAAAAAAFAAMAAQAAAAIAAAAEAAQAAQAAAAQAAAADAAAAAQAOAAAAAAADAP7/AQAQAAAAAAACAAAAAQATAAAAAAAAAAQAAQATAAAAAAAEAAgAAQATAAAAAAAEAAwAAQATAAAAAAAFAAoAAQAQAAAAAAAFAAYAAQAQAAAAAAABAP3/AQAMAAAAAAABAPz/AQAMAAIAAAAAAP3/AQAMAAQAAAABAOv/AQAAAAAAAAABAOr/AQAAAAIAAAAAAOv/AQAAAAQAAAA=")
+tile_set = SubResource("TileSet_apoy5")

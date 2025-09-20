@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://budxylqe7vgvt"]
+[gd_scene load_steps=13 format=3 uid="uid://budxylqe7vgvt"]
 
 [ext_resource type="Script" uid="uid://7nc5rx3t84bp" path="res://mainscript.gd" id="1_r0du0"]
 [ext_resource type="PackedScene" uid="uid://ct6scr2dqbdmj" path="res://MainCharController.tscn" id="3_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://c0x5sg30o15fk" path="res://summoner.tscn" id="4_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://ep800oxm3d5w" path="res://MainChar.tscn" id="4_fos0i"]
+[ext_resource type="Script" uid="uid://caxbhg3w3jlpi" path="res://tatakae.gd" id="5_trn2v"]
 [ext_resource type="PackedScene" uid="uid://bwrj7yih23guk" path="res://UI_InGame.tscn" id="6_3dxm6"]
 [ext_resource type="Texture2D" uid="uid://dw0h0520kpcgb" path="res://ripple.png" id="6_lgr22"]
+[ext_resource type="PackedScene" uid="uid://dxih0pkgolrr7" path="res://tilemap_world1.tscn" id="7_lgr22"]
 
 [sub_resource type="Gradient" id="Gradient_3dxm6"]
 offsets = PackedFloat32Array(0, 0.55333334)
@@ -37,9 +39,6 @@ rotation = 1.5707964
 scale = Vector2(39.94211, 22.446424)
 texture = SubResource("GradientTexture2D_lgr22")
 
-[node name="MainCharController" parent="." instance=ExtResource("3_cm0pq")]
-position = Vector2(720, 2220)
-
 [node name="Summoner" parent="." instance=ExtResource("4_cm0pq")]
 position = Vector2(360, 42)
 
@@ -50,11 +49,27 @@ autostart = true
 [node name="UI" parent="." instance=ExtResource("6_3dxm6")]
 layout_mode = 1
 
-[node name="MainChar" parent="." instance=ExtResource("4_fos0i")]
+[node name="small" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(11.142898, 13.399999)
+
+[node name="TileMapLayer" parent="." instance=ExtResource("7_lgr22")]
+position = Vector2(127, -83)
+
+[node name="MoveForward" type="Node2D" parent="."]
+script = ExtResource("5_trn2v")
+
+[node name="MainCharController" parent="MoveForward" instance=ExtResource("3_cm0pq")]
+z_index = 4
+position = Vector2(720, 2220)
+
+[node name="MainChar" parent="MoveForward" instance=ExtResource("4_fos0i")]
 z_index = 1
 position = Vector2(717, 2196)
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="MainChar"]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="MoveForward/MainChar"]
 position = Vector2(-6, 158)
 amount = 4
 texture = ExtResource("6_lgr22")
@@ -69,14 +84,11 @@ scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_trn2v")
 color_ramp = SubResource("Gradient_03owx")
 
-[node name="small" type="Button" parent="."]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-scale = Vector2(11.142898, 13.399999)
+[node name="Camera2D" type="Camera2D" parent="MoveForward"]
+offset = Vector2(720, 1280)
 
 [connection signal="summon" from="." to="Summoner" method="_on_main_summon"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="hp" from="MainChar" to="." method="_on_main_char_hp"]
-[connection signal="scoresignal" from="MainChar" to="." method="_on_main_char_scoresignal"]
 [connection signal="pressed" from="small" to="." method="_on_small_pressed"]
+[connection signal="hp" from="MoveForward/MainChar" to="." method="_on_main_char_hp"]
+[connection signal="scoresignal" from="MoveForward/MainChar" to="." method="_on_main_char_scoresignal"]
