@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://up5oqlkg1nol"]
 
-[ext_resource type="Script" uid="uid://kp27jt7ojbgt" path="res://cat_1.gd" id="1_ggf0m"]
-[ext_resource type="Texture2D" uid="uid://bexa0f5xhmqjx" path="res://catsheet2.png" id="2_ggf0m"]
+[ext_resource type="Script" uid="uid://kp27jt7ojbgt" path="res://extra assets/cat_1.gd" id="1_ggf0m"]
+[ext_resource type="Texture2D" uid="uid://bexa0f5xhmqjx" path="res://assets/catsheet2.png" id="2_ggf0m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3l7b"]
 size = Vector2(84, 100)
@@ -86,12 +86,12 @@ collision_mask = 5
 script = ExtResource("1_ggf0m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(-100, 2)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_i3l7b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 0.028129602)
+position = Vector2(-100, 0.028129602)
 texture = ExtResource("2_ggf0m")
 vframes = 3
 region_enabled = true

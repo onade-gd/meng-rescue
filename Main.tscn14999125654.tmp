@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://7nc5rx3t84bp" path="res://mainscript.gd" id="1_r0du0"]
 [ext_resource type="PackedScene" uid="uid://ct6scr2dqbdmj" path="res://MainCharController.tscn" id="3_cm0pq"]
-[ext_resource type="PackedScene" uid="uid://b1bh3x1x6m3j5" path="res://stages/stage_0.tscn" id="3_lgr22"]
+[ext_resource type="PackedScene" uid="uid://b1bh3x1x6m3j5" path="res://stages/stage_1.tscn" id="3_lgr22"]
 [ext_resource type="PackedScene" uid="uid://ep800oxm3d5w" path="res://MainChar.tscn" id="4_fos0i"]
 [ext_resource type="Script" uid="uid://caxbhg3w3jlpi" path="res://tatakae.gd" id="5_trn2v"]
 [ext_resource type="PackedScene" uid="uid://bwrj7yih23guk" path="res://UI_InGame.tscn" id="6_3dxm6"]
@@ -22,6 +22,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r0du0")
+minimum_distance = null
+rarity = null
 
 [node name="StageParent" type="Node2D" parent="."]
 position = Vector2(720, 0)
@@ -60,7 +62,6 @@ offset_bottom = 8.0
 scale = Vector2(11.142898, 13.399999)
 
 [connection signal="direction" from="MoveForward/MainChar" to="MoveForward/MainCharController" method="_on_main_char_direction"]
-[connection signal="finishline" from="MoveForward/MainChar" to="MoveForward" method="_on_main_char_finishline"]
 [connection signal="hp" from="MoveForward/MainChar" to="." method="_on_main_char_hp"]
 [connection signal="scoresignal" from="MoveForward/MainChar" to="." method="_on_main_char_scoresignal"]
 [connection signal="pressed" from="CanvasLayer/small" to="." method="_on_small_pressed"]

@@ -1,11 +1,11 @@
 extends CharacterBody2D
-var pos = clampi(2,1,3)
+@export var pos = clampi(2,1,3)
 func _process(delta: float) -> void:
 	pos = clampi(pos,1,3)
 	match pos:
-		1: global_position.x = 360
+		1: global_position.x = 320
 		2: global_position.x = 720
-		3: global_position.x = 1080
+		3: global_position.x = 1120
 	if Input.is_action_just_pressed("ui_left"):
 		pos -= 1
 	if Input.is_action_just_pressed("ui_right"):
@@ -24,3 +24,10 @@ func _process(delta: float) -> void:
 	#elif Input.is_action_just_pressed("ui_right"):
 		#if global_position.x != max_pos:
 			#global_position.x = lerp(global_position.x, global_position.x + 180.0, 1)
+
+
+func _on_main_char_direction(direction) -> void:
+	if direction == "left":
+		pos += 1
+	if direction == "right":
+		pos -= 1

@@ -1,9 +1,11 @@
 extends CharacterBody2D
 signal scoresignal()
 signal hp()
+signal finishline
 var alive = true
 var health = 3
 var _prev_position:Vector2 = Vector2.ZERO
+signal direction()
 @export var jump = false
 @export var jump_able = true
 @export var speed : Vector2
@@ -30,7 +32,7 @@ func _process(delta: float) -> void:
 			else:
 				$AnimationPlayer.play("idle")
 	
-	if health == 0:
+	if health <= 0:
 		alive = false
 	# - interpolation control
 	if alive:
@@ -46,4 +48,24 @@ func score(value):
 func damage(value):
 	health -= value
 	hp.emit(health)
+	
+func finish():
+	finishline.emit()
+	
+func _on_hitbox_front_body_entered(body: Node2D) -> void:
+	if body.get_parent().name == "stage":
+		health -= 3
+		print(health)
+
+func _on_hitbox_left_body_entered(body: Node2D) -> void:
+	if body.get_parent().name == "stage":
+		health -= 1
+		direction.emit("left")
+		print(health)
+
+func _on_hitbox_right_body_entered(body: Node2D) -> void:
+	if body.get_parent().name == "stage":
+		health -= 1
+		direction.emit("right")
+		print(health)
 	

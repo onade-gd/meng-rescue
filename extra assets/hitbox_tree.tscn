@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://capmujbukacqb"]
+
+[ext_resource type="Script" uid="uid://dpwdg1eag230k" path="res://extra assets/hitbox_tree.gd" id="1_2a301"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ax6uq"]
+size = Vector2(707, 62)
+
+[node name="hitbox" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+priority = 1
+script = ExtResource("1_2a301")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 4
+position = Vector2(-303.5, -20)
+shape = SubResource("RectangleShape2D_ax6uq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

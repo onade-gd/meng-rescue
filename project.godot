@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="New Game Project"
-run/main_scene="uid://budxylqe7vgvt"
+config/name="MengRescue"
+run/main_scene="uid://bqc1kjjvjvixu"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1440
 window/size/viewport_height=2560
-window/size/resizable=false
+window/size/mode=1
 window/stretch/mode="canvas_items"
 window/handheld/orientation=1
 
