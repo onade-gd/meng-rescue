@@ -498,7 +498,6 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 size = Vector2(10, 10)
 
 [node name="MainChar" type="CharacterBody2D"]
-collision_mask = 2
 script = ExtResource("1_yl4dq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -532,25 +531,19 @@ scale_amount_curve = SubResource("Curve_ltut8")
 color_ramp = SubResource("Gradient_bshmp")
 
 [node name="hitbox_front" type="Area2D" parent="."]
-position = Vector2(0, -100)
-collision_layer = 2
-collision_mask = 2
+position = Vector2(0, -75)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_front"]
 shape = SubResource("RectangleShape2D_yl4dq")
 
 [node name="hitbox_left" type="Area2D" parent="."]
 position = Vector2(-125, 0)
-collision_layer = 2
-collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_left"]
 shape = SubResource("RectangleShape2D_yl4dq")
 
 [node name="hitbox_right" type="Area2D" parent="."]
 position = Vector2(125, 0)
-collision_layer = 2
-collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_right"]
 shape = SubResource("RectangleShape2D_yl4dq")
