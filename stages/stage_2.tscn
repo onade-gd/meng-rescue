@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2s3uss46u5by"]
+
+[ext_resource type="TileSet" uid="uid://lgwqni31eef4" path="res://resource/tilemap_jumpable.tres" id="1_ctd0f"]
+[ext_resource type="TileSet" uid="uid://cwhp3lwdusbj2" path="res://resource/tilemap_walls.tres" id="2_daspq"]
+[ext_resource type="TileSet" uid="uid://g0lrcp6kq76w" path="res://resource/tilemap_duckables.tres" id="3_c6umw"]
+
+[node name="stage" type="Node2D"]
+
+[node name="jumpables" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+tile_set = ExtResource("1_ctd0f")
+
+[node name="walls" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+tile_set = ExtResource("2_daspq")
+
+[node name="duckables" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+tile_set = ExtResource("3_c6umw")

@@ -15,6 +15,7 @@ colors = PackedColorArray(0.5745135, 0.86136836, 0.94049597, 1, 0.3647059, 0.745
 gradient = SubResource("Gradient_3dxm6")
 
 [node name="Main" type="Control"]
+y_sort_enabled = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,19 +25,19 @@ grow_vertical = 2
 script = ExtResource("1_r0du0")
 
 [node name="StageParent" type="Node2D" parent="."]
+y_sort_enabled = true
 position = Vector2(720, 0)
 
 [node name="stage" parent="StageParent" instance=ExtResource("3_lgr22")]
 
 [node name="MoveForward" type="Node2D" parent="."]
+y_sort_enabled = true
 script = ExtResource("5_trn2v")
 
 [node name="MainCharController" parent="MoveForward" instance=ExtResource("3_cm0pq")]
-z_index = 4
 position = Vector2(720, 2220)
 
 [node name="MainChar" parent="MoveForward" instance=ExtResource("4_fos0i")]
-z_index = 4
 position = Vector2(718, 2196)
 
 [node name="Camera2D" type="Camera2D" parent="MoveForward"]

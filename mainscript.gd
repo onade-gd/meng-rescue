@@ -4,6 +4,7 @@ extends Control
 var stage = preload("res://resource/stage_resource.tres")
 var score : int = 0 
 var chosen_stage
+
 func _ready() -> void:
 	chosen_stage = stage.number[stage.which]
 	$StageParent.get_child(0).free()
@@ -12,6 +13,8 @@ func _ready() -> void:
 func _on_main_char_scoresignal(value) -> void:
 	score += value
 	$CanvasLayer/UI/VBoxContainer/MarginContainer/Score.text = str("score:", score)
+	if score >= $StageParent/stage.get_meta("catsneeded"):
+		$MoveForward/MainChar.winlose = 1
 	
 func _on_main_char_hp(value) -> void:
 	$CanvasLayer/UI/VBoxContainer/MarginContainer3/Health.text = str("health:",value)
