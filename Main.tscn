@@ -39,6 +39,7 @@ position = Vector2(720, 2220)
 
 [node name="MainChar" parent="MoveForward" instance=ExtResource("4_fos0i")]
 position = Vector2(718, 2196)
+collision_mask = 1
 
 [node name="Camera2D" type="Camera2D" parent="MoveForward"]
 offset = Vector2(720, 1280)
