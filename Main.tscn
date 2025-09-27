@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://budxylqe7vgvt"]
+[gd_scene load_steps=9 format=3 uid="uid://budxylqe7vgvt"]
 
 [ext_resource type="Script" uid="uid://7nc5rx3t84bp" path="res://mainscript.gd" id="1_r0du0"]
 [ext_resource type="PackedScene" uid="uid://ct6scr2dqbdmj" path="res://MainCharController.tscn" id="3_cm0pq"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://ep800oxm3d5w" path="res://MainChar.tscn" id="4_fos0i"]
 [ext_resource type="Script" uid="uid://caxbhg3w3jlpi" path="res://tatakae.gd" id="5_trn2v"]
 [ext_resource type="PackedScene" uid="uid://bwrj7yih23guk" path="res://UI_InGame.tscn" id="6_3dxm6"]
-[ext_resource type="Texture2D" uid="uid://pow3qwb2cphs" path="res://assets/Level bonus.png" id="7_lgr22"]
 
 [sub_resource type="Gradient" id="Gradient_3dxm6"]
 offsets = PackedFloat32Array(0, 0.55333334)
@@ -61,31 +60,6 @@ layer = 3
 offset_right = 8.0
 offset_bottom = 8.0
 scale = Vector2(11.142898, 13.399999)
-
-[node name="LevelBonus" type="Sprite2D" parent="."]
-position = Vector2(386, 1521)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("7_lgr22")
-
-[node name="LevelBonus2" type="Sprite2D" parent="."]
-position = Vector2(804.00006, 1252)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("7_lgr22")
-
-[node name="LevelBonus3" type="Sprite2D" parent="."]
-position = Vector2(1185, 904)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("7_lgr22")
-
-[node name="LevelBonus4" type="Sprite2D" parent="."]
-position = Vector2(809, 538)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("7_lgr22")
-
-[node name="LevelBonus5" type="Sprite2D" parent="."]
-position = Vector2(401, 229.00002)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("7_lgr22")
 
 [connection signal="direction" from="MoveForward/MainChar" to="MoveForward/MainCharController" method="_on_main_char_direction"]
 [connection signal="finishline" from="MoveForward/MainChar" to="MoveForward" method="_on_main_char_finishline"]
