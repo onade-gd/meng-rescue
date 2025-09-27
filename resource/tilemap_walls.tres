@@ -1,9 +1,27 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://cwhp3lwdusbj2"]
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://cwhp3lwdusbj2"]
 
 [ext_resource type="Texture2D" uid="uid://c5wweh6c5cmih" path="res://assets/tilemapobstacle1.png" id="1_iyosm"]
+[ext_resource type="Texture2D" uid="uid://xasotl7gtemj" path="res://assets/Finish.png" id="1_rh1xj"]
 [ext_resource type="PackedScene" uid="uid://up5oqlkg1nol" path="res://extra assets/Cat1.tscn" id="2_ffupp"]
 [ext_resource type="PackedScene" uid="uid://capmujbukacqb" path="res://extra assets/hitbox_tree.tscn" id="3_4256o"]
 [ext_resource type="PackedScene" uid="uid://2mg2sj38c05" path="res://resource/finish_line.tscn" id="4_v54h0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pkr3h"]
+texture = ExtResource("1_rh1xj")
+texture_region_size = Vector2i(200, 200)
+0:0/size_in_atlas = Vector2i(7, 4)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 300)
+0:0/0/y_sort_origin = 500
+0:4/size_in_atlas = Vector2i(7, 4)
+0:4/0 = 0
+0:4/0/texture_origin = Vector2i(0, -300)
+0:8/size_in_atlas = Vector2i(7, 2)
+0:8/animation_columns = 1
+0:8/animation_frame_0/duration = 1.0
+0:8/animation_frame_1/duration = 1.0
+0:8/0 = 0
+0:8/0/texture_origin = Vector2i(0, 100)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x373v"]
 texture = ExtResource("1_iyosm")
@@ -96,3 +114,4 @@ physics_layer_0/collision_layer = 7
 physics_layer_0/collision_mask = 7
 sources/1 = SubResource("TileSetAtlasSource_x373v")
 sources/2 = SubResource("TileSetScenesCollectionSource_mxr3x")
+sources/0 = SubResource("TileSetAtlasSource_pkr3h")

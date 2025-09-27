@@ -36,6 +36,7 @@ texture_region_size = Vector2i(200, 200)
 7:2/size_in_atlas = Vector2i(2, 4)
 7:2/0 = 0
 7:2/0/texture_origin = Vector2i(-100, 100)
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(250, -100, -50, -100, -50, -150, 250, -150)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x373v"]
 texture = ExtResource("1_tqk8k")

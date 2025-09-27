@@ -1,11 +1,30 @@
-[gd_scene load_steps=17 format=3 uid="uid://ep800oxm3d5w"]
+[gd_scene load_steps=19 format=3 uid="uid://ep800oxm3d5w"]
 
 [ext_resource type="Script" uid="uid://c40uhisflcmpt" path="res://main_char.gd" id="1_yl4dq"]
+[ext_resource type="Shader" uid="uid://cay54201mupqn" path="res://MainChar.gdshader" id="2_ltut8"]
 [ext_resource type="Texture2D" uid="uid://bxix301dhbnea" path="res://assets/charsheet.png" id="2_yl4dq"]
 [ext_resource type="Texture2D" uid="uid://dw0h0520kpcgb" path="res://assets/ripple.png" id="3_t6e7v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_haold"]
 size = Vector2(254, 24)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bshmp"]
+shader = ExtResource("2_ltut8")
+shader_parameter/jacket_color = Color(1, 0.87058824, 0.19607843, 1)
+shader_parameter/jacket_replace_color = Color(0.9173491, 0.66605055, 0.72637737, 1)
+shader_parameter/jacket_color_threshold = 0.2390000113525
+shader_parameter/shadow_color = Color(0.92156863, 0.6392157, 0.20392157, 1)
+shader_parameter/shadow_replace_color = Color(0.96780103, 0.5270975, 0.58307517, 1)
+shader_parameter/shadow_color_threshold = 0.0750000035625
+shader_parameter/outline_color = Color(0.6784314, 0.47058824, 0.13333334, 1)
+shader_parameter/outline_replace_color = Color(0.8481871, 0.22222051, 0.41445118, 1)
+shader_parameter/outline_color_threshold = 0.3330000158175
+shader_parameter/shine_color = Color(1, 0.9372549, 0.6313726, 1)
+shader_parameter/shine_replace_color = Color(0.9855494, 0.85954106, 0.87237453, 1)
+shader_parameter/shine_color_threshold = 0.226000010735
+shader_parameter/bucket_color = Color(0.59607846, 0.59607846, 0.59607846, 1)
+shader_parameter/bucket_replace_color = Color(0.5505635, 0.43497065, 0.36572725, 1)
+shader_parameter/bucket_color_threshold = 0.0
 
 [sub_resource type="Animation" id="Animation_t6e7v"]
 length = 0.001
@@ -150,6 +169,22 @@ tracks/11/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_uca8w"]
+resource_name = "death"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20343515, 0.36549634, 0.508348, 0.63346803, 0.7408561, 0.8201692),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 12, 21, 30, 39, 48, 57]
 }
 
 [sub_resource type="Animation" id="Animation_bw2ia"]
@@ -504,6 +539,22 @@ tracks/0/keys = {
 "values": [2, 11, 20, 29]
 }
 
+[sub_resource type="Animation" id="Animation_qhfas"]
+resource_name = "lose"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 10, 19, 28, 37, 46, 55, 64]
+}
+
 [sub_resource type="Animation" id="Animation_ltut8"]
 resource_name = "win"
 tracks/0/type = "value"
@@ -529,38 +580,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 8), Vector2i(0, 7), Vector2i(0, 6), Vector2i(0, 5), Vector2i(0, 4), Vector2i(0, 3), Vector2i(0, 2), Vector2i(0, 1), Vector2i(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_uca8w"]
-resource_name = "death"
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.20343515, 0.36549634, 0.508348, 0.63346803, 0.7408561, 0.8201692),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [3, 12, 21, 30, 39, 48, 57]
-}
-
-[sub_resource type="Animation" id="Animation_qhfas"]
-resource_name = "lose"
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [1, 10, 19, 28, 37, 46, 55, 64]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ltut8"]
@@ -596,6 +615,7 @@ position = Vector2(0, -225)
 shape = SubResource("RectangleShape2D_haold")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_bshmp")
 texture = ExtResource("2_yl4dq")
 hframes = 9
 vframes = 9

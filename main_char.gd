@@ -41,12 +41,14 @@ func _process(delta: float) -> void:
 		finish("death")
 	if health <= 0:
 		alive = false
+	
 func score(value):
 	#$AnimationPlayer.play()
 	scoresignal.emit(value)
 	
 func damage(value):
 	health -= value
+	
 	hp.emit(health)
 	
 func finish(endcondition):
