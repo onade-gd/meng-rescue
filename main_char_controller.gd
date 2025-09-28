@@ -1,5 +1,11 @@
 extends CharacterBody2D
 @export var pos = clampi(2,1,3)
+
+#var length = 50
+#var startPos :Vector2
+#var curPos : Vector2
+#var swiping = false
+#var threshold = 10
 func _process(delta: float) -> void:
 	pos = clampi(pos,1,3)
 	match pos:
@@ -10,7 +16,25 @@ func _process(delta: float) -> void:
 		pos -= 1
 	if Input.is_action_just_pressed("ui_right"):
 		pos += 1
-
+#
+	#if Input.is_action_just_pressed("touch"):
+		#if !swiping:
+			#swiping = true
+			#startPos = get_global_mouse_position()
+			#print("Start Position: ", startPos)
+	#if Input.is_action_pressed("touch"):
+		#if swiping:
+			#curPos = get_global_mouse_position()
+			#if startPos.distance_to(curPos) >= length:
+				#if abs(startPos.y-curPos.y) <= threshold:
+					#print("Horizontal Swipe!")
+					#swiping = false
+				#elif abs(startPos.x-curPos.x) <= threshold:
+					#print("Vertical Swipe!")
+					#swiping = false
+		#else:
+			#swiping = false
+			
 #var min_pos = 180.0
 #var max_pos = 540.0
 #func _physics_process(delta: float) -> void:

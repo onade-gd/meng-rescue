@@ -75,10 +75,12 @@ func _on_hitbox_left_body_entered(body: Node2D) -> void:
 		health -= 1
 		direction.emit("left")
 		print(health)
+		$sweat.play("hurt")
 
 func _on_hitbox_right_body_entered(body: Node2D) -> void:
 	if body.get_parent().name == "stage":
 		health -= 1
 		direction.emit("right")
 		print(health)
+		$sweat.play("hurt")
 	

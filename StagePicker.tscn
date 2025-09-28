@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqc1kjjvjvixu"]
+[gd_scene load_steps=5 format=3 uid="uid://bqc1kjjvjvixu"]
 
 [ext_resource type="Script" uid="uid://cjp2yan454jqr" path="res://stage_picker.gd" id="1_ik7lt"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_78wwb"]
+
+[sub_resource type="Gradient" id="Gradient_3dxm6"]
+offsets = PackedFloat32Array(0, 0.55333334)
+colors = PackedColorArray(0.5745135, 0.86136836, 0.94049597, 1, 0.3647059, 0.74509805, 0.84313726, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ik7lt"]
+gradient = SubResource("Gradient_3dxm6")
 
 [node name="Lobby" type="Control"]
 layout_mode = 3
@@ -11,31 +19,49 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ik7lt")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -4
+position = Vector2(720.62476, 1281.1682)
+rotation = 1.5707964
+scale = Vector2(40.056618, 22.527319)
+texture = SubResource("GradientTexture2D_ik7lt")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
 
-[node name="Button0" type="Button" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button0" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 800)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+icon = ExtResource("2_78wwb")
+
+[node name="Button1" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 800)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button1" type="Button" parent="VBoxContainer"]
+[node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 800)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="Button3" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 800)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button3" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[connection signal="pressed" from="VBoxContainer/Button0" to="." method="_on_button_pressed" binds= [0]]
-[connection signal="pressed" from="VBoxContainer/Button1" to="." method="_on_button_pressed" binds= [1]]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_pressed" binds= [2]]
-[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_pressed" binds= [3]]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button0" to="." method="_on_button_pressed" binds= [0]]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button1" to="." method="_on_button_pressed" binds= [1]]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button2" to="." method="_on_button_pressed" binds= [2]]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button3" to="." method="_on_button_pressed" binds= [3]]
