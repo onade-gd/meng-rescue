@@ -26,42 +26,99 @@ rotation = 1.5707964
 scale = Vector2(40.056618, 22.527319)
 texture = SubResource("GradientTexture2D_ik7lt")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="ScrollContainer2" type="ScrollContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+follow_focus = true
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer2/HBoxContainer"]
+layout_mode = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer2/HBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(1440, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button0" type="Button" parent="ScrollContainer/VBoxContainer"]
+[node name="Button0" type="Button" parent="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 800)
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
+mouse_filter = 1
 icon = ExtResource("2_78wwb")
 
-[node name="Button1" type="Button" parent="ScrollContainer/VBoxContainer"]
+[node name="Button1" type="Button" parent="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 800)
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 
-[node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer"]
+[node name="Button2" type="Button" parent="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 800)
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 
-[node name="Button3" type="Button" parent="ScrollContainer/VBoxContainer"]
+[node name="Button3" type="Button" parent="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 800)
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 
-[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button0" to="." method="_on_button_pressed" binds= [0]]
-[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button1" to="." method="_on_button_pressed" binds= [1]]
-[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button2" to="." method="_on_button_pressed" binds= [2]]
-[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button3" to="." method="_on_button_pressed" binds= [3]]
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(1440, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.85
+mouse_behavior_recursive = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+mouse_behavior_recursive = 2
+
+[node name="DailyButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HomeButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShopButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="scroll_ended" from="ScrollContainer2" to="." method="_on_scroll_container_2_scroll_ended"]
+[connection signal="scroll_started" from="ScrollContainer2" to="." method="_on_scroll_container_2_scroll_started"]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Button0" to="." method="_on_button_pressed" binds= [0]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Button1" to="." method="_on_button_pressed" binds= [1]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Button2" to="." method="_on_button_pressed" binds= [2]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Button3" to="." method="_on_button_pressed" binds= [3]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/HomeButton" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ShopButton" to="." method="_on_shop_button_pressed"]

@@ -11,7 +11,7 @@ metadata/level = 0
 
 [node name="jumpables" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAAAPb/AQAAAAAAAAAAAPD/AQAAAAAAAAAAANz/AQAKAAAAAAAAANb/AQAKAAAAAAAAANH/AQAMAAAAAAAAAMv/AQAMAAAAAAD+/8P/AQAMAAAAAAD+/8L/AQAMAAAAAAD+/8H/AQAMAAAAAAAAAMX/AQAAAAAAAAAAANj/AgAAAAAAAQAAALH/AgAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAAAAPb/AQAAAAAAAAAAAPD/AQAAAAAAAAAAANz/AQAKAAAAAAAAANb/AQAKAAAAAAAAANH/AQAMAAAAAAAAAMv/AQAMAAAAAAD+/8P/AQAMAAAAAAD+/8L/AQAMAAAAAAD+/8H/AQAMAAAAAAAAAMX/AQAAAAAAAAAAANj/AgAAAAAAAQAAALH/AgAAAAAAAQAAANP/AgAAAAAABAAAAM3/AgAAAAAABAAAAMj/AgAAAAAABAA=")
 tile_set = ExtResource("1_k3ug5")
 
 [node name="walls" type="TileMapLayer" parent="."]
@@ -25,5 +25,8 @@ tile_map_data = PackedByteArray("AAD9/+v/AQAGAAAAAAACAOb/AQAGAAAAABD9/8D/AQAGAAA
 tile_set = ExtResource("3_svt2u")
 
 [connection signal="body_entered" from="jumpables/Cat" to="jumpables/Cat" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@66226" to="jumpables/@Area2D@66226" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@51112" to="jumpables/@Area2D@51112" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/fish" to="jumpables/fish" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@51734" to="jumpables/@Area2D@51734" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@51735" to="jumpables/@Area2D@51735" method="_on_body_entered"]
 [connection signal="body_entered" from="walls/finish line" to="walls/finish line" method="_on_body_entered"]

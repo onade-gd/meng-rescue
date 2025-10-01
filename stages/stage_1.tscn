@@ -11,7 +11,7 @@ metadata/level = 1
 
 [node name="jumpables" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAACAPL/AQAKAAAAAAAAAOP/AQAKAAAAAAD+/+P/AQAKAAAAAAAAAMn/AQAMAAAAAAD+/+r/AQAMAAAAAAAAAOr/AQAMAAAAAAAAAP3/AgAAAAAAAQACAPT/AgAAAAAAAQAAAO3/AgAAAAAAAQAAAN//AgAAAAAAAQD+/+b/AgAAAAAAAQACANr/AgAAAAAAAQACANT/AgAAAAAAAQAAAMz/AgAAAAAAAQACAMT/AgAAAAAAAQACALv/AgAAAAAAAQACALT/AgAAAAAAAQD+//j/AQAKAAAAAAA=")
+tile_map_data = PackedByteArray("AAACAPL/AQAKAAAAAAAAAOP/AQAKAAAAAAD+/+P/AQAKAAAAAAAAAMn/AQAMAAAAAAD+/+r/AQAMAAAAAAAAAOr/AQAMAAAAAAAAAP3/AgAAAAAAAQACAPT/AgAAAAAAAQAAAO3/AgAAAAAAAQAAAN//AgAAAAAAAQD+/+b/AgAAAAAAAQACANr/AgAAAAAAAQACANT/AgAAAAAAAQAAAMz/AgAAAAAAAQACAMT/AgAAAAAAAQACALv/AgAAAAAAAQACALT/AgAAAAAAAQD+//j/AQAKAAAAAAAAANz/AgAAAAAABAACANb/AgAAAAAABAAAAMH/AgAAAAAABAAAALD/AgAAAAAABAA=")
 tile_set = ExtResource("1_k3ug5")
 
 [node name="walls" type="TileMapLayer" parent="."]
@@ -25,14 +25,18 @@ tile_map_data = PackedByteArray("AAD//7//AQAGAAAAAAD//7n/AQAGAAAAAAD9/9D/AQAGAAA
 tile_set = ExtResource("3_yor2l")
 
 [connection signal="body_entered" from="jumpables/Cat" to="jumpables/Cat" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@68134" to="jumpables/@Area2D@68134" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@68135" to="jumpables/@Area2D@68135" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@68136" to="jumpables/@Area2D@68136" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@68137" to="jumpables/@Area2D@68137" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@68138" to="jumpables/@Area2D@68138" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@68139" to="jumpables/@Area2D@68139" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@68140" to="jumpables/@Area2D@68140" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@68141" to="jumpables/@Area2D@68141" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@68142" to="jumpables/@Area2D@68142" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@68143" to="jumpables/@Area2D@68143" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@52252" to="jumpables/@Area2D@52252" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@52253" to="jumpables/@Area2D@52253" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@52254" to="jumpables/@Area2D@52254" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@52255" to="jumpables/@Area2D@52255" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@52256" to="jumpables/@Area2D@52256" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@52257" to="jumpables/@Area2D@52257" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@52258" to="jumpables/@Area2D@52258" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@52259" to="jumpables/@Area2D@52259" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@52260" to="jumpables/@Area2D@52260" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@52261" to="jumpables/@Area2D@52261" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/fish" to="jumpables/fish" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@52533" to="jumpables/@Area2D@52533" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@52534" to="jumpables/@Area2D@52534" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@52536" to="jumpables/@Area2D@52536" method="_on_body_entered"]
 [connection signal="body_entered" from="walls/finish line" to="walls/finish line" method="_on_body_entered"]

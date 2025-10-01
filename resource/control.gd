@@ -8,7 +8,6 @@ func _process(delta: float) -> void:
 		if Input.is_action_pressed("touch"):
 			var new_pos = get_viewport().get_mouse_position()
 			var total_pos = new_pos - pos
-			print(total_pos.y)
 			if total_pos.y > 100:
 				Input.action_press("ui_down")
 				Input.action_release("ui_down")

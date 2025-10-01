@@ -19,9 +19,11 @@ func _process(delta: float) -> void:
 	_prev_position = global_position
 	# - animation control
 	if alive:
+		
 		var controller = get_parent().find_child("MainCharController").global_position
 		global_position = lerp(global_position,controller, 10.0 * delta)
 		if controlable == true:
+			$kicir.play("spin")
 			if Input.is_action_just_pressed("ui_up") and jump_able == true:
 				$AnimationPlayer.play("jump")
 			if Input.is_action_just_pressed("ui_down") and duck_able == true and jump == false:
@@ -43,7 +45,6 @@ func _process(delta: float) -> void:
 		alive = false
 	
 func score(value):
-	#$AnimationPlayer.play()
 	scoresignal.emit(value)
 	
 func damage(value):
@@ -60,8 +61,10 @@ func finish(endcondition):
 			if winlose == 1: $AnimationPlayer.play("win")
 			elif winlose == 2: $AnimationPlayer.play("lose")
 			else: $AnimationPlayer.play("lose")
+			$kicir.play("winlose")
 		"death":
 			$AnimationPlayer.play("death")
+			$kicir.play("death")
 			await $AnimationPlayer.animation_finished
 			queue_free()
 

@@ -1,9 +1,10 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://lgwqni31eef4"]
+[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://lgwqni31eef4"]
 
 [ext_resource type="Texture2D" uid="uid://c5wweh6c5cmih" path="res://assets/tilemapobstacle1.png" id="1_mxg7v"]
 [ext_resource type="PackedScene" uid="uid://up5oqlkg1nol" path="res://extra assets/Cat1.tscn" id="2_qbmrw"]
 [ext_resource type="PackedScene" uid="uid://capmujbukacqb" path="res://extra assets/hitbox_tree.tscn" id="3_dlh1h"]
 [ext_resource type="PackedScene" uid="uid://2mg2sj38c05" path="res://resource/finish_line.tscn" id="4_4jklj"]
+[ext_resource type="PackedScene" uid="uid://4ughjpctlpdw" path="res://extra assets/fish.tscn" id="5_b3din"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x373v"]
 texture = ExtResource("1_mxg7v")
@@ -90,6 +91,7 @@ texture_region_size = Vector2i(200, 200)
 scenes/1/scene = ExtResource("2_qbmrw")
 scenes/2/scene = ExtResource("3_dlh1h")
 scenes/3/scene = ExtResource("4_4jklj")
+scenes/4/scene = ExtResource("5_b3din")
 
 [resource]
 tile_size = Vector2i(200, 200)

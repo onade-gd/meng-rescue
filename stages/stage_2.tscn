@@ -5,17 +5,23 @@
 [ext_resource type="TileSet" uid="uid://g0lrcp6kq76w" path="res://resource/tilemap_duckables.tres" id="3_c6umw"]
 
 [node name="stage" type="Node2D"]
-metadata/catsneeded = 4
+metadata/catsneeded = 1
 metadata/level = 2
 
 [node name="jumpables" type="TileMapLayer" parent="."]
 y_sort_enabled = true
+tile_map_data = PackedByteArray(0, 0, 0, 0, 250, 255, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 247, 255, 2, 0, 0, 0, 0, 0, 4, 0)
 tile_set = ExtResource("1_ctd0f")
 
 [node name="walls" type="TileMapLayer" parent="."]
 y_sort_enabled = true
+tile_map_data = PackedByteArray(0, 0, 2, 0, 245, 255, 2, 0, 0, 0, 0, 0, 3, 0)
 tile_set = ExtResource("2_daspq")
 
 [node name="duckables" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 tile_set = ExtResource("3_c6umw")
+
+[connection signal="body_entered" from="jumpables/Cat" to="jumpables/Cat" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/fish" to="jumpables/fish" method="_on_body_entered"]
+[connection signal="body_entered" from="walls/finish line" to="walls/finish line" method="_on_body_entered"]
