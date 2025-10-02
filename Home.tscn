@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxqikudjbhsl1"]
+[gd_scene load_steps=3 format=3 uid="uid://cxqikudjbhsl1"]
 
 [ext_resource type="Script" uid="uid://jxkqltfollis" path="res://home.gd" id="1_jmugw"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_hf3nf"]
 
 [node name="Home" type="Control"]
 layout_mode = 3
@@ -10,6 +11,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jmugw")
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(1440, 2560)
+layout_mode = 0
+offset_right = 2884.0
+offset_bottom = 2560.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(1440, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_hf3nf")
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(1440, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("2_hf3nf")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

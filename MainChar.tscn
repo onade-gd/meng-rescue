@@ -654,23 +654,6 @@ _data = {
 &"hurt": SubResource("Animation_if1gc")
 }
 
-[sub_resource type="Animation" id="Animation_fwy27"]
-resource_name = "spin"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D/KicirKicir:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.2831855]
-}
-
 [sub_resource type="Animation" id="Animation_qy3b4"]
 length = 0.001
 tracks/0/type = "value"
@@ -755,6 +738,23 @@ tracks/1/keys = {
 "handle_modes": PackedInt32Array(2, 2),
 "points": PackedFloat32Array(131, -0.09275687, 147.48343, 0.36666667, -583, 231, -0.13333333, -310, 0, 0),
 "times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_fwy27"]
+resource_name = "spin"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/KicirKicir:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
 }
 
 [sub_resource type="Animation" id="Animation_wg2lg"]

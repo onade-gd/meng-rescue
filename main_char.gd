@@ -19,7 +19,6 @@ func _process(delta: float) -> void:
 	_prev_position = global_position
 	# - animation control
 	if alive:
-		
 		var controller = get_parent().find_child("MainCharController").global_position
 		global_position = lerp(global_position,controller, 10.0 * delta)
 		if controlable == true:
