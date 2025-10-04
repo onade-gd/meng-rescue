@@ -46,9 +46,8 @@ func _process(delta: float) -> void:
 func score(value):
 	scoresignal.emit(value)
 	
-func damage(value):
+func current_hp(value):
 	health -= value
-	
 	hp.emit(health)
 	
 func finish(endcondition):
@@ -69,20 +68,17 @@ func finish(endcondition):
 
 func _on_hitbox_front_body_entered(body: Node2D) -> void:
 	if body.get_parent().name == "stage":
-		health -= 3
-		print(health)
+		current_hp(3)
 
 func _on_hitbox_left_body_entered(body: Node2D) -> void:
 	if body.get_parent().name == "stage":
-		health -= 1
+		current_hp(1)
 		direction.emit("left")
-		print(health)
 		$sweat.play("hurt")
 
 func _on_hitbox_right_body_entered(body: Node2D) -> void:
 	if body.get_parent().name == "stage":
-		health -= 1
+		current_hp(1)
 		direction.emit("right")
-		print(health)
 		$sweat.play("hurt")
 	

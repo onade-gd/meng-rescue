@@ -23,6 +23,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r0du0")
+minimum_distance = null
+rarity = null
 
 [node name="StageParent" type="Node2D" parent="."]
 y_sort_enabled = true

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhh061rlaupd0"]
+
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_88gup"]
+
+[node name="Room" type="MarginContainer"]
+custom_minimum_size = Vector2(1440, 2240)
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_88gup")

@@ -69,8 +69,8 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.028129602, -0.25, 0, 0.31426752, -217.52814, 0.028129602, -0.26341093, -225.52814, 0.25, 0),
-"times": PackedFloat32Array(0.15648174, 0.987139)
+"points": PackedFloat32Array(0.028129602, -0.25, 0, 0.14351827, -552.02814, -701, -0.4, -145.45, 0, 0),
+"times": PackedFloat32Array(0.15648174, 0.93333334)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sbu5m"]

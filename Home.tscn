@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cxqikudjbhsl1"]
 
 [ext_resource type="Script" uid="uid://jxkqltfollis" path="res://home.gd" id="1_jmugw"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_hf3nf"]
+[ext_resource type="PackedScene" uid="uid://bhh061rlaupd0" path="res://room.tscn" id="3_maaha"]
 
 [node name="Home" type="Control"]
 layout_mode = 3
@@ -12,37 +12,48 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jmugw")
 
-[node name="HSlider" type="HSlider" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
 custom_minimum_size = Vector2(1440, 2560)
-layout_mode = 0
-offset_right = 2884.0
-offset_bottom = 2560.0
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(1440, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer"]
+[node name="Room" parent="ScrollContainer/HBoxContainer" instance=ExtResource("3_maaha")]
 layout_mode = 2
-texture = ExtResource("2_hf3nf")
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(1440, 0)
+[node name="Room2" parent="ScrollContainer/HBoxContainer" instance=ExtResource("3_maaha")]
 layout_mode = 2
-size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer2"]
+[node name="Room3" parent="ScrollContainer/HBoxContainer" instance=ExtResource("3_maaha")]
 layout_mode = 2
-texture = ExtResource("2_hf3nf")
+
+[node name="Button" type="Button" parent="ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1440, 1440)
+layout_mode = 2
+size_flags_vertical = 0
+text = "+"
+
+[node name="HSlider" type="HSlider" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 1.0
+max_value = 5.0
+value = 1.0
+rounded = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -77,5 +88,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
+[connection signal="scroll_started" from="ScrollContainer" to="." method="_on_scroll_container_scroll_started"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MapButton" to="." method="_on_map_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ShopButton" to="." method="_on_shop_button_pressed"]
