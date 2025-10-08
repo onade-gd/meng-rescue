@@ -7,4 +7,4 @@ extends Node2D
 @export var ownership_cats : Array
 @export var ownership_furniture : Array
 
-# array format -> cats = [<cat type>, <location>]   |     furniture in inventory = [<furniture>, <amount>
+# array format -> cats = [<cat type>, <location>]   |     furniture in inventory = [<furniture>, <amount>]
