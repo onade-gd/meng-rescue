@@ -6,7 +6,8 @@ func _ready() -> void:
 	$ScrollContainer2/HBoxContainer/ScrollContainer.scroll_vertical = 2864
 func _on_button_pressed(extra_arg_0: int) -> void:
 	stage_var.which = extra_arg_0
-	get_tree().change_scene_to_file("res://Main.tscn")
+	$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel.visible = true
+	$VBoxContainer/screen.mouse_behavior_recursive = 2
 
 func _on_shop_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://shop.tscn")
@@ -34,3 +35,10 @@ func _input(event: InputEvent) -> void:
 
 func _on_home_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Home.tscn")
+
+func _on_close_pressed() -> void:
+	$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel.visible = false
+	$VBoxContainer/screen.mouse_behavior_recursive = 1
+
+func _on_play_pressed() -> void:
+	get_tree().change_scene_to_file("res://Main.tscn")

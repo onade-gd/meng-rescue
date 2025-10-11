@@ -33,13 +33,11 @@ layout_mode = 2
 [node name="Room2" parent="ScrollContainer/HBoxContainer" instance=ExtResource("3_maaha")]
 layout_mode = 2
 
-[node name="Room3" parent="ScrollContainer/HBoxContainer" instance=ExtResource("3_maaha")]
-layout_mode = 2
-
 [node name="Button" type="Button" parent="ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(1440, 1440)
 layout_mode = 2
 size_flags_vertical = 0
+mouse_filter = 1
 text = "+"
 
 [node name="HSlider" type="HSlider" parent="."]

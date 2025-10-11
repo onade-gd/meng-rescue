@@ -30,3 +30,8 @@ func _input(event: InputEvent) -> void:
 
 func _on_button_pressed() -> void:
 	$ScrollContainer/HBoxContainer.get_child(-2).add_sibling(room.instantiate())
+	var current_scene = get_tree().current_scene
+	var packed_scene = PackedScene.new()
+	packed_scene.pack(current_scene)
+	ResourceSaver.save(packed_scene, "res://Home.tscn")
+	

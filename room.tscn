@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhh061rlaupd0"]
+[gd_scene load_steps=7 format=3 uid="uid://bhh061rlaupd0"]
 
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_88gup"]
 [ext_resource type="Script" uid="uid://dmsbln6tnded6" path="res://room.gd" id="1_bisa2"]
+[ext_resource type="Texture2D" uid="uid://ckpvekk630fv3" path="res://assets/Drop.png" id="3_v5vuv"]
+[ext_resource type="Texture2D" uid="uid://bdqmef2vw5ae3" path="res://assets/pause.png" id="4_ka7wq"]
+[ext_resource type="PackedScene" uid="uid://cvrwxf2705ueh" path="res://cat_room_0.tscn" id="5_ka7wq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5vuv"]
+size = Vector2(1438, 118)
 
 [node name="Room" type="MarginContainer"]
 custom_minimum_size = Vector2(1440, 2240)
@@ -13,3 +19,35 @@ script = ExtResource("1_bisa2")
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
 texture = ExtResource("1_88gup")
+
+[node name="MenuButton" type="MenuButton" parent="."]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+text = "test"
+item_count = 3
+popup/item_0/text = "teest"
+popup/item_0/icon = ExtResource("1_88gup")
+popup/item_0/id = 0
+popup/item_1/text = "tes"
+popup/item_1/icon = ExtResource("3_v5vuv")
+popup/item_1/id = 1
+popup/item_2/icon = ExtResource("4_ka7wq")
+popup/item_2/id = 2
+
+[node name="FoldableContainer" type="FoldableContainer" parent="."]
+layout_mode = 2
+mouse_behavior_recursive = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(719, 1793)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_v5vuv")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(11.239995, 0.88)
+texture = ExtResource("1_88gup")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("5_ka7wq")]
+position = Vector2(655, 1366)
