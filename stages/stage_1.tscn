@@ -21,22 +21,22 @@ tile_set = ExtResource("2_40wcd")
 
 [node name="duckables" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD//7//AQAGAAAAAAD//7n/AQAGAAAAAAD9/9D/AQAGAAAAAAD//+f/AAAHAAIAAAABAPr/AAAHAAIAAAABAND/AAAHAAIAAAA=")
+tile_map_data = PackedByteArray("AAD//7//AQAGAAAAAAD//7n/AQAGAAAAAAD9/9D/AQAGAAAAAAD//+f/AAAHAAIAAAABAPr/AAAHAAIAAAABAND/AAAHAAIAAAD5/8f/AwAAAAYAAAD0/8f/AwAEAAYAAAA=")
 tile_set = ExtResource("3_yor2l")
 
 [connection signal="body_entered" from="jumpables/Cat" to="jumpables/Cat" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@309691" to="jumpables/@Area2D@309691" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@309692" to="jumpables/@Area2D@309692" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@309693" to="jumpables/@Area2D@309693" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@309694" to="jumpables/@Area2D@309694" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@309695" to="jumpables/@Area2D@309695" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@309696" to="jumpables/@Area2D@309696" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@309697" to="jumpables/@Area2D@309697" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@309698" to="jumpables/@Area2D@309698" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@309699" to="jumpables/@Area2D@309699" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@309700" to="jumpables/@Area2D@309700" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@134655" to="jumpables/@Area2D@134655" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@134656" to="jumpables/@Area2D@134656" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@134657" to="jumpables/@Area2D@134657" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@134658" to="jumpables/@Area2D@134658" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@134659" to="jumpables/@Area2D@134659" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@134660" to="jumpables/@Area2D@134660" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@134661" to="jumpables/@Area2D@134661" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@134662" to="jumpables/@Area2D@134662" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@134663" to="jumpables/@Area2D@134663" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@134664" to="jumpables/@Area2D@134664" method="_on_body_entered"]
 [connection signal="body_entered" from="jumpables/fish" to="jumpables/fish" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@309701" to="jumpables/@Area2D@309701" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@309702" to="jumpables/@Area2D@309702" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@309703" to="jumpables/@Area2D@309703" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@134665" to="jumpables/@Area2D@134665" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@134666" to="jumpables/@Area2D@134666" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@134667" to="jumpables/@Area2D@134667" method="_on_body_entered"]
 [connection signal="body_entered" from="walls/finish line" to="walls/finish line" method="_on_body_entered"]

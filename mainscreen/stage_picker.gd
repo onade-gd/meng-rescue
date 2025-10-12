@@ -6,14 +6,15 @@ func _ready() -> void:
 	$ScrollContainer2/HBoxContainer/ScrollContainer.scroll_vertical = 2864
 func _on_button_pressed(extra_arg_0: int) -> void:
 	stage_var.which = extra_arg_0
+	$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer.current_tab = 0
 	$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel.visible = true
 	$VBoxContainer/screen.mouse_behavior_recursive = 2
 
 func _on_shop_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://shop.tscn")
-	PlayerprogressSavefile.last_lobby = "res://StagePicker.tscn"
+	get_tree().change_scene_to_file("res://mainscreen/shop.tscn")
+	PlayerprogressSavefile.last_lobby = "res://mainscreen/StagePicker.tscn"
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("touch"):
 		page = $ScrollContainer2.scroll_horizontal
 		print($ScrollContainer2.scroll_horizontal)
@@ -34,11 +35,11 @@ func _input(event: InputEvent) -> void:
 			#else: tween.tween_property($ScrollContainer2, "scroll_horizontal", 1440 ,0.1)
 
 func _on_home_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Home.tscn")
+	get_tree().change_scene_to_file("res://mainscreen/Home.tscn")
 
 func _on_close_pressed() -> void:
 	$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel.visible = false
 	$VBoxContainer/screen.mouse_behavior_recursive = 1
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://Main.tscn")
+	get_tree().change_scene_to_file("res://mainscreen/Main.tscn")

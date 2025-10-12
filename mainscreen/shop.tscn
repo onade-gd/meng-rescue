@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://mugkt143g3np"]
 
-[ext_resource type="Script" uid="uid://dwcc2wem003um" path="res://shop.gd" id="1_e7rdd"]
+[ext_resource type="Script" uid="uid://dwcc2wem003um" path="res://mainscreen/shop.gd" id="1_e7rdd"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_viryw"]
 
 [node name="Shop" type="Control"]

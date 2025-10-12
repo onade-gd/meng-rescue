@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cxqikudjbhsl1"]
 
-[ext_resource type="Script" uid="uid://jxkqltfollis" path="res://home.gd" id="1_jmugw"]
-[ext_resource type="PackedScene" uid="uid://bhh061rlaupd0" path="res://room.tscn" id="3_maaha"]
+[ext_resource type="Script" uid="uid://jxkqltfollis" path="res://mainscreen/home.gd" id="1_jmugw"]
+[ext_resource type="PackedScene" uid="uid://bhh061rlaupd0" path="res://mainscreen/room.tscn" id="3_maaha"]
 
 [node name="Home" type="Control"]
 layout_mode = 3

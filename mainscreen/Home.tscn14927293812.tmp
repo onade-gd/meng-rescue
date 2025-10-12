@@ -1,0 +1,91 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxqikudjbhsl1"]
+
+[ext_resource type="Script" uid="uid://jxkqltfollis" path="res://mainscreen/home.gd" id="1_jmugw"]
+[ext_resource type="PackedScene" uid="uid://bhh061rlaupd0" path="res://mainscreen/room.tscn" id="3_maaha"]
+
+[node name="Home" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jmugw")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(1440, 2560)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Room" parent="ScrollContainer/HBoxContainer" instance=ExtResource("3_maaha")]
+layout_mode = 2
+
+[node name="Room2" parent="ScrollContainer/HBoxContainer" instance=ExtResource("3_maaha")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1440, 1440)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 1
+text = "+"
+
+[node name="HSlider" type="HSlider" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 1.0
+max_value = 5.0
+value = 1.0
+rounded = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.85
+mouse_behavior_recursive = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+mouse_behavior_recursive = 2
+
+[node name="DailyButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MapButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShopButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MapButton" to="." method="_on_map_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ShopButton" to="." method="_on_shop_button_pressed"]

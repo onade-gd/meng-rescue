@@ -1,12 +1,12 @@
 extends Control
 var page
-var room = preload("res://room.tscn")
+var room = preload("res://mainscreen/room.tscn")
 func _on_map_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://StagePicker.tscn")
+	get_tree().change_scene_to_file("res://mainscreen/StagePicker.tscn")
 
 func _on_shop_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://shop.tscn")
-	PlayerprogressSavefile.last_lobby = "res://Home.tscn"
+	get_tree().change_scene_to_file("res://mainscreen/shop.tscn")
+	PlayerprogressSavefile.last_lobby = "res://mainscreen/Home.tscn"
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("touch"):

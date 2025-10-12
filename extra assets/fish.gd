@@ -7,5 +7,5 @@ func _process(delta: float) -> void:
 		get_node(".").queue_free()
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "MainChar" :
-		PlayerprogressSavefile.money += 1
+		PlayerprogressSavefile.money_1 += 1
 		alive = false
