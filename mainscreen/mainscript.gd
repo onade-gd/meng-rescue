@@ -15,7 +15,10 @@ func _on_main_char_scoresignal(value) -> void:
 	$CanvasLayer/UI/VBoxContainer/MarginContainer/Score.text = str("score:", score)
 	if score >= $StageParent/stage.get_meta("catsneeded"):
 		$MoveForward/MainChar.winlose = 1
-	
+		#PlayerprogressSavefile.ownership_cats["cat_1"] = {
+		#"inventory" : true,
+		#"room" : null,
+		#}
 func _on_main_char_hp(value) -> void:
 	if tween:
 		tween.kill

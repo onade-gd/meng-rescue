@@ -38,6 +38,7 @@ popup/item_2/id = 2
 [node name="FoldableContainer" type="FoldableContainer" parent="."]
 layout_mode = 2
 mouse_behavior_recursive = 1
+folded = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(719, 1793)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqc1kjjvjvixu"]
+[gd_scene load_steps=11 format=3 uid="uid://bqc1kjjvjvixu"]
 
 [ext_resource type="Script" uid="uid://cjp2yan454jqr" path="res://mainscreen/stage_picker.gd" id="1_ik7lt"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_78wwb"]
+[ext_resource type="Theme" uid="uid://cy7jg2s223n6u" path="res://resource/panel.tres" id="3_g0w4q"]
 [ext_resource type="Texture2D" uid="uid://b6lilxqnjafjm" path="res://assets/atlas1.png" id="3_p4rdx"]
 
 [sub_resource type="Gradient" id="Gradient_3dxm6"]
@@ -161,11 +162,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ConfirmPanel" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.04
+theme = ExtResource("3_g0w4q")
 
 [node name="Panel" type="Panel" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel"]
 layout_mode = 2
@@ -195,16 +196,16 @@ size_flags_stretch_ratio = 7.43
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme = SubResource("Theme_78wwb")
-theme_override_font_sizes/font_size = 86
-current_tab = 0
+current_tab = 1
 
 [node name="Details" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="Label" type="Label" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer/Details"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 76
+theme_override_font_sizes/font_size = 61
 text = "Win Conditions:
 
 
@@ -214,7 +215,6 @@ bla bla bla
 bla bla"
 
 [node name="Obstacles" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 

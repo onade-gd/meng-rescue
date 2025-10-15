@@ -1,0 +1,88 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://cy7jg2s223n6u"]
+
+[ext_resource type="FontFile" uid="uid://b1l66bm4r85jp" path="res://assets/mabook font/Mabook.otf" id="1_mdukd"]
+
+[sub_resource type="FontVariation" id="FontVariation_8i0a3"]
+base_font = ExtResource("1_mdukd")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mdukd"]
+content_margin_left = 34.0
+content_margin_top = 25.0
+content_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0w4q"]
+bg_color = Color(1, 0.7882353, 0.48235294, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.48235294, 0.2509804, 0.09803922, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+anti_aliasing = false
+
+[sub_resource type="FontVariation" id="FontVariation_mdukd"]
+base_font = ExtResource("1_mdukd")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ms2xk"]
+bg_color = Color(1, 0.7882353, 0.48235294, 1)
+border_width_top = 10
+border_width_bottom = 10
+border_color = Color(0.48235294, 0.2509804, 0.09803922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnru5"]
+bg_color = Color(0.9843137, 0.60784316, 0.30588236, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8o3bt"]
+content_margin_left = 40.0
+content_margin_right = 40.0
+bg_color = Color(1, 0.7882353, 0.48235294, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_color = Color(0.48235294, 0.2509804, 0.09803922, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+expand_margin_top = 11.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdukd"]
+content_margin_left = 40.0
+content_margin_right = 40.0
+bg_color = Color(0.9843137, 0.60784316, 0.30588236, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_color = Color(0.48235294, 0.2509804, 0.09803922, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8i0a3"]
+bg_color = Color(0.48235294, 0.2509804, 0.09803922, 1)
+border_width_left = 25
+border_color = Color(1, 0.7882353, 0.48235294, 1)
+
+[resource]
+Label/colors/font_color = Color(0.48235294, 0.2509804, 0.09803922, 1)
+Label/font_sizes/font_size = 45
+Label/fonts/font = SubResource("FontVariation_8i0a3")
+Label/styles/normal = SubResource("StyleBoxEmpty_mdukd")
+Panel/styles/panel = SubResource("StyleBoxFlat_g0w4q")
+TabContainer/colors/font_selected_color = Color(0.48235294, 0.2509804, 0.09803922, 1)
+TabContainer/colors/font_unselected_color = Color(0.48235294, 0.2509804, 0.09803922, 1)
+TabContainer/constants/tab_separation = -45
+TabContainer/font_sizes/font_size = 66
+TabContainer/fonts/font = SubResource("FontVariation_mdukd")
+TabContainer/styles/panel = SubResource("StyleBoxFlat_ms2xk")
+TabContainer/styles/tab_focus = null
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_lnru5")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_8o3bt")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_mdukd")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_8i0a3")
