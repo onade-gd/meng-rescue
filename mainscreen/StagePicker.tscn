@@ -196,17 +196,18 @@ size_flags_stretch_ratio = 7.43
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme = SubResource("Theme_78wwb")
-current_tab = 1
+current_tab = 0
 
 [node name="Details" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="Label" type="Label" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer/Details"]
 layout_mode = 2
+size_flags_vertical = 0
 theme_override_font_sizes/font_size = 61
-text = "Win Conditions:
+text = "
+Win Conditions:
 
 
 bla bla bla
@@ -215,6 +216,7 @@ bla bla bla
 bla bla"
 
 [node name="Obstacles" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 

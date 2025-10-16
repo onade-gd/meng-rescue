@@ -37,6 +37,7 @@ border_width_bottom = 10
 border_color = Color(0.48235294, 0.2509804, 0.09803922, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnru5"]
+content_margin_left = 40.0
 bg_color = Color(0.9843137, 0.60784316, 0.30588236, 1)
 corner_radius_top_left = 50
 corner_radius_top_right = 50
@@ -52,6 +53,8 @@ border_color = Color(0.48235294, 0.2509804, 0.09803922, 1)
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 expand_margin_top = 11.0
+expand_margin_bottom = 10.0
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdukd"]
 content_margin_left = 40.0

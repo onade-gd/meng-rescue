@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 		pos -= 1
 	if Input.is_action_just_pressed("ui_right"):
 		pos += 1
-			
+	
 #var min_pos = 180.0
 #var max_pos = 540.0
 #func _physics_process(delta: float) -> void:
