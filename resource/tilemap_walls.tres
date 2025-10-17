@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://cwhp3lwdusbj2"]
+[gd_resource type="TileSet" load_steps=19 format=3 uid="uid://cwhp3lwdusbj2"]
 
 [ext_resource type="Texture2D" uid="uid://c5wweh6c5cmih" path="res://assets/tilemapobstacle1.png" id="1_iyosm"]
 [ext_resource type="Texture2D" uid="uid://xasotl7gtemj" path="res://assets/Finish.png" id="1_rh1xj"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://de2ij33un6yy4" path="res://assets/atlas3.png" id="7_5ngbv"]
 [ext_resource type="Texture2D" uid="uid://cewcbnru0d2wo" path="res://assets/16-20.png" id="8_0enpn"]
 [ext_resource type="Texture2D" uid="uid://6ioyawqeg5ib" path="res://assets/6-10 jalan raya.png" id="9_ub17y"]
+[ext_resource type="Texture2D" uid="uid://bhea8w774i2b5" path="res://assets/Penghalang ke dua.png" id="10_3gi6r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pkr3h"]
 texture = ExtResource("1_rh1xj")
@@ -422,6 +423,18 @@ texture_region_size = Vector2i(200, 200)
 17:17/0 = 0
 17:17/0/texture_origin = Vector2i(0, 200)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tgsv5"]
+texture = ExtResource("10_3gi6r")
+texture_region_size = Vector2i(200, 200)
+0:3/size_in_atlas = Vector2i(2, 2)
+0:3/0 = 0
+0:3/0/texture_origin = Vector2i(0, 100)
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-150, 50, 100, 50, 100, -50, -150, -50)
+4:3/size_in_atlas = Vector2i(2, 2)
+4:3/0 = 0
+4:3/0/texture_origin = Vector2i(0, 100)
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(150, 50, 50, 50, 50, -50, 150, -50)
+
 [resource]
 tile_size = Vector2i(200, 200)
 physics_layer_0/collision_layer = 7
@@ -433,3 +446,4 @@ sources/3 = SubResource("TileSetAtlasSource_5ngbv")
 sources/4 = SubResource("TileSetAtlasSource_0enpn")
 sources/5 = SubResource("TileSetAtlasSource_ub17y")
 sources/6 = SubResource("TileSetAtlasSource_3gi6r")
+sources/7 = SubResource("TileSetAtlasSource_tgsv5")

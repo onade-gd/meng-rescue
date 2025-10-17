@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqc1kjjvjvixu"]
+[gd_scene load_steps=12 format=3 uid="uid://bqc1kjjvjvixu"]
 
 [ext_resource type="Script" uid="uid://cjp2yan454jqr" path="res://mainscreen/stage_picker.gd" id="1_ik7lt"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_78wwb"]
+[ext_resource type="Texture2D" uid="uid://coauh61qsh2sm" path="res://assets/setting 2.png" id="3_8gj06"]
 [ext_resource type="Theme" uid="uid://cy7jg2s223n6u" path="res://resource/panel.tres" id="3_g0w4q"]
 [ext_resource type="Texture2D" uid="uid://b6lilxqnjafjm" path="res://assets/atlas1.png" id="3_p4rdx"]
 
@@ -50,6 +51,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 follow_focus = true
+scroll_horizontal = 1440
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 0
 
@@ -119,14 +121,33 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer2/HBoxContainer/MarginContainer"]
 layout_mode = 2
 
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer2/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.65
+
 [node name="CenterContainer" type="CenterContainer" parent="ScrollContainer2/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.41
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer2/HBoxContainer/MarginContainer/VBoxContainer/CenterContainer"]
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
 texture = ExtResource("2_78wwb")
+
+[node name="EndlessButton" type="TextureButton" parent="ScrollContainer2/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.26
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_8gj06")
+stretch_mode = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="ScrollContainer2/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.65
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -160,8 +181,10 @@ size_flags_stretch_ratio = 14.57
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 1.71
 
 [node name="ConfirmPanel" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -323,6 +346,7 @@ text = "Play"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.46
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer"]
 layout_mode = 2
@@ -350,6 +374,7 @@ size_flags_horizontal = 3
 [connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Button2" to="." method="_on_button_pressed" binds= [2]]
 [connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Button1" to="." method="_on_button_pressed" binds= [1]]
 [connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Button0" to="." method="_on_button_pressed" binds= [0]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/MarginContainer/VBoxContainer/EndlessButton" to="." method="_on_endless_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/HBoxContainer/Close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer2/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/HomeButton" to="." method="_on_home_button_pressed"]

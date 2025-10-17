@@ -7,12 +7,12 @@
 [ext_resource type="Script" uid="uid://caxbhg3w3jlpi" path="res://tatakae.gd" id="5_trn2v"]
 [ext_resource type="PackedScene" uid="uid://bwrj7yih23guk" path="res://UI_InGame.tscn" id="6_3dxm6"]
 
-[sub_resource type="Gradient" id="Gradient_3dxm6"]
+[sub_resource type="Gradient" id="Gradient_sdusp"]
 offsets = PackedFloat32Array(0, 0.55333334)
 colors = PackedColorArray(0.5745135, 0.86136836, 0.94049597, 1, 0.3647059, 0.74509805, 0.84313726, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lgr22"]
-gradient = SubResource("Gradient_3dxm6")
+gradient = SubResource("Gradient_sdusp")
 
 [node name="Main" type="Control"]
 y_sort_enabled = true

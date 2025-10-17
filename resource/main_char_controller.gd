@@ -6,7 +6,7 @@ extends CharacterBody2D
 #var curPos : Vector2
 #var swiping = false
 #var threshold = 10
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	pos = clampi(pos,1,3)
 	match pos:
 		1: global_position.x = 320

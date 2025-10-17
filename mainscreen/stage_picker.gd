@@ -43,3 +43,6 @@ func _on_close_pressed() -> void:
 
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file("res://mainscreen/Main.tscn")
+
+func _on_endless_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://mainscreen/endless.tscn")

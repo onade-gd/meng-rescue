@@ -23,6 +23,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8ct7w")
+minimum_distance = null
+rarity = null
 
 [node name="StageParent" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -38,7 +40,7 @@ script = ExtResource("3_pb7ba")
 position = Vector2(720, 2220)
 
 [node name="MainChar" parent="MoveForward" instance=ExtResource("5_2ny74")]
-position = Vector2(714, 2210)
+position = Vector2(718, 2196)
 
 [node name="Camera2D" type="Camera2D" parent="MoveForward"]
 offset = Vector2(720, 1280)

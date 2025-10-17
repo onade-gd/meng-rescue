@@ -23,6 +23,8 @@ tile_set = ExtResource("2_daspq")
 y_sort_enabled = true
 tile_set = ExtResource("3_c6umw")
 
-[connection signal="body_entered" from="jumpables/@Area2D@148169" to="jumpables/@Area2D@148169" method="_on_body_entered"]
-[connection signal="body_entered" from="jumpables/@Area2D@148170" to="jumpables/@Area2D@148170" method="_on_body_entered"]
+[node name="background" type="TileMapLayer" parent="."]
+
+[connection signal="body_entered" from="jumpables/Cat" to="jumpables/Cat" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/fish" to="jumpables/fish" method="_on_body_entered"]
 [connection signal="body_entered" from="walls/finish line" to="walls/finish line" method="_on_body_entered"]

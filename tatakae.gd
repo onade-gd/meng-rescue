@@ -1,6 +1,6 @@
 extends Node2D
 var stop : float = 1.0
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	translate(Vector2.UP*stop*600*delta)
 
 

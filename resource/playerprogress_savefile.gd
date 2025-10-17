@@ -23,7 +23,7 @@ extends Node2D
 }
 
 @export var rooms : Array = [    #array because i dont know how to handle new instances of rooms with unique names (or not) in a dictionary
-	[                                                                           #\
+	[                                                                         #\
 		{"furn_1":{"pos": Vector2(0,0)}},                                       # |
 		{"furn_5":{"pos": Vector2(0,0)}},                                       # | - room 0 and its contents, can add more furnitures/cats into the array
 		{"furn_2":{"pos": Vector2(0,0)}},                                       # |
@@ -34,7 +34,6 @@ extends Node2D
 		{"furn_4":{"pos": Vector2(0,0)}}        # |
 	],                                          #/
 ]
-
 
 
 # array format -> cats = [<cat type>, <location>]   |     furniture in inventory = [<furniture>, <amount>]

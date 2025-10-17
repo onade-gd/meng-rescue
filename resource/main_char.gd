@@ -13,7 +13,7 @@ signal direction()
 @export var duck_able = true
 @export var winlose : int = 0
 var controlable : bool = true
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
  	# - speed calculation
 	speed = (_prev_position - global_position)/delta
 	_prev_position = global_position
@@ -67,18 +67,18 @@ func finish(endcondition):
 			queue_free()
 
 func _on_hitbox_front_body_entered(body: Node2D) -> void:
-	if body.get_parent().name == "stage":
+	if body.get_parent().get_parent().name == "StageParent":
 		current_hp(3)
-
+		print("hit")
 func _on_hitbox_left_body_entered(body: Node2D) -> void:
-	if body.get_parent().name == "stage":
+	if body.get_parent().get_parent().name == "StageParent":
 		current_hp(1)
 		direction.emit("left")
 		$sweat.play("hurt")
-
+		print("hit")
 func _on_hitbox_right_body_entered(body: Node2D) -> void:
-	if body.get_parent().name == "stage":
+	if body.get_parent().get_parent().name == "StageParent":
 		current_hp(1)
 		direction.emit("right")
 		$sweat.play("hurt")
-	
+		print("hit")

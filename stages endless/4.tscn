@@ -1,0 +1,29 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7k4cu83cj8nv"]
+
+[ext_resource type="TileSet" uid="uid://lgwqni31eef4" path="res://resource/tilemap_jumpable.tres" id="1_a6gk6"]
+[ext_resource type="PackedScene" uid="uid://v40eefpgkpqs" path="res://stages endless/0.tscn" id="1_brunl"]
+[ext_resource type="TileSet" uid="uid://cwhp3lwdusbj2" path="res://resource/tilemap_walls.tres" id="2_10fss"]
+[ext_resource type="PackedScene" uid="uid://cg7m16b4eur41" path="res://stages endless/1.tscn" id="2_gsv2j"]
+[ext_resource type="PackedScene" uid="uid://dpnvyd1g3fd22" path="res://stages endless/5.tscn" id="3_37s2q"]
+[ext_resource type="TileSet" uid="uid://g0lrcp6kq76w" path="res://resource/tilemap_duckables.tres" id="3_jcy55"]
+[ext_resource type="PackedScene" uid="uid://bdyuodbvtccqv" path="res://stages endless/8.tscn" id="4_hlf60"]
+
+[node name="stage" type="Node2D"]
+metadata/next = [ExtResource("1_brunl"), ExtResource("2_gsv2j"), ExtResource("3_37s2q"), ExtResource("4_hlf60")]
+metadata/end = -2400.0
+
+[node name="jumpables" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+tile_set = ExtResource("1_a6gk6")
+
+[node name="walls" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+scale = Vector2(0.99926186, 1)
+tile_map_data = PackedByteArray(0, 0, 2, 0, 255, 255, 1, 0, 14, 0, 0, 0, 0, 0, 254, 255, 255, 255, 1, 0, 14, 0, 0, 0, 0, 0, 2, 0, 251, 255, 1, 0, 14, 0, 0, 0, 0, 0, 2, 0, 247, 255, 1, 0, 14, 0, 0, 0, 0, 0, 0, 0, 247, 255, 1, 0, 14, 0, 0, 0, 0, 0)
+tile_set = ExtResource("2_10fss")
+
+[node name="duckables" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+tile_set = ExtResource("3_jcy55")
+
+[node name="background" type="TileMapLayer" parent="."]
