@@ -4,6 +4,7 @@
 
 [sub_resource type="FontVariation" id="FontVariation_8i0a3"]
 base_font = ExtResource("1_mdukd")
+spacing_top = -25
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mdukd"]
 content_margin_left = 34.0
@@ -17,10 +18,10 @@ border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
 border_color = Color(0.48235294, 0.2509804, 0.09803922, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+corner_radius_top_left = 53
+corner_radius_top_right = 53
+corner_radius_bottom_right = 53
+corner_radius_bottom_left = 53
 expand_margin_left = 10.0
 expand_margin_top = 10.0
 expand_margin_right = 10.0

@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxqikudjbhsl1"]
+[gd_scene load_steps=11 format=3 uid="uid://cxqikudjbhsl1"]
 
 [ext_resource type="Script" uid="uid://jxkqltfollis" path="res://mainscreen/home.gd" id="1_jmugw"]
+[ext_resource type="Texture2D" uid="uid://cgb2yv5qqi5bv" path="res://assets/bar/Artboard 29.png" id="3_kvmes"]
 [ext_resource type="PackedScene" uid="uid://bhh061rlaupd0" path="res://mainscreen/room.tscn" id="3_maaha"]
+[ext_resource type="Texture2D" uid="uid://cwrtvibr26ykv" path="res://assets/bar/map.png" id="4_ep4d0"]
+[ext_resource type="Texture2D" uid="uid://cb20s0a3veyu4" path="res://assets/bar/op bar.png" id="4_fn3n7"]
+[ext_resource type="Texture2D" uid="uid://8erbdjt15kka" path="res://assets/bar/daily.png" id="4_syedr"]
+[ext_resource type="Texture2D" uid="uid://4vd76hiynet8" path="res://assets/bar/kaleng bar .png" id="5_hkdhm"]
+[ext_resource type="Texture2D" uid="uid://bqtyg6v8drmml" path="res://assets/bar/shop.png" id="6_786yl"]
+[ext_resource type="Texture2D" uid="uid://c1j3nas8y5frk" path="res://assets/bar/fish bar.png" id="6_ckf6m"]
+[ext_resource type="Theme" uid="uid://cy7jg2s223n6u" path="res://resource/panel.tres" id="6_hkdhm"]
 
 [node name="Home" type="Control"]
 layout_mode = 3
@@ -53,6 +61,20 @@ max_value = 5.0
 value = 1.0
 rounded = true
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = -0.5
+offset_right = 0.5
+offset_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_kvmes")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -61,6 +83,88 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_behavior_recursive = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.08
+mouse_behavior_recursive = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.43
+mouse_filter = 1
+texture_normal = ExtResource("4_fn3n7")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture = ExtResource("5_hkdhm")
+stretch_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2/TextureRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/TextureRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("6_hkdhm")
+theme_override_font_sizes/font_size = 121
+text = "999"
+horizontal_alignment = 2
+clip_text = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer2/TextureRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture = ExtResource("6_ckf6m")
+stretch_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer2/TextureRect2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.66
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/TextureRect2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.19
+theme = ExtResource("6_hkdhm")
+theme_override_font_sizes/font_size = 121
+text = "999999"
+horizontal_alignment = 2
+clip_text = true
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2/TextureRect2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.11
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -74,18 +178,45 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.15
 mouse_behavior_recursive = 2
 
-[node name="DailyButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MapButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
+
+[node name="DailyButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("4_syedr")
+stretch_mode = 3
+
+[node name="MapButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.55
+texture_normal = ExtResource("4_ep4d0")
+stretch_mode = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ShopButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
+
+[node name="ShopButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("6_786yl")
+stretch_mode = 3
 
 [connection signal="pressed" from="ScrollContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MapButton" to="." method="_on_map_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/ShopButton" to="." method="_on_shop_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer2/ShopButton" to="." method="_on_shop_button_pressed"]

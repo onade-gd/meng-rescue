@@ -1,9 +1,42 @@
-[gd_scene format=3 uid="uid://ca6ljsq1v1aml"]
+[gd_scene load_steps=4 format=3 uid="uid://ca6ljsq1v1aml"]
 
-[node name="Control" type="Control"]
+[ext_resource type="Texture2D" uid="uid://bwudn6atv6xy0" path="res://assets/Cover.png" id="1_r305v"]
+[ext_resource type="Script" uid="uid://b8ht4fjxhysyi" path="res://start.gd" id="1_upmy7"]
+[ext_resource type="Texture2D" uid="uid://bopbihdg1hc1q" path="res://assets/bar/play_1.png" id="2_52bhu"]
+
+[node name="start" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_upmy7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_r305v")
+stretch_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.54
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("2_52bhu")
+stretch_mode = 3
+
+[connection signal="pressed" from="VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]

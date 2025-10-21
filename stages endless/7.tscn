@@ -1,28 +1,24 @@
-[gd_scene load_steps=7 format=4 uid="uid://b56mwtf012q0n"]
+[gd_scene load_steps=4 format=4 uid="uid://cc4f4cf03uhc7"]
 
-[ext_resource type="TileSet" uid="uid://lgwqni31eef4" path="res://resource/tilemap_jumpable.tres" id="1_k0eq2"]
-[ext_resource type="PackedScene" uid="uid://v40eefpgkpqs" path="res://stages endless/0.tscn" id="1_x2fe2"]
-[ext_resource type="PackedScene" uid="uid://cf0lilx2d38lq" path="res://stages endless/3.tscn" id="2_6scbd"]
-[ext_resource type="TileSet" uid="uid://cwhp3lwdusbj2" path="res://resource/tilemap_walls.tres" id="2_yph2v"]
-[ext_resource type="PackedScene" uid="uid://ddyoj3ny11bio" path="res://stages endless/9.tscn" id="3_q42n6"]
-[ext_resource type="TileSet" uid="uid://g0lrcp6kq76w" path="res://resource/tilemap_duckables.tres" id="3_x7j5q"]
+[ext_resource type="TileSet" uid="uid://lgwqni31eef4" path="res://resource/tilemap_jumpable.tres" id="1_o0jfw"]
+[ext_resource type="TileSet" uid="uid://cwhp3lwdusbj2" path="res://resource/tilemap_walls.tres" id="2_5tywe"]
+[ext_resource type="TileSet" uid="uid://g0lrcp6kq76w" path="res://resource/tilemap_duckables.tres" id="3_yi0b2"]
 
 [node name="stage" type="Node2D"]
-metadata/next = [ExtResource("1_x2fe2"), ExtResource("2_6scbd"), null, ExtResource("3_q42n6")]
-metadata/end = -2400.0
+metadata/next = [0, 3, 7, 9]
 
 [node name="jumpables" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_set = ExtResource("1_k0eq2")
+tile_set = ExtResource("1_o0jfw")
 
 [node name="walls" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 scale = Vector2(0.99926186, 1)
-tile_map_data = PackedByteArray("AAAAAP//AQAOAAAAAAD+////AQAOAAAAAAD+//v/AQAOAAAAAAAAAPv/AQAOAAAAAAD+//f/AQAOAAAAAAAAAPf/AQAOAAAAAAA=")
-tile_set = ExtResource("2_yph2v")
+tile_map_data = PackedByteArray("AAAAAP//AQAOAAAAAAD+////AQAOAAAAAAD+//v/AQAOAAAAAAAAAPv/AQAOAAAAAAAAAPf/AQAOAAAAAAD+//f/AQAOAAAAAAA=")
+tile_set = ExtResource("2_5tywe")
 
 [node name="duckables" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_set = ExtResource("3_x7j5q")
+tile_set = ExtResource("3_yi0b2")
 
 [node name="background" type="TileMapLayer" parent="."]

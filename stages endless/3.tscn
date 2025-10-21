@@ -1,29 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://cf0lilx2d38lq"]
+[gd_scene load_steps=4 format=3 uid="uid://c4km4oq0ai0e"]
 
-[ext_resource type="TileSet" uid="uid://lgwqni31eef4" path="res://resource/tilemap_jumpable.tres" id="1_85qg0"]
-[ext_resource type="PackedScene" uid="uid://v40eefpgkpqs" path="res://stages endless/0.tscn" id="1_ogxj0"]
-[ext_resource type="TileSet" uid="uid://cwhp3lwdusbj2" path="res://resource/tilemap_walls.tres" id="2_1m2c2"]
-[ext_resource type="PackedScene" uid="uid://de3h7nig7hufm" path="res://stages endless/2.tscn" id="2_2ss6n"]
-[ext_resource type="PackedScene" uid="uid://c7k4cu83cj8nv" path="res://stages endless/4.tscn" id="3_mbb7y"]
-[ext_resource type="TileSet" uid="uid://g0lrcp6kq76w" path="res://resource/tilemap_duckables.tres" id="3_tk3y4"]
-[ext_resource type="PackedScene" uid="uid://kttc1o4e633k" path="res://stages endless/6.tscn" id="4_auenh"]
+[ext_resource type="TileSet" uid="uid://lgwqni31eef4" path="res://resource/tilemap_jumpable.tres" id="1_gw15y"]
+[ext_resource type="TileSet" uid="uid://cwhp3lwdusbj2" path="res://resource/tilemap_walls.tres" id="2_b5q75"]
+[ext_resource type="TileSet" uid="uid://g0lrcp6kq76w" path="res://resource/tilemap_duckables.tres" id="3_eukqi"]
 
 [node name="stage" type="Node2D"]
-metadata/next = [ExtResource("1_ogxj0"), ExtResource("2_2ss6n"), ExtResource("3_mbb7y"), ExtResource("4_auenh")]
-metadata/end = -2400.0
+metadata/next = [0, 2, 4, 6]
 
 [node name="jumpables" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_set = ExtResource("1_85qg0")
+tile_set = ExtResource("1_gw15y")
 
 [node name="walls" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 scale = Vector2(0.99926186, 1)
 tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 1, 0, 14, 0, 0, 0, 0, 0, 254, 255, 255, 255, 1, 0, 14, 0, 0, 0, 0, 0, 254, 255, 251, 255, 1, 0, 14, 0, 0, 0, 0, 0, 2, 0, 247, 255, 1, 0, 14, 0, 0, 0, 0, 0, 254, 255, 247, 255, 1, 0, 14, 0, 0, 0, 0, 0)
-tile_set = ExtResource("2_1m2c2")
+tile_set = ExtResource("2_b5q75")
 
 [node name="duckables" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_set = ExtResource("3_tk3y4")
+tile_set = ExtResource("3_eukqi")
 
 [node name="background" type="TileMapLayer" parent="."]

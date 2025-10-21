@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b586ipguvmiul"]
 
 [ext_resource type="Script" uid="uid://s2unc87alrql" path="res://mainscreen/endless.gd" id="1_8ct7w"]
-[ext_resource type="PackedScene" uid="uid://v40eefpgkpqs" path="res://stages endless/0.tscn" id="2_4fiay"]
+[ext_resource type="PackedScene" uid="uid://c05uhf3e2e131" path="res://stages endless/0.tscn" id="2_bkct7"]
 [ext_resource type="Script" uid="uid://caxbhg3w3jlpi" path="res://tatakae.gd" id="3_pb7ba"]
 [ext_resource type="PackedScene" uid="uid://ct6scr2dqbdmj" path="res://resource/MainCharController.tscn" id="4_bkct7"]
 [ext_resource type="PackedScene" uid="uid://ep800oxm3d5w" path="res://resource/MainChar.tscn" id="5_2ny74"]
@@ -28,7 +28,7 @@ script = ExtResource("1_8ct7w")
 y_sort_enabled = true
 position = Vector2(720, 2560)
 
-[node name="stage" parent="StageParent" instance=ExtResource("2_4fiay")]
+[node name="stage" parent="StageParent" instance=ExtResource("2_bkct7")]
 
 [node name="MoveForward" type="Node2D" parent="."]
 y_sort_enabled = true
