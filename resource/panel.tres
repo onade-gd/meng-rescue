@@ -1,6 +1,20 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://cy7jg2s223n6u"]
+[gd_resource type="Theme" load_steps=20 format=3 uid="uid://cy7jg2s223n6u"]
 
+[ext_resource type="Texture2D" uid="uid://iky4kb7vphnl" path="res://assets/volum slide 2.png" id="1_8i0a3"]
+[ext_resource type="Texture2D" uid="uid://6trpmtylkepn" path="res://assets/paw 2.png" id="1_lnru5"]
 [ext_resource type="FontFile" uid="uid://b1l66bm4r85jp" path="res://assets/mabook font/Mabook.otf" id="1_mdukd"]
+[ext_resource type="Texture2D" uid="uid://bopluhsun3nk5" path="res://assets/paw.png" id="2_s20dd"]
+[ext_resource type="Texture2D" uid="uid://d8qgobq23pdm" path="res://assets/volum slide.png" id="5_3xw1l"]
+[ext_resource type="Texture2D" uid="uid://dcmo0aub3sp5k" path="res://assets/volum (1).png" id="6_gq544"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s20dd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3xw1l"]
+texture = ExtResource("1_8i0a3")
+texture_margin_left = 52.0
+texture_margin_right = 52.0
+expand_margin_top = 61.0
+expand_margin_bottom = 60.0
 
 [sub_resource type="FontVariation" id="FontVariation_8i0a3"]
 base_font = ExtResource("1_mdukd")
@@ -27,6 +41,23 @@ expand_margin_top = 10.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 anti_aliasing = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gq544"]
+texture = ExtResource("5_3xw1l")
+texture_margin_left = 52.0
+texture_margin_right = 52.0
+expand_margin_left = 17.0
+expand_margin_top = 61.0
+expand_margin_right = 17.0
+expand_margin_bottom = 60.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vma03"]
+texture = ExtResource("6_gq544")
+texture_margin_left = 50.0
+texture_margin_right = 50.0
+expand_margin_top = 46.0
+expand_margin_bottom = 45.0
+axis_stretch_horizontal = 1
 
 [sub_resource type="FontVariation" id="FontVariation_mdukd"]
 base_font = ExtResource("1_mdukd")
@@ -74,11 +105,18 @@ border_width_left = 25
 border_color = Color(1, 0.7882353, 0.48235294, 1)
 
 [resource]
+HSlider/icons/grabber = ExtResource("1_lnru5")
+HSlider/icons/grabber_disabled = ExtResource("2_s20dd")
+HSlider/icons/grabber_highlight = ExtResource("2_s20dd")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_s20dd")
+HSlider/styles/slider = SubResource("StyleBoxTexture_3xw1l")
 Label/colors/font_color = Color(0.48235294, 0.2509804, 0.09803922, 1)
 Label/font_sizes/font_size = 45
 Label/fonts/font = SubResource("FontVariation_8i0a3")
 Label/styles/normal = SubResource("StyleBoxEmpty_mdukd")
 Panel/styles/panel = SubResource("StyleBoxFlat_g0w4q")
+ProgressBar/styles/background = SubResource("StyleBoxTexture_gq544")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_vma03")
 TabContainer/colors/font_selected_color = Color(0.48235294, 0.2509804, 0.09803922, 1)
 TabContainer/colors/font_unselected_color = Color(0.48235294, 0.2509804, 0.09803922, 1)
 TabContainer/constants/tab_separation = -45

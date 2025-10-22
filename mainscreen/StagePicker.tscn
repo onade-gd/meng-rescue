@@ -13,9 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://byctjbib4xkrm" path="res://assets/bar/Q bar.png" id="6_iwm7e"]
 [ext_resource type="Texture2D" uid="uid://8erbdjt15kka" path="res://assets/bar/daily.png" id="6_mdg3v"]
 [ext_resource type="Texture2D" uid="uid://bopbihdg1hc1q" path="res://assets/bar/play_1.png" id="7_quude"]
-[ext_resource type="Texture2D" uid="uid://uj50mbh5ldnk" path="res://assets/bar/x bar besar.png" id="8_7haiu"]
 [ext_resource type="Texture2D" uid="uid://bqtyg6v8drmml" path="res://assets/bar/shop.png" id="8_hb8wc"]
 [ext_resource type="Texture2D" uid="uid://ce2mswv31ljkc" path="res://assets/bar/home besar.png" id="13_7haiu"]
+[ext_resource type="Texture2D" uid="uid://dr66n34a5vp1t" path="res://assets/bar/music bar.png" id="13_16ic3"]
 
 [sub_resource type="Gradient" id="Gradient_3dxm6"]
 offsets = PackedFloat32Array(0, 0.55333334)
@@ -194,7 +194,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.08
 mouse_behavior_recursive = 2
 
-[node name="TextureButton" type="MenuButton" parent="VBoxContainer/HBoxContainer"]
+[node name="Menu" type="MenuButton" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.43
@@ -303,7 +303,6 @@ size_flags_stretch_ratio = 14.57
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 1.71
 
 [node name="ConfirmPanel" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer"]
 visible = false
@@ -336,7 +335,7 @@ text = "Stage <Number>"
 [node name="Close" type="TextureButton" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("8_7haiu")
+texture_normal = ExtResource("5_cmr15")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer"]
 layout_mode = 2
@@ -468,11 +467,64 @@ size_flags_stretch_ratio = 2.43
 layout_mode = 2
 texture_normal = ExtResource("7_quude")
 
+[node name="SettingsPanel" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.36
+mouse_filter = 0
+mouse_behavior_recursive = 2
+theme = ExtResource("3_g0w4q")
+
+[node name="Panel" type="Panel" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel"]
+layout_mode = 2
+
+[node name="Close" type="TextureButton" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_behavior_recursive = 2
+texture_normal = ExtResource("5_cmr15")
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer"]
+custom_minimum_size = Vector2(1200, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 39
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+texture = ExtResource("13_16ic3")
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 28.0
+
 [node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.46
+size_flags_stretch_ratio = 0.64
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer"]
 layout_mode = 2
@@ -547,7 +599,9 @@ stretch_mode = 3
 [connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Button1" to="." method="_on_button_pressed" binds= [1]]
 [connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Button0" to="." method="_on_button_pressed" binds= [0]]
 [connection signal="pressed" from="ScrollContainer2/HBoxContainer/MarginContainer/VBoxContainer/EndlessButton" to="." method="_on_endless_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/HBoxContainer/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/HBoxContainer/Close" to="." method="_on_close_pressed" binds= ["confirm"]]
 [connection signal="pressed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer2/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/Close" to="." method="_on_close_pressed" binds= ["settings"]]
+[connection signal="value_changed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/HomeButton" to="." method="_on_home_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/ShopButton" to="." method="_on_shop_button_pressed"]
