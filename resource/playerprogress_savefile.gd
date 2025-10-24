@@ -35,5 +35,33 @@ extends Node2D
 	],                                          #/
 ]
 
+@export var stages : Dictionary = {
+	0 : {"stars": 0},
+	1 : {"stars": 0},
+	2 : {"stars": 0},
+	3 : {"stars": 0},
+	4 : {"stars": 0},
+	5 : {"stars": 0},
+	6 : {"stars": 0},
+	7 : {"stars": 0},
+	8 : {"stars": 0},
+	9 : {"stars": 0},
+	10 : {"stars": 0},
+	11 : {"stars": 0},
+	12 : {"stars": 0},
+	13 : {"stars": 0},
+	14 : {"stars": 0},
+	15 : {"stars": 0},
+	16 : {"stars": 0},
+	17 : {"stars": 0},
+	18 : {"stars": 0},
+	19 : {"stars": 0},
+	20 : {"stars": 0},
+	21 : {"stars": 0},
+	22 : {"stars": 0},
+	23 : {"stars": 0},
+	24 : {"stars": 0},
+	25 : {"stars": 0}
+}
 
 # array format -> cats = [<cat type>, <location>]   |     furniture in inventory = [<furniture>, <amount>]

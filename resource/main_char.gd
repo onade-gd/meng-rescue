@@ -60,6 +60,7 @@ func finish(endcondition):
 			elif winlose == 2: $AnimationPlayer.play("lose")
 			else: $AnimationPlayer.play("lose")
 			$kicir.play("winlose")
+			
 		"death":
 			$AnimationPlayer.play("death")
 			$kicir.play("death")

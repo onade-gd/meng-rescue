@@ -6,6 +6,9 @@ var score : int = 0
 var chosen_stage
 var tween
 func _ready() -> void:
+	$CanvasLayer/winlosescreen/star1.visible = false
+	$CanvasLayer/winlosescreen/star2.visible = false
+	$CanvasLayer/winlosescreen/star3.visible = false
 	chosen_stage = stage.number[stage.which]
 	$StageParent.get_child(0).free()
 	$StageParent.add_child(chosen_stage.instantiate())
@@ -28,3 +31,11 @@ func _on_main_char_hp(value) -> void:
 
 func _on_small_pressed() -> void:
 	get_window().size = Vector2i(720, 1280)
+
+func _on_main_char_finishline() -> void:
+	await $MoveForward/MainChar/AnimationPlayer.animation_finished
+	$CanvasLayer/winlosescreen.visible = true
+	$CanvasLayer/winlosescreen/Win.visible = true
+	$CanvasLayer/winlosescreen/Win.play("default")
+	await $CanvasLayer/winlosescreen/Win.animation_finished
+	$CanvasLayer/winlosescreen/AnimationPlayer.play("stars_popout")

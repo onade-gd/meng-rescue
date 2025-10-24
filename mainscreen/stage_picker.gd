@@ -10,12 +10,14 @@ func _on_button_pressed(extra_arg_0: int) -> void:
 	$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer.current_tab = 0
 	$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel.visible = true
 	$VBoxContainer/screen.mouse_behavior_recursive = 2
+	$focus.visible = true
 
 func _on_menu_id_pressed(id: int):
 	match id:
 		0: 
 			$VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel.visible = true
 			$VBoxContainer/screen.mouse_behavior_recursive = 2
+			$focus.visible = true
 		1: print("tutorial")
 		2: 
 			get_tree().change_scene_to_file("res://Start.tscn")
@@ -52,9 +54,11 @@ func _on_close_pressed(which) -> void:
 		"confirm":
 			$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel.visible = false
 			$VBoxContainer/screen.mouse_behavior_recursive = 1
+			$focus.visible = false
 		"settings":
 			$VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel.visible = false
 			$VBoxContainer/screen.mouse_behavior_recursive = 1
+			$focus.visible = false
 
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file("res://mainscreen/Main.tscn")
@@ -62,6 +66,8 @@ func _on_play_pressed() -> void:
 func _on_endless_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://mainscreen/endless.tscn")
 
-
-func _on_h_slider_value_changed(value: float) -> void:
+func _on_sound_fx_value_changed(value: float) -> void:
 	$VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/ProgressBar.value = value
+
+func _on_bgm_value_changed(value: float) -> void:
+	$VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/ProgressBar.value = value

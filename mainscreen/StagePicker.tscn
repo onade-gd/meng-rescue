@@ -1,9 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://bqc1kjjvjvixu"]
+[gd_scene load_steps=22 format=3 uid="uid://bqc1kjjvjvixu"]
 
 [ext_resource type="Script" uid="uid://cjp2yan454jqr" path="res://mainscreen/stage_picker.gd" id="1_ik7lt"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_78wwb"]
 [ext_resource type="Theme" uid="uid://cy7jg2s223n6u" path="res://resource/panel.tres" id="3_g0w4q"]
-[ext_resource type="Texture2D" uid="uid://b6lilxqnjafjm" path="res://assets/atlas1.png" id="3_p4rdx"]
 [ext_resource type="Texture2D" uid="uid://cb20s0a3veyu4" path="res://assets/bar/op bar.png" id="4_quude"]
 [ext_resource type="Texture2D" uid="uid://bldakocspb8ml" path="res://assets/bar/x bar.png" id="5_cmr15"]
 [ext_resource type="Texture2D" uid="uid://7sa7ay3l32to" path="res://assets/bar/setting.png" id="5_mfgi7"]
@@ -14,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://8erbdjt15kka" path="res://assets/bar/daily.png" id="6_mdg3v"]
 [ext_resource type="Texture2D" uid="uid://bopbihdg1hc1q" path="res://assets/bar/play_1.png" id="7_quude"]
 [ext_resource type="Texture2D" uid="uid://bqtyg6v8drmml" path="res://assets/bar/shop.png" id="8_hb8wc"]
+[ext_resource type="Texture2D" uid="uid://7q2yh6cm05s0" path="res://assets/bar/vlm bar .png" id="12_16ic3"]
 [ext_resource type="Texture2D" uid="uid://ce2mswv31ljkc" path="res://assets/bar/home besar.png" id="13_7haiu"]
 [ext_resource type="Texture2D" uid="uid://dr66n34a5vp1t" path="res://assets/bar/music bar.png" id="13_16ic3"]
 
@@ -31,20 +31,6 @@ bg_color = Color(0.68532646, 0.68532646, 0.68532646, 0)
 [sub_resource type="Theme" id="Theme_mfgi7"]
 PopupMenu/constants/v_separation = 15
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_iwm7e")
-
-[sub_resource type="Theme" id="Theme_78wwb"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p4rdx"]
-atlas = ExtResource("3_p4rdx")
-region = Rect2(3200, 0, 800, 800)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wwkc4"]
-atlas = ExtResource("3_p4rdx")
-region = Rect2(90.23169, 3160.5784, 655.9319, 1277.3411)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lksae"]
-atlas = ExtResource("3_p4rdx")
-region = Rect2(2394.8904, 2444.9102, 406.56006, 364.20996)
 
 [sub_resource type="Theme" id="Theme_ua3o8"]
 
@@ -306,6 +292,7 @@ size_flags_vertical = 3
 
 [node name="ConfirmPanel" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer"]
 visible = false
+z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -340,11 +327,10 @@ texture_normal = ExtResource("5_cmr15")
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 7.43
+size_flags_stretch_ratio = 6.89
 
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer"]
 layout_mode = 2
-theme = SubResource("Theme_78wwb")
 current_tab = 0
 
 [node name="Details" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer"]
@@ -364,99 +350,18 @@ bla bla bla
 
 bla bla"
 
-[node name="Obstacles" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer"]
-visible = false
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer"]
 layout_mode = 2
-metadata/_tab_index = 1
-
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer/Obstacles"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer/Obstacles/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 7.43
 
-[node name="Label" type="Label" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer/Obstacles/ScrollContainer/VBoxContainer"]
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3"]
 layout_mode = 2
-text = "walls"
+current_tab = 0
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer/Obstacles/ScrollContainer/VBoxContainer"]
+[node name="Power-Ups" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/TabContainer"]
 layout_mode = 2
-columns = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer/Obstacles/ScrollContainer/VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(0, 350)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer/Obstacles/ScrollContainer/VBoxContainer/GridContainer/MarginContainer"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_p4rdx")
-expand_mode = 4
-stretch_mode = 5
-
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer/Obstacles/ScrollContainer/VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(0, 350)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer/Obstacles/ScrollContainer/VBoxContainer/GridContainer/MarginContainer2"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_wwkc4")
-expand_mode = 4
-stretch_mode = 5
-
-[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer/Obstacles/ScrollContainer/VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(0, 350)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label2" type="Label" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer/Obstacles/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "jumpables"
-
-[node name="GridContainer2" type="GridContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer/Obstacles/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-columns = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer/Obstacles/ScrollContainer/VBoxContainer/GridContainer2"]
-custom_minimum_size = Vector2(0, 350)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer/Obstacles/ScrollContainer/VBoxContainer/GridContainer2/MarginContainer"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_lksae")
-expand_mode = 5
-stretch_mode = 5
-
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer/Obstacles/ScrollContainer/VBoxContainer/GridContainer2"]
-custom_minimum_size = Vector2(0, 350)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer/Obstacles/ScrollContainer/VBoxContainer/GridContainer2"]
-custom_minimum_size = Vector2(0, 350)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer/Obstacles/ScrollContainer/VBoxContainer/GridContainer2"]
-custom_minimum_size = Vector2(0, 350)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Power-Ups" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer"]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 2
+metadata/_tab_index = 0
 
 [node name="MarginContainer2" type="CenterContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer"]
 layout_mode = 2
@@ -469,6 +374,7 @@ texture_normal = ExtResource("7_quude")
 
 [node name="SettingsPanel" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer"]
 visible = false
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.36
@@ -493,6 +399,7 @@ mouse_filter = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer"]
 custom_minimum_size = Vector2(1200, 0)
 layout_mode = 2
+theme_override_constants/separation = 114
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -504,7 +411,7 @@ theme_override_constants/separation = 39
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 z_index = 1
 layout_mode = 2
-texture = ExtResource("13_16ic3")
+texture = ExtResource("12_16ic3")
 stretch_mode = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer"]
@@ -515,10 +422,34 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="SoundFX" type="HSlider" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-value = 28.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 39
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+texture = ExtResource("13_16ic3")
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="BGM" type="HSlider" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -594,6 +525,17 @@ size_flags_vertical = 3
 texture_normal = ExtResource("8_hb8wc")
 stretch_mode = 3
 
+[node name="focus" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+mouse_behavior_recursive = 1
+
 [connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Button3" to="." method="_on_button_pressed" binds= [3]]
 [connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Button2" to="." method="_on_button_pressed" binds= [2]]
 [connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Button1" to="." method="_on_button_pressed" binds= [1]]
@@ -602,6 +544,7 @@ stretch_mode = 3
 [connection signal="pressed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/HBoxContainer/Close" to="." method="_on_close_pressed" binds= ["confirm"]]
 [connection signal="pressed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer2/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/Close" to="." method="_on_close_pressed" binds= ["settings"]]
-[connection signal="value_changed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/SoundFX" to="." method="_on_sound_fx_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/BGM" to="." method="_on_bgm_value_changed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/HomeButton" to="." method="_on_home_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/ShopButton" to="." method="_on_shop_button_pressed"]

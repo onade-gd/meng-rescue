@@ -1,6 +1,19 @@
 extends Control
 var page
 var room = preload("res://mainscreen/room.tscn")
+
+func _ready() -> void:
+	var _menu_option = $VBoxContainer/HBoxContainer2/Menu.get_popup().id_pressed.connect(_on_menu_id_pressed)
+	
+func _on_menu_id_pressed(id: int):
+	match id:
+		0: 
+			$VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel.visible = true
+			$VBoxContainer/screen.mouse_behavior_recursive = 2
+		1: print("tutorial")
+		2: 
+			get_tree().change_scene_to_file("res://Start.tscn")
+			
 func _on_map_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://mainscreen/StagePicker.tscn")
 
@@ -8,7 +21,7 @@ func _on_shop_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://mainscreen/shop.tscn")
 	PlayerprogressSavefile.last_lobby = "res://mainscreen/Home.tscn"
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("touch"):
 		print($ScrollContainer.scroll_horizontal)
 		page = $ScrollContainer.scroll_horizontal
@@ -35,3 +48,14 @@ func _on_button_pressed() -> void:
 	packed_scene.pack(current_scene)
 	ResourceSaver.save(packed_scene, "res://Home.tscn")
 	
+func _on_close_pressed(which) -> void:
+	match which:
+		"settings":
+			$VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel.visible = false
+			$VBoxContainer/screen.mouse_behavior_recursive = 1
+
+func _on_sound_fx_value_changed(value: float) -> void:
+	$VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/ProgressBar.value = value
+
+func _on_bgm_value_changed(value: float) -> void:
+	$VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/ProgressBar.value = value

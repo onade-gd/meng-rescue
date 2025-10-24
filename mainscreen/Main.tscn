@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://budxylqe7vgvt"]
+[gd_scene load_steps=10 format=3 uid="uid://budxylqe7vgvt"]
 
 [ext_resource type="Script" uid="uid://7nc5rx3t84bp" path="res://mainscreen/mainscript.gd" id="1_r0du0"]
 [ext_resource type="PackedScene" uid="uid://ct6scr2dqbdmj" path="res://resource/MainCharController.tscn" id="3_cm0pq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ep800oxm3d5w" path="res://resource/MainChar.tscn" id="4_fos0i"]
 [ext_resource type="Script" uid="uid://caxbhg3w3jlpi" path="res://tatakae.gd" id="5_trn2v"]
 [ext_resource type="PackedScene" uid="uid://bwrj7yih23guk" path="res://UI_InGame.tscn" id="6_3dxm6"]
+[ext_resource type="PackedScene" uid="uid://c7x40h7ouvypr" path="res://winlosescreen.tscn" id="7_ev6ob"]
 
 [sub_resource type="Gradient" id="Gradient_sdusp"]
 offsets = PackedFloat32Array(0, 0.55333334)
@@ -34,6 +35,13 @@ position = Vector2(720, 0)
 y_sort_enabled = true
 script = ExtResource("5_trn2v")
 
+[node name="Background" type="Sprite2D" parent="MoveForward"]
+z_index = -4
+position = Vector2(720.62476, 1281.1682)
+rotation = 1.5707964
+scale = Vector2(40.056618, 22.527319)
+texture = SubResource("GradientTexture2D_lgr22")
+
 [node name="MainCharController" parent="MoveForward" instance=ExtResource("3_cm0pq")]
 position = Vector2(720, 2220)
 
@@ -42,13 +50,6 @@ position = Vector2(718, 2196)
 
 [node name="Camera2D" type="Camera2D" parent="MoveForward"]
 offset = Vector2(720, 1280)
-
-[node name="Background" type="Sprite2D" parent="MoveForward"]
-z_index = -4
-position = Vector2(720.62476, 1281.1682)
-rotation = 1.5707964
-scale = Vector2(40.056618, 22.527319)
-texture = SubResource("GradientTexture2D_lgr22")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 3
@@ -60,7 +61,11 @@ offset_right = 8.0
 offset_bottom = 8.0
 scale = Vector2(11.142898, 13.399999)
 
+[node name="winlosescreen" parent="CanvasLayer" instance=ExtResource("7_ev6ob")]
+visible = false
+
 [connection signal="direction" from="MoveForward/MainChar" to="MoveForward/MainCharController" method="_on_main_char_direction"]
+[connection signal="finishline" from="MoveForward/MainChar" to="." method="_on_main_char_finishline"]
 [connection signal="finishline" from="MoveForward/MainChar" to="MoveForward" method="_on_main_char_finishline"]
 [connection signal="hp" from="MoveForward/MainChar" to="." method="_on_main_char_hp"]
 [connection signal="scoresignal" from="MoveForward/MainChar" to="." method="_on_main_char_scoresignal"]
