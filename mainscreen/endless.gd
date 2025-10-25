@@ -28,8 +28,9 @@ func _physics_process(_delta: float) -> void:
 		$StageParent.add_child(next_stage)
 		print(spawn)
 		next_stage.position = Vector2(0,spawn - 2400)
-	if $MoveForward/MainChar.global_position.y < spawn :
-		$StageParent.get_child(0).queue_free()
+	if get_node_or_null("MoveForward/MainChar") != null:
+		if $MoveForward/MainChar.global_position.y < spawn :
+			$StageParent.get_child(0).queue_free()
 		
 func _on_main_char_hp(value) -> void:
 	if tween:

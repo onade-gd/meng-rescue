@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=20 format=3 uid="uid://cy7jg2s223n6u"]
+[gd_resource type="Theme" load_steps=21 format=3 uid="uid://cy7jg2s223n6u"]
 
 [ext_resource type="Texture2D" uid="uid://iky4kb7vphnl" path="res://assets/volum slide 2.png" id="1_8i0a3"]
 [ext_resource type="Texture2D" uid="uid://6trpmtylkepn" path="res://assets/paw 2.png" id="1_lnru5"]
@@ -36,9 +36,7 @@ corner_radius_top_left = 53
 corner_radius_top_right = 53
 corner_radius_bottom_right = 53
 corner_radius_bottom_left = 53
-expand_margin_left = 10.0
 expand_margin_top = 10.0
-expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 anti_aliasing = false
 
@@ -59,12 +57,26 @@ expand_margin_top = 46.0
 expand_margin_bottom = 45.0
 axis_stretch_horizontal = 1
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gq544"]
+bg_color = Color(1, 0.7882353, 0.48235294, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.48235294, 0.2509804, 0.09803922, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [sub_resource type="FontVariation" id="FontVariation_mdukd"]
 base_font = ExtResource("1_mdukd")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ms2xk"]
 bg_color = Color(1, 0.7882353, 0.48235294, 1)
+border_width_left = 10
 border_width_top = 10
+border_width_right = 10
 border_color = Color(0.48235294, 0.2509804, 0.09803922, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnru5"]
@@ -116,6 +128,8 @@ Label/styles/normal = SubResource("StyleBoxEmpty_mdukd")
 Panel/styles/panel = SubResource("StyleBoxFlat_g0w4q")
 ProgressBar/styles/background = SubResource("StyleBoxTexture_gq544")
 ProgressBar/styles/fill = SubResource("StyleBoxTexture_vma03")
+ShopTabContainer/base_type = &"TabContainer"
+ShopTabContainer/styles/panel = SubResource("StyleBoxFlat_gq544")
 TabContainer/colors/font_selected_color = Color(0.48235294, 0.2509804, 0.09803922, 1)
 TabContainer/colors/font_unselected_color = Color(0.48235294, 0.2509804, 0.09803922, 1)
 TabContainer/constants/tab_separation = -45

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://budxylqe7vgvt"]
+[gd_scene load_steps=11 format=3 uid="uid://budxylqe7vgvt"]
 
 [ext_resource type="Script" uid="uid://7nc5rx3t84bp" path="res://mainscreen/mainscript.gd" id="1_r0du0"]
 [ext_resource type="PackedScene" uid="uid://ct6scr2dqbdmj" path="res://resource/MainCharController.tscn" id="3_cm0pq"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://caxbhg3w3jlpi" path="res://tatakae.gd" id="5_trn2v"]
 [ext_resource type="PackedScene" uid="uid://bwrj7yih23guk" path="res://UI_InGame.tscn" id="6_3dxm6"]
 [ext_resource type="PackedScene" uid="uid://c7x40h7ouvypr" path="res://winlosescreen.tscn" id="7_ev6ob"]
+[ext_resource type="Texture2D" uid="uid://uj50mbh5ldnk" path="res://assets/bar/x bar besar.png" id="8_b1503"]
 
 [sub_resource type="Gradient" id="Gradient_sdusp"]
 offsets = PackedFloat32Array(0, 0.55333334)
@@ -56,17 +57,21 @@ layer = 3
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("6_3dxm6")]
 
-[node name="small" type="Button" parent="CanvasLayer"]
-offset_right = 8.0
-offset_bottom = 8.0
-scale = Vector2(11.142898, 13.399999)
-
 [node name="winlosescreen" parent="CanvasLayer" instance=ExtResource("7_ev6ob")]
 visible = false
+
+[node name="exit" type="TextureButton" parent="CanvasLayer/winlosescreen"]
+z_index = 12
+layout_mode = 0
+offset_left = 620.0
+offset_top = 2011.0
+offset_right = 830.0
+offset_bottom = 2221.0
+texture_normal = ExtResource("8_b1503")
 
 [connection signal="direction" from="MoveForward/MainChar" to="MoveForward/MainCharController" method="_on_main_char_direction"]
 [connection signal="finishline" from="MoveForward/MainChar" to="." method="_on_main_char_finishline"]
 [connection signal="finishline" from="MoveForward/MainChar" to="MoveForward" method="_on_main_char_finishline"]
 [connection signal="hp" from="MoveForward/MainChar" to="." method="_on_main_char_hp"]
 [connection signal="scoresignal" from="MoveForward/MainChar" to="." method="_on_main_char_scoresignal"]
-[connection signal="pressed" from="CanvasLayer/small" to="." method="_on_small_pressed"]
+[connection signal="pressed" from="CanvasLayer/winlosescreen/exit" to="." method="_on_exit_pressed"]

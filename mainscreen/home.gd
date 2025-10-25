@@ -4,7 +4,8 @@ var room = preload("res://mainscreen/room.tscn")
 
 func _ready() -> void:
 	var _menu_option = $VBoxContainer/HBoxContainer2/Menu.get_popup().id_pressed.connect(_on_menu_id_pressed)
-	
+	$VBoxContainer/HBoxContainer2/TextureRect/HBoxContainer/Money2.text = str(PlayerprogressSavefile.money_2)
+	$VBoxContainer/HBoxContainer2/TextureRect2/HBoxContainer/Money1.text = str(PlayerprogressSavefile.money_1)
 func _on_menu_id_pressed(id: int):
 	match id:
 		0: 

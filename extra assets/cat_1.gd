@@ -8,6 +8,7 @@ func _process(delta: float) -> void:
 	if alive:
 		$AnimationPlayer.play("Cat1")
 	else:
+		$CollisionShape2D.disabled = true
 		$AnimationPlayer.play("jump")
 		await $AnimationPlayer.animation_finished
 		get_node(".").queue_free()

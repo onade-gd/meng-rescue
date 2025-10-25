@@ -5,9 +5,11 @@ var page
 func _ready() -> void:
 	var menu_option = $VBoxContainer/HBoxContainer/Menu.get_popup().id_pressed.connect(_on_menu_id_pressed)
 	$ScrollContainer2/HBoxContainer/ScrollContainer.scroll_vertical = 2864
+	$VBoxContainer/HBoxContainer/TextureRect/HBoxContainer/Money2.text = str(PlayerprogressSavefile.money_2)
+	$VBoxContainer/HBoxContainer/TextureRect2/HBoxContainer/Money1.text = str(PlayerprogressSavefile.money_1)
+	
 func _on_button_pressed(extra_arg_0: int) -> void:
 	stage_var.which = extra_arg_0
-	$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer.current_tab = 0
 	$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel.visible = true
 	$VBoxContainer/screen.mouse_behavior_recursive = 2
 	$focus.visible = true

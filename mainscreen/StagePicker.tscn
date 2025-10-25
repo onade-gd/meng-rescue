@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bqc1kjjvjvixu"]
+[gd_scene load_steps=25 format=3 uid="uid://bqc1kjjvjvixu"]
 
 [ext_resource type="Script" uid="uid://cjp2yan454jqr" path="res://mainscreen/stage_picker.gd" id="1_ik7lt"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_78wwb"]
@@ -13,7 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://8erbdjt15kka" path="res://assets/bar/daily.png" id="6_mdg3v"]
 [ext_resource type="Texture2D" uid="uid://bopbihdg1hc1q" path="res://assets/bar/play_1.png" id="7_quude"]
 [ext_resource type="Texture2D" uid="uid://bqtyg6v8drmml" path="res://assets/bar/shop.png" id="8_hb8wc"]
+[ext_resource type="Texture2D" uid="uid://d0e7ipxr7jg5u" path="res://assets/play.png" id="11_5gfri"]
 [ext_resource type="Texture2D" uid="uid://7q2yh6cm05s0" path="res://assets/bar/vlm bar .png" id="12_16ic3"]
+[ext_resource type="Texture2D" uid="uid://uj50mbh5ldnk" path="res://assets/bar/x bar besar.png" id="12_ab6x0"]
 [ext_resource type="Texture2D" uid="uid://ce2mswv31ljkc" path="res://assets/bar/home besar.png" id="13_7haiu"]
 [ext_resource type="Texture2D" uid="uid://dr66n34a5vp1t" path="res://assets/bar/music bar.png" id="13_16ic3"]
 
@@ -33,6 +35,9 @@ PopupMenu/constants/v_separation = 15
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_iwm7e")
 
 [sub_resource type="Theme" id="Theme_ua3o8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_16ic3"]
+bg_color = Color(0, 0, 0, 0.45882353)
 
 [node name="Lobby" type="Control"]
 layout_mode = 3
@@ -175,6 +180,7 @@ grow_vertical = 2
 mouse_behavior_recursive = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.08
@@ -198,7 +204,7 @@ popup/item_2/id = 2
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 6
 texture = ExtResource("5_ua3o8")
 stretch_mode = 3
 
@@ -214,7 +220,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/TextureRect/HBoxContainer"]
+[node name="Money2" type="Label" parent="VBoxContainer/HBoxContainer/TextureRect/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -232,7 +238,8 @@ size_flags_stretch_ratio = 0.3
 
 [node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 1.2
 texture = ExtResource("6_7haiu")
 stretch_mode = 3
 
@@ -249,7 +256,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.66
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/TextureRect2/HBoxContainer"]
+[node name="Money1" type="Label" parent="VBoxContainer/HBoxContainer/TextureRect2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -296,81 +303,66 @@ z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 4.04
 theme = ExtResource("3_g0w4q")
 
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel"]
+layout_mode = 2
+texture = ExtResource("11_5gfri")
+stretch_mode = 3
+
 [node name="Panel" type="Panel" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel"]
+visible = false
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer"]
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 220)
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 2.2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 8.0
 
-[node name="Label" type="Label" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/HBoxContainer/MarginContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 85
-text = "Stage <Number>"
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 125
+text = "Stage 0"
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1200)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Play" type="TextureButton" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+size_flags_stretch_ratio = 1.48
+texture_normal = ExtResource("7_quude")
 
 [node name="Close" type="TextureButton" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-texture_normal = ExtResource("5_cmr15")
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 6.89
-
-[node name="TabContainer" type="TabContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer"]
-layout_mode = 2
-current_tab = 0
-
-[node name="Details" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer"]
-layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="Label" type="Label" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/TabContainer/Details"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 61
-text = "
-Win Conditions:
-
-
-bla bla bla
-
-
-bla bla"
-
-[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 7.43
-
-[node name="TabContainer" type="TabContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3"]
-layout_mode = 2
-current_tab = 0
-
-[node name="Power-Ups" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/TabContainer"]
-layout_mode = 2
-metadata/_tab_index = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.65
+texture_normal = ExtResource("12_ab6x0")
 
 [node name="MarginContainer2" type="CenterContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.43
-
-[node name="Play" type="TextureButton" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer2"]
-layout_mode = 2
-texture_normal = ExtResource("7_quude")
 
 [node name="SettingsPanel" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer"]
 visible = false
@@ -535,14 +527,15 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 mouse_behavior_recursive = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_16ic3")
 
 [connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Button3" to="." method="_on_button_pressed" binds= [3]]
 [connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Button2" to="." method="_on_button_pressed" binds= [2]]
 [connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Button1" to="." method="_on_button_pressed" binds= [1]]
 [connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Button0" to="." method="_on_button_pressed" binds= [0]]
 [connection signal="pressed" from="ScrollContainer2/HBoxContainer/MarginContainer/VBoxContainer/EndlessButton" to="." method="_on_endless_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/HBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/HBoxContainer/Close" to="." method="_on_close_pressed" binds= ["confirm"]]
-[connection signal="pressed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer2/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/Close" to="." method="_on_close_pressed" binds= ["settings"]]
 [connection signal="value_changed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/SoundFX" to="." method="_on_sound_fx_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/BGM" to="." method="_on_bgm_value_changed"]
