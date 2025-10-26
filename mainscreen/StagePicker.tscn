@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bqc1kjjvjvixu"]
+[gd_scene load_steps=26 format=3 uid="uid://bqc1kjjvjvixu"]
 
 [ext_resource type="Script" uid="uid://cjp2yan454jqr" path="res://mainscreen/stage_picker.gd" id="1_ik7lt"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_78wwb"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://d0e7ipxr7jg5u" path="res://assets/play.png" id="11_5gfri"]
 [ext_resource type="Texture2D" uid="uid://7q2yh6cm05s0" path="res://assets/bar/vlm bar .png" id="12_16ic3"]
 [ext_resource type="Texture2D" uid="uid://uj50mbh5ldnk" path="res://assets/bar/x bar besar.png" id="12_ab6x0"]
+[ext_resource type="Texture2D" uid="uid://ona8kcsta4lm" path="res://assets/0.png" id="12_w6ipm"]
 [ext_resource type="Texture2D" uid="uid://ce2mswv31ljkc" path="res://assets/bar/home besar.png" id="13_7haiu"]
 [ext_resource type="Texture2D" uid="uid://dr66n34a5vp1t" path="res://assets/bar/music bar.png" id="13_16ic3"]
 
@@ -328,7 +329,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 8.0
 
-[node name="Label" type="Label" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer"]
+[node name="StageDisplay" type="Label" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 125
@@ -340,6 +341,47 @@ layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 mouse_behavior_recursive = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="star1" type="Sprite2D" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/MarginContainer"]
+position = Vector2(231.5, 305)
+rotation = -0.20943952
+texture = ExtResource("12_w6ipm")
+
+[node name="star2" type="Sprite2D" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/MarginContainer"]
+position = Vector2(613.5, 223)
+scale = Vector2(1.2305555, 1.2305555)
+texture = ExtResource("12_w6ipm")
+
+[node name="star3" type="Sprite2D" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/MarginContainer"]
+position = Vector2(1007.49994, 302)
+rotation = 0.20943952
+texture = ExtResource("12_w6ipm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.28
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CatsNeeded" type="Label" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 230
+text = "0"
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer"]
 layout_mode = 2

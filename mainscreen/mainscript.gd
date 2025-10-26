@@ -30,8 +30,14 @@ func _on_main_char_hp(value) -> void:
 	$CanvasLayer/UI/VBoxContainer/MarginContainer3/Health.text = str("health:",value)
 	tween.tween_property($CanvasLayer/UI/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/TextureRect2/HBoxContainer/MarginContainer2,"custom_minimum_size:x",445.0*(value/3.0),0.3)
 
-func _on_main_char_finishline() -> void:
+func _on_main_char_finishline(endcondition) -> void:
 	var final_score = floor((float(score)/float($StageParent/stage.get_meta("catsneeded")))*3)
+	if final_score > 3.0: final_score = 3.0
+	if endcondition == "death":
+			final_score = 0.0
+	else:
+		if PlayerprogressSavefile.stages[stage.which]["stars"] < final_score:
+			PlayerprogressSavefile.stages[stage.which]["stars"] = final_score
 	match final_score :
 		0.0: 
 			$CanvasLayer/winlosescreen/Win.visible = false

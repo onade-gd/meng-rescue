@@ -10,7 +10,27 @@ func _ready() -> void:
 	
 func _on_button_pressed(extra_arg_0: int) -> void:
 	stage_var.which = extra_arg_0
+	var display_score = PlayerprogressSavefile.stages[stage_var.which]["stars"]
 	$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel.visible = true
+	$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/StageDisplay.text = str("Stage " + str(extra_arg_0))
+	$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/HBoxContainer/CatsNeeded.text = str(stage_var.number[stage_var.which].instantiate().get_meta("catsneeded"))
+	match display_score :
+		0.0 :
+			$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/star1.texture = preload("res://assets/0.png")
+			$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/star2.texture = preload("res://assets/0.png")
+			$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/star3.texture = preload("res://assets/0.png")
+		1.0 :
+			$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/star1.texture = preload("res://assets/5.png")
+			$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/star2.texture = preload("res://assets/0.png")
+			$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/star3.texture = preload("res://assets/0.png")
+		2.0 :
+			$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/star1.texture = preload("res://assets/5.png")
+			$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/star2.texture = preload("res://assets/5.png")
+			$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/star3.texture = preload("res://assets/0.png")
+		3.0 :
+			$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/star1.texture = preload("res://assets/5.png")
+			$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/star2.texture = preload("res://assets/5.png")
+			$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/star3.texture = preload("res://assets/5.png")
 	$VBoxContainer/screen.mouse_behavior_recursive = 2
 	$focus.visible = true
 

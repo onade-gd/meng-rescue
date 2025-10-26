@@ -52,7 +52,7 @@ func current_hp(value):
 	
 func finish(endcondition):
 	controlable = false
-	finishline.emit()
+	finishline.emit(endcondition)
 	$CPUParticles2D.emitting = false
 	match endcondition:
 		"mapend": 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://mugkt143g3np"]
+[gd_scene load_steps=8 format=3 uid="uid://mugkt143g3np"]
 
 [ext_resource type="Script" uid="uid://dwcc2wem003um" path="res://mainscreen/shop.gd" id="1_e7rdd"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_viryw"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://4vd76hiynet8" path="res://assets/bar/kaleng bar .png" id="3_il3jw"]
 [ext_resource type="Theme" uid="uid://cy7jg2s223n6u" path="res://resource/panel.tres" id="4_4617y"]
 [ext_resource type="Texture2D" uid="uid://c1j3nas8y5frk" path="res://assets/bar/fish bar.png" id="5_0c1vc"]
-[ext_resource type="Texture2D" uid="uid://gsqcsmpfx6tm" path="res://assets/bar/Artboard 28.png" id="7_il3jw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4617y"]
 bg_color = Color(1, 0.95686275, 0.8901961, 1)
@@ -83,7 +82,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer2/TextureRect/HBoxContainer"]
+[node name="Money2" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer2/TextureRect/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -119,7 +118,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.66
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer2/TextureRect2/HBoxContainer"]
+[node name="Money1" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer2/TextureRect2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -340,9 +339,5 @@ expand_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
-
-[node name="Artboard28" type="Sprite2D" parent="."]
-position = Vector2(-941, 1954)
-texture = ExtResource("7_il3jw")
 
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer2/Button" to="." method="_on_button_pressed"]
