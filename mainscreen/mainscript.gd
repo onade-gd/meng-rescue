@@ -1,7 +1,6 @@
 extends Control
 @export var minimum_distance : float
 @export var rarity : int
-var stage = preload("res://resource/stage_resource.tres")
 var score : int = 0 
 var chosen_stage
 var tween
@@ -9,7 +8,7 @@ func _ready() -> void:
 	$CanvasLayer/winlosescreen/star1.visible = false
 	$CanvasLayer/winlosescreen/star2.visible = false
 	$CanvasLayer/winlosescreen/star3.visible = false
-	chosen_stage = stage.number[stage.which]
+	chosen_stage = load(str(StageResource.number[StageResource.which]["path"]))
 	$StageParent.get_child(0).free()
 	$StageParent.add_child(chosen_stage.instantiate())
 	
@@ -36,8 +35,8 @@ func _on_main_char_finishline(endcondition) -> void:
 	if endcondition == "death":
 			final_score = 0.0
 	else:
-		if PlayerprogressSavefile.stages[stage.which]["stars"] < final_score:
-			PlayerprogressSavefile.stages[stage.which]["stars"] = final_score
+		if PlayerprogressSavefile.stages[StageResource.which]["stars"] < final_score:
+			PlayerprogressSavefile.stages[StageResource.which]["stars"] = final_score
 	match final_score :
 		0.0: 
 			$CanvasLayer/winlosescreen/Win.visible = false
@@ -58,4 +57,5 @@ func _on_main_char_finishline(endcondition) -> void:
 	$CanvasLayer/winlosescreen/AnimationPlayer.play("stars_popout")
 
 func _on_exit_pressed() -> void:
+	print("pressed")
 	get_tree().change_scene_to_file("res://mainscreen/StagePicker.tscn")

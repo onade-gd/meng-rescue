@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://bqc1kjjvjvixu"]
+[gd_scene load_steps=27 format=3 uid="uid://bqc1kjjvjvixu"]
 
 [ext_resource type="Script" uid="uid://cjp2yan454jqr" path="res://mainscreen/stage_picker.gd" id="1_ik7lt"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_78wwb"]
+[ext_resource type="Texture2D" uid="uid://b5ikt85w3gap5" path="res://assets/MENGRESCUE MAP.png" id="2_w6ipm"]
 [ext_resource type="Theme" uid="uid://cy7jg2s223n6u" path="res://resource/panel.tres" id="3_g0w4q"]
 [ext_resource type="Texture2D" uid="uid://cb20s0a3veyu4" path="res://assets/bar/op bar.png" id="4_quude"]
 [ext_resource type="Texture2D" uid="uid://bldakocspb8ml" path="res://assets/bar/x bar.png" id="5_cmr15"]
@@ -84,6 +85,10 @@ custom_minimum_size = Vector2(1440, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer"]
+position = Vector2(720, -2273)
+texture = ExtResource("2_w6ipm")
 
 [node name="Button5" type="Button" parent="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 800)

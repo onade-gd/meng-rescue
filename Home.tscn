@@ -1,16 +1,29 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=19 format=3]
 
-[ext_resource type="Script" path="res://mainscreen/home.gd" id="1_1f81l"]
-[ext_resource type="PackedScene" path="res://mainscreen/room.tscn" id="2_ydlth"]
-[ext_resource type="Script" path="res://mainscreen/room.gd" id="3_62i41"]
-[ext_resource type="Texture2D" path="res://assets/bar/Artboard 29.png" id="4_l6nbk"]
-[ext_resource type="Texture2D" path="res://assets/bar/op bar.png" id="5_80q0k"]
-[ext_resource type="Texture2D" path="res://assets/bar/kaleng bar .png" id="6_qqbku"]
-[ext_resource type="Theme" path="res://resource/panel.tres" id="7_5ijog"]
-[ext_resource type="Texture2D" path="res://assets/bar/fish bar.png" id="8_wxh6i"]
-[ext_resource type="Texture2D" path="res://assets/bar/daily.png" id="9_5gbdy"]
-[ext_resource type="Texture2D" path="res://assets/bar/map.png" id="10_41dsj"]
-[ext_resource type="Texture2D" path="res://assets/bar/shop.png" id="11_048u1"]
+[ext_resource type="Script" path="res://mainscreen/home.gd" id="1_qqbku"]
+[ext_resource type="PackedScene" path="res://mainscreen/room.tscn" id="2_5ijog"]
+[ext_resource type="Script" path="res://mainscreen/room.gd" id="3_wxh6i"]
+[ext_resource type="Texture2D" path="res://assets/bar/Artboard 29.png" id="4_5gbdy"]
+[ext_resource type="Texture2D" path="res://assets/bar/op bar.png" id="5_41dsj"]
+[ext_resource type="Texture2D" path="res://assets/bar/setting.png" id="6_048u1"]
+[ext_resource type="Texture2D" path="res://assets/bar/Q bar.png" id="7_sstkr"]
+[ext_resource type="Texture2D" path="res://assets/bar/x bar.png" id="8_dobvy"]
+[ext_resource type="Texture2D" path="res://assets/bar/kaleng bar .png" id="9_0ltsq"]
+[ext_resource type="Theme" path="res://resource/panel.tres" id="10_d6jvu"]
+[ext_resource type="Texture2D" path="res://assets/bar/fish bar.png" id="11_w7vc2"]
+[ext_resource type="Texture2D" path="res://assets/bar/vlm bar .png" id="12_7tva6"]
+[ext_resource type="Texture2D" path="res://assets/bar/music bar.png" id="13_d6p4m"]
+[ext_resource type="Texture2D" path="res://assets/bar/daily.png" id="14_o0236"]
+[ext_resource type="Texture2D" path="res://assets/bar/map.png" id="15_p3yto"]
+[ext_resource type="Texture2D" path="res://assets/bar/shop.png" id="16_b23qp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75df2"]
+content_margin_left = 40.0
+bg_color = Color(0.68532646, 0.68532646, 0.68532646, 0)
+
+[sub_resource type="Theme" id="Theme_3yp1s"]
+PopupMenu/constants/v_separation = 15
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_75df2")
 
 [node name="Home" type="Control"]
 layout_mode = 3
@@ -19,7 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_1f81l")
+script = ExtResource("1_qqbku")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
@@ -28,8 +41,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scroll_horizontal = 2880
-horizontal_scroll_mode = 3
+scroll_horizontal = 4320
+horizontal_scroll_mode = 2
 vertical_scroll_mode = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
@@ -37,17 +50,17 @@ custom_minimum_size = Vector2(1440, 2560)
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Room" type="MarginContainer" parent="ScrollContainer/HBoxContainer" instance=ExtResource("2_ydlth")]
+[node name="Room" type="MarginContainer" parent="ScrollContainer/HBoxContainer" instance=ExtResource("2_5ijog")]
 custom_minimum_size = Vector2(1440, 2240)
 layout_mode = 2
 size_flags_vertical = 0
-script = ExtResource("3_62i41")
+script = ExtResource("3_wxh6i")
 
-[node name="Room2" type="MarginContainer" parent="ScrollContainer/HBoxContainer" instance=ExtResource("2_ydlth")]
+[node name="Room2" type="MarginContainer" parent="ScrollContainer/HBoxContainer" instance=ExtResource("2_5ijog")]
 custom_minimum_size = Vector2(1440, 2240)
 layout_mode = 2
 size_flags_vertical = 0
-script = ExtResource("3_62i41")
+script = ExtResource("3_wxh6i")
 
 [node name="Button" type="Button" parent="ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(1440, 1440)
@@ -82,7 +95,8 @@ offset_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("4_l6nbk")
+texture = ExtResource("4_5gbdy")
+stretch_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -99,18 +113,26 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.08
 mouse_behavior_recursive = 2
 
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer/HBoxContainer2"]
+[node name="Menu" type="MenuButton" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.43
 mouse_filter = 1
-texture_normal = ExtResource("5_80q0k")
-stretch_mode = 3
+theme = SubResource("Theme_3yp1s")
+icon = ExtResource("5_41dsj")
+icon_alignment = 1
+item_count = 3
+popup/item_0/icon = ExtResource("6_048u1")
+popup/item_0/id = 0
+popup/item_1/icon = ExtResource("7_sstkr")
+popup/item_1/id = 1
+popup/item_2/icon = ExtResource("8_dobvy")
+popup/item_2/id = 2
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-size_flags_horizontal = 10
-texture = ExtResource("6_qqbku")
+size_flags_horizontal = 6
+texture = ExtResource("9_0ltsq")
 stretch_mode = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/TextureRect"]
@@ -125,14 +147,15 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/TextureRect/HBoxContainer"]
+[node name="Money2" type="Label" parent="VBoxContainer/HBoxContainer2/TextureRect/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme = ExtResource("7_5ijog")
-theme_override_font_sizes/font_size = 121
-text = "999"
+theme = ExtResource("10_d6jvu")
+theme_override_font_sizes/font_size = 100
+text = "0"
 horizontal_alignment = 2
+vertical_alignment = 1
 clip_text = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer2/TextureRect/HBoxContainer"]
@@ -141,9 +164,11 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 
 [node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-size_flags_horizontal = 10
-texture = ExtResource("8_wxh6i")
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 1.2
+texture = ExtResource("11_w7vc2")
 stretch_mode = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/TextureRect2"]
@@ -159,15 +184,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.66
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/TextureRect2/HBoxContainer"]
+[node name="Money1" type="Label" parent="VBoxContainer/HBoxContainer2/TextureRect2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 size_flags_stretch_ratio = 1.19
-theme = ExtResource("7_5ijog")
-theme_override_font_sizes/font_size = 121
-text = "999999"
+theme = ExtResource("10_d6jvu")
+theme_override_font_sizes/font_size = 100
+text = "4"
 horizontal_alignment = 2
+vertical_alignment = 1
 clip_text = true
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2/TextureRect2/HBoxContainer"]
@@ -175,11 +201,115 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.11
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="screen" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/screen"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/screen/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 14.57
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SettingsPanel" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.85
-mouse_behavior_recursive = 1
+size_flags_stretch_ratio = 1.36
+mouse_filter = 0
+mouse_behavior_recursive = 2
+theme = ExtResource("10_d6jvu")
+
+[node name="Panel" type="Panel" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel"]
+layout_mode = 2
+
+[node name="Close" type="TextureButton" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_behavior_recursive = 2
+texture_normal = ExtResource("8_dobvy")
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer"]
+custom_minimum_size = Vector2(1200, 0)
+layout_mode = 2
+theme_override_constants/separation = 114
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 39
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+texture = ExtResource("12_7tva6")
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="SoundFX" type="HSlider" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 39
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+texture = ExtResource("13_d6p4m")
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="BGM" type="HSlider" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.64
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -200,14 +330,14 @@ size_flags_stretch_ratio = 0.35
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource("9_5gbdy")
+texture_normal = ExtResource("14_o0236")
 stretch_mode = 3
 
 [node name="MapButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.55
-texture_normal = ExtResource("10_41dsj")
+texture_normal = ExtResource("15_p3yto")
 stretch_mode = 3
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
@@ -223,9 +353,12 @@ size_flags_stretch_ratio = 0.35
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource("11_048u1")
+texture_normal = ExtResource("16_b23qp")
 stretch_mode = 3
 
 [connection signal="pressed" from="ScrollContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/Close" to="." method="_on_close_pressed" binds= ["settings"]]
+[connection signal="value_changed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/SoundFX" to="." method="_on_sound_fx_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/BGM" to="." method="_on_bgm_value_changed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MapButton" to="." method="_on_map_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer2/ShopButton" to="." method="_on_shop_button_pressed"]

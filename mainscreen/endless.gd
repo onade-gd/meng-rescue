@@ -1,7 +1,6 @@
 extends Control
 @export var minimum_distance : float
 @export var rarity : int
-var stage = preload("res://resource/stage_resource.tres")
 var score : int = 0 
 var chosen_stage : Array = [
 	load("res://stages endless/0.tscn"),

@@ -59,14 +59,18 @@ layer = 3
 
 [node name="winlosescreen" parent="CanvasLayer" instance=ExtResource("7_ev6ob")]
 visible = false
+z_index = 320
+mouse_filter = 2
+mouse_behavior_recursive = 2
 
 [node name="exit" type="TextureButton" parent="CanvasLayer/winlosescreen"]
-z_index = 12
+z_index = 402
 layout_mode = 0
 offset_left = 620.0
 offset_top = 2011.0
 offset_right = 830.0
 offset_bottom = 2221.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("8_b1503")
 
 [connection signal="direction" from="MoveForward/MainChar" to="MoveForward/MainCharController" method="_on_main_char_direction"]

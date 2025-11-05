@@ -1,19 +1,18 @@
 extends Control
-var stage_var = preload("res://resource/stage_resource.tres")
 var page
 
 func _ready() -> void:
-	var menu_option = $VBoxContainer/HBoxContainer/Menu.get_popup().id_pressed.connect(_on_menu_id_pressed)
+	var _menu_option = $VBoxContainer/HBoxContainer/Menu.get_popup().id_pressed.connect(_on_menu_id_pressed)
 	$ScrollContainer2/HBoxContainer/ScrollContainer.scroll_vertical = 2864
 	$VBoxContainer/HBoxContainer/TextureRect/HBoxContainer/Money2.text = str(PlayerprogressSavefile.money_2)
 	$VBoxContainer/HBoxContainer/TextureRect2/HBoxContainer/Money1.text = str(PlayerprogressSavefile.money_1)
 	
 func _on_button_pressed(extra_arg_0: int) -> void:
-	stage_var.which = extra_arg_0
-	var display_score = PlayerprogressSavefile.stages[stage_var.which]["stars"]
+	StageResource.which = extra_arg_0
+	var display_score = PlayerprogressSavefile.stages[StageResource.which]["stars"]
 	$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel.visible = true
 	$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer/StageDisplay.text = str("Stage " + str(extra_arg_0))
-	$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/HBoxContainer/CatsNeeded.text = str(stage_var.number[stage_var.which].instantiate().get_meta("catsneeded"))
+	$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/HBoxContainer/CatsNeeded.text = str(StageResource.number[StageResource.which]["cats"])
 	match display_score :
 		0.0 :
 			$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/star1.texture = preload("res://assets/0.png")
@@ -83,8 +82,8 @@ func _on_close_pressed(which) -> void:
 			$focus.visible = false
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://mainscreen/Main.tscn")
-
+	get_tree().change_scene_to_file("res://load_room.tscn")
+	
 func _on_endless_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://mainscreen/endless.tscn")
 
