@@ -9,7 +9,6 @@ func _ready() -> void:
 	$CanvasLayer/winlosescreen/star2.visible = false
 	$CanvasLayer/winlosescreen/star3.visible = false
 	chosen_stage = load(str(StageResource.number[StageResource.which]["path"]))
-	$StageParent.get_child(0).free()
 	$StageParent.add_child(chosen_stage.instantiate())
 	
 func _on_main_char_scoresignal(value) -> void:
@@ -58,4 +57,6 @@ func _on_main_char_finishline(endcondition) -> void:
 
 func _on_exit_pressed() -> void:
 	print("pressed")
+	PlayerprogressSavefile.save_data()
+	queue_free()
 	get_tree().change_scene_to_file("res://mainscreen/StagePicker.tscn")

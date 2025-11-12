@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdvdn1q8bo0uv"]
 
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_h2spl"]
+[ext_resource type="Texture2D" uid="uid://c35fg42c1xqsv" path="res://assets/kasur/ori 3.png" id="1_h2spl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2spl"]
 size = Vector2(128, 128)
 
-[node name="Node2D" type="Node2D"]
+[node name="FurnitureTest" type="Node2D"]
 
 [node name="Area2D" type="Area2D" parent="."]
 

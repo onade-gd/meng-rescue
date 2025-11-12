@@ -36,6 +36,7 @@ func _on_button_pressed(extra_arg_0: int) -> void:
 func _on_menu_id_pressed(id: int):
 	match id:
 		0: 
+			$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel.visible = false
 			$VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel.visible = true
 			$VBoxContainer/screen.mouse_behavior_recursive = 2
 			$focus.visible = true

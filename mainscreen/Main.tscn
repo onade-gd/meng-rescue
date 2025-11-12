@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://budxylqe7vgvt"]
+[gd_scene load_steps=10 format=3 uid="uid://budxylqe7vgvt"]
 
 [ext_resource type="Script" uid="uid://7nc5rx3t84bp" path="res://mainscreen/mainscript.gd" id="1_r0du0"]
 [ext_resource type="PackedScene" uid="uid://ct6scr2dqbdmj" path="res://resource/MainCharController.tscn" id="3_cm0pq"]
-[ext_resource type="PackedScene" uid="uid://b1bh3x1x6m3j5" path="res://stages/stage_0.tscn" id="3_lgr22"]
 [ext_resource type="PackedScene" uid="uid://ep800oxm3d5w" path="res://resource/MainChar.tscn" id="4_fos0i"]
 [ext_resource type="Script" uid="uid://caxbhg3w3jlpi" path="res://tatakae.gd" id="5_trn2v"]
 [ext_resource type="PackedScene" uid="uid://bwrj7yih23guk" path="res://UI_InGame.tscn" id="6_3dxm6"]
@@ -29,8 +28,6 @@ script = ExtResource("1_r0du0")
 [node name="StageParent" type="Node2D" parent="."]
 y_sort_enabled = true
 position = Vector2(720, 0)
-
-[node name="stage" parent="StageParent" instance=ExtResource("3_lgr22")]
 
 [node name="MoveForward" type="Node2D" parent="."]
 y_sort_enabled = true

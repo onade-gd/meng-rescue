@@ -1,7 +1,7 @@
 extends Control
 var pos
 var swipable : bool = true
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if swipable == true:
 		if Input.is_action_just_pressed("touch"):
 			pos = get_viewport().get_mouse_position()

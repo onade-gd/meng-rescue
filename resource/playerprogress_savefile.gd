@@ -11,18 +11,30 @@ extends Node2D
 @export var last_lobby : String
 
 @export var inventory_cats : Dictionary = {  #needs work
-	"cat_1" : 0,
+	"cat_1" : {
+		"count": 0, 
+		"image": "res://icon.svg",
+		"cat_1_scene" : "res://PLACEHOLDER PLEASE REPLACE",
+	},
 	"cat_2" : 0,
 	"cat_3" : 0
 }
 
 @export var inventory_furniture : Dictionary = {
-	"furn_1" : 0,
+	"furn_1" : {
+		"count" : 0,
+		"image": "res://icon.svg",
+		"furniture_scene" : "res://furniture_test.tscn",
+	},
 	"furn_2" : 0,
 	"furn_3" : 0
+	
 }
 
 @export var rooms : Array = [    #array because i dont know how to handle new instances of rooms with unique names (or not) in a dictionary
+	[
+		
+	],
 	[                                                                           #\
 		{"furn_1":{"pos": Vector2(0,0)}},                                       # |
 		{"furn_5":{"pos": Vector2(0,0)}},                                       # | - room 0 and its contents, can add more furnitures/cats into the array
@@ -64,4 +76,20 @@ extends Node2D
 	25 : {"stars": 0.0}
 }
 
+func save_data():
+	var file = FileAccess.open("user://file1.save", FileAccess.WRITE)
+	file.store_var(stages)
+	file.store_var(rooms)
+	file.store_var(money_1)
+	file.store_var(money_2)
+	
+func load_data():
+	if FileAccess.file_exists("user://file1.save"):
+		var file = FileAccess.open("user://file1.save", FileAccess.READ)
+		stages = file.get_var()
+		rooms = file.get_var()
+		money_1 = file.get_var()
+		money_2 = file.get_var()
+	else:
+		print("no save here")
 # array format -> cats = [<cat type>, <location>]   |     furniture in inventory = [<furniture>, <amount>]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bqc1kjjvjvixu"]
+[gd_scene load_steps=30 format=3 uid="uid://bqc1kjjvjvixu"]
 
 [ext_resource type="Script" uid="uid://cjp2yan454jqr" path="res://mainscreen/stage_picker.gd" id="1_ik7lt"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_78wwb"]
@@ -20,6 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://ona8kcsta4lm" path="res://assets/0.png" id="12_w6ipm"]
 [ext_resource type="Texture2D" uid="uid://ce2mswv31ljkc" path="res://assets/bar/home besar.png" id="13_7haiu"]
 [ext_resource type="Texture2D" uid="uid://dr66n34a5vp1t" path="res://assets/bar/music bar.png" id="13_16ic3"]
+[ext_resource type="Texture2D" uid="uid://cos6p10jniebs" path="res://assets/boosters/Heart to heart.png" id="14_gbter"]
+[ext_resource type="Texture2D" uid="uid://bj27x50ostfjp" path="res://assets/boosters/Inpisibel.png" id="15_dsgy6"]
+[ext_resource type="Texture2D" uid="uid://oq6xquqh3d0y" path="res://assets/boosters/Sedot.png" id="16_j7g5s"]
 
 [sub_resource type="Gradient" id="Gradient_3dxm6"]
 offsets = PackedFloat32Array(0, 0.55333334)
@@ -304,7 +307,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ConfirmPanel" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer"]
-visible = false
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
@@ -384,9 +386,47 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 230
 text = "0"
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer"]
+[node name="GridContainer" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/GridContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.35
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/GridContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.89
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/GridContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("14_gbter")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/GridContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("15_dsgy6")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/GridContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("16_j7g5s")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/GridContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.64
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer"]
 layout_mode = 2
