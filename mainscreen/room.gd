@@ -10,6 +10,7 @@ func _ready() -> void:
 	set_physics_process(false)
 func _physics_process(_delta: float) -> void:
 	snap_furnitures_to_floor()
+	
 	if Input.is_action_just_released("touch"):
 		set_physics_process(false)
 func _on_furn_button_down(furniture) -> void:

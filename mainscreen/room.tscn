@@ -114,14 +114,14 @@ metadata/_tab_index = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Room"]
 layout_mode = 2
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Terrain" type="StaticBody2D" parent="."]
 position = Vector2(720, 1367)
 scale = Vector2(0.92, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain"]
 shape = SubResource("RectangleShape2D_v5vuv")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Terrain"]
 scale = Vector2(11.239995, 0.88)
 texture = ExtResource("1_88gup")
 
@@ -137,6 +137,7 @@ shape = SubResource("RectangleShape2D_4me0f")
 target_position = Vector2(0, 800)
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 z_index = 8
 layout_mode = 1
 offset_right = 639.0
