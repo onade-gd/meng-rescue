@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwwfblwq5dq5y"]
+
+[ext_resource type="Texture2D" uid="uid://djepukgf0fkg1" path="res://assets/kasur/ori 2.png" id="1_1j3qs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5eevv"]
+size = Vector2(506, 129)
+
+[node name="Furniture4" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -64.5)
+shape = SubResource("RectangleShape2D_5eevv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+texture = ExtResource("1_1j3qs")

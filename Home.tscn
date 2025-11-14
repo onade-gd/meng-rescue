@@ -1,21 +1,20 @@
-[gd_scene load_steps=19 format=3]
+[gd_scene load_steps=18 format=3 uid="uid://wbl3n87h4hux"]
 
-[ext_resource type="Script" path="res://mainscreen/home.gd" id="1_qqbku"]
-[ext_resource type="PackedScene" path="res://mainscreen/room.tscn" id="2_5ijog"]
-[ext_resource type="Script" path="res://mainscreen/room.gd" id="3_wxh6i"]
-[ext_resource type="Texture2D" path="res://assets/bar/Artboard 29.png" id="4_5gbdy"]
-[ext_resource type="Texture2D" path="res://assets/bar/op bar.png" id="5_41dsj"]
-[ext_resource type="Texture2D" path="res://assets/bar/setting.png" id="6_048u1"]
-[ext_resource type="Texture2D" path="res://assets/bar/Q bar.png" id="7_sstkr"]
-[ext_resource type="Texture2D" path="res://assets/bar/x bar.png" id="8_dobvy"]
-[ext_resource type="Texture2D" path="res://assets/bar/kaleng bar .png" id="9_0ltsq"]
-[ext_resource type="Theme" path="res://resource/panel.tres" id="10_d6jvu"]
-[ext_resource type="Texture2D" path="res://assets/bar/fish bar.png" id="11_w7vc2"]
-[ext_resource type="Texture2D" path="res://assets/bar/vlm bar .png" id="12_7tva6"]
-[ext_resource type="Texture2D" path="res://assets/bar/music bar.png" id="13_d6p4m"]
-[ext_resource type="Texture2D" path="res://assets/bar/daily.png" id="14_o0236"]
-[ext_resource type="Texture2D" path="res://assets/bar/map.png" id="15_p3yto"]
-[ext_resource type="Texture2D" path="res://assets/bar/shop.png" id="16_b23qp"]
+[ext_resource type="Script" uid="uid://jxkqltfollis" path="res://mainscreen/home.gd" id="1_qqbku"]
+[ext_resource type="PackedScene" uid="uid://bhh061rlaupd0" path="res://mainscreen/room.tscn" id="2_5ijog"]
+[ext_resource type="Texture2D" uid="uid://cgb2yv5qqi5bv" path="res://assets/bar/Artboard 29.png" id="4_5gbdy"]
+[ext_resource type="Texture2D" uid="uid://cb20s0a3veyu4" path="res://assets/bar/op bar.png" id="5_41dsj"]
+[ext_resource type="Texture2D" uid="uid://7sa7ay3l32to" path="res://assets/bar/setting.png" id="6_048u1"]
+[ext_resource type="Texture2D" uid="uid://byctjbib4xkrm" path="res://assets/bar/Q bar.png" id="7_sstkr"]
+[ext_resource type="Texture2D" uid="uid://bldakocspb8ml" path="res://assets/bar/x bar.png" id="8_dobvy"]
+[ext_resource type="Texture2D" uid="uid://4vd76hiynet8" path="res://assets/bar/kaleng bar .png" id="9_0ltsq"]
+[ext_resource type="Theme" uid="uid://cy7jg2s223n6u" path="res://resource/panel.tres" id="10_d6jvu"]
+[ext_resource type="Texture2D" uid="uid://c1j3nas8y5frk" path="res://assets/bar/fish bar.png" id="11_w7vc2"]
+[ext_resource type="Texture2D" uid="uid://7q2yh6cm05s0" path="res://assets/bar/vlm bar .png" id="12_7tva6"]
+[ext_resource type="Texture2D" uid="uid://dr66n34a5vp1t" path="res://assets/bar/music bar.png" id="13_d6p4m"]
+[ext_resource type="Texture2D" uid="uid://8erbdjt15kka" path="res://assets/bar/daily.png" id="14_o0236"]
+[ext_resource type="Texture2D" uid="uid://cwrtvibr26ykv" path="res://assets/bar/map.png" id="15_p3yto"]
+[ext_resource type="Texture2D" uid="uid://bqtyg6v8drmml" path="res://assets/bar/shop.png" id="16_b23qp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75df2"]
 content_margin_left = 40.0
@@ -41,7 +40,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scroll_horizontal = 4320
+scroll_horizontal = 100
 horizontal_scroll_mode = 2
 vertical_scroll_mode = 0
 
@@ -50,24 +49,19 @@ custom_minimum_size = Vector2(1440, 2560)
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Room" type="MarginContainer" parent="ScrollContainer/HBoxContainer" instance=ExtResource("2_5ijog")]
+[node name="Room" parent="ScrollContainer/HBoxContainer" instance=ExtResource("2_5ijog")]
 custom_minimum_size = Vector2(1440, 2240)
 layout_mode = 2
-size_flags_vertical = 0
-script = ExtResource("3_wxh6i")
 
-[node name="Room2" type="MarginContainer" parent="ScrollContainer/HBoxContainer" instance=ExtResource("2_5ijog")]
+[node name="Room2" parent="ScrollContainer/HBoxContainer" instance=ExtResource("2_5ijog")]
 custom_minimum_size = Vector2(1440, 2240)
 layout_mode = 2
-size_flags_vertical = 0
-script = ExtResource("3_wxh6i")
 
 [node name="Button" type="Button" parent="ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(1440, 1440)
 layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 1
-button_pressed = true
 text = "+"
 
 [node name="HSlider" type="HSlider" parent="."]
