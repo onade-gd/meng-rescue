@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bhfywyvnb44hb" path="res://assets/kasur/kodok.png" id="4_qxnob"]
 [ext_resource type="Texture2D" uid="uid://djepukgf0fkg1" path="res://assets/kasur/ori 2.png" id="5_41lm1"]
 [ext_resource type="Texture2D" uid="uid://bbf7fj6ofbul" path="res://assets/bar/edit bar.png" id="5_ah2dc"]
-[ext_resource type="PackedScene" uid="uid://cvrwxf2705ueh" path="res://mainscreen/cat_room_0.tscn" id="5_ka7wq"]
 [ext_resource type="Texture2D" uid="uid://bldakocspb8ml" path="res://assets/bar/x bar.png" id="6_ah2dc"]
 [ext_resource type="Texture2D" uid="uid://c35fg42c1xqsv" path="res://assets/kasur/ori 3.png" id="6_txpam"]
 [ext_resource type="Texture2D" uid="uid://b3lqxegwlg02y" path="res://assets/kasur/ori.png" id="7_y0e2r"]
@@ -20,6 +19,10 @@
 size = Vector2(1438, 118)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4me0f"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ylb8k"]
+radius = 126.0
+height = 252.0
 
 [node name="Room" type="Control"]
 custom_minimum_size = Vector2(1440, 2560)
@@ -41,39 +44,48 @@ offset_bottom = 2560.0
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 14.0
 theme_override_constants/tab_separation = 15
 current_tab = 0
 
-[node name="Furnitures" type="ScrollContainer" parent="VBoxContainer/TabContainer"]
+[node name="Furnitures" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/TabContainer"]
 layout_mode = 2
 vertical_scroll_mode = 2
 metadata/_tab_index = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Furnitures"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures"]
 custom_minimum_size = Vector2(0, 2400)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/Furnitures/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 columns = 3
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
 z_index = 2
 z_as_relative = false
-custom_minimum_size = Vector2(471, 471)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_clf8y")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="Furn" type="Button" parent="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect"]
+[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect"]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -83,7 +95,7 @@ grow_horizontal = 2
 grow_vertical = 2
 keep_pressed_outside = true
 
-[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
@@ -91,7 +103,7 @@ texture = ExtResource("3_fjtnw")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="Furn" type="Button" parent="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect2"]
+[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect2"]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -101,7 +113,7 @@ grow_horizontal = 2
 grow_vertical = 2
 keep_pressed_outside = true
 
-[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
@@ -109,7 +121,7 @@ texture = ExtResource("4_qxnob")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="Furn" type="Button" parent="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect3"]
+[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect3"]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -119,15 +131,16 @@ grow_horizontal = 2
 grow_vertical = 2
 keep_pressed_outside = true
 
-[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
 z_index = 1
+custom_minimum_size = Vector2(0, 0.02)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("5_41lm1")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="Furn" type="Button" parent="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect4"]
+[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect4"]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -137,7 +150,7 @@ grow_horizontal = 2
 grow_vertical = 2
 keep_pressed_outside = true
 
-[node name="TextureRect5" type="TextureRect" parent="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
+[node name="TextureRect5" type="TextureRect" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
@@ -145,7 +158,7 @@ texture = ExtResource("6_txpam")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="Furn" type="Button" parent="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect5"]
+[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect5"]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -155,7 +168,7 @@ grow_horizontal = 2
 grow_vertical = 2
 keep_pressed_outside = true
 
-[node name="TextureRect6" type="TextureRect" parent="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
+[node name="TextureRect6" type="TextureRect" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
@@ -163,7 +176,7 @@ texture = ExtResource("7_y0e2r")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="Furn" type="Button" parent="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect6"]
+[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect6"]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -173,7 +186,7 @@ grow_horizontal = 2
 grow_vertical = 2
 keep_pressed_outside = true
 
-[node name="TextureRect7" type="TextureRect" parent="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
+[node name="TextureRect7" type="TextureRect" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
@@ -181,7 +194,7 @@ texture = ExtResource("8_bubna")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="Furn" type="Button" parent="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect7"]
+[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect7"]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -191,7 +204,7 @@ grow_horizontal = 2
 grow_vertical = 2
 keep_pressed_outside = true
 
-[node name="TextureRect8" type="TextureRect" parent="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
+[node name="TextureRect8" type="TextureRect" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
@@ -199,7 +212,7 @@ texture = ExtResource("9_yo58a")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="Furn" type="Button" parent="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect8"]
+[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect8"]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -209,7 +222,7 @@ grow_horizontal = 2
 grow_vertical = 2
 keep_pressed_outside = true
 
-[node name="TextureRect9" type="TextureRect" parent="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
+[node name="TextureRect9" type="TextureRect" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
@@ -217,7 +230,7 @@ texture = ExtResource("10_8iqba")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="Furn" type="Button" parent="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect9"]
+[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect9"]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -227,23 +240,28 @@ grow_horizontal = 2
 grow_vertical = 2
 keep_pressed_outside = true
 
-[node name="Cats" type="ScrollContainer" parent="VBoxContainer/TabContainer"]
+[node name="Cats" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Cats"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/TabContainer/Cats"]
 layout_mode = 2
 
-[node name="Room" type="ScrollContainer" parent="VBoxContainer/TabContainer"]
+[node name="Room" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Room"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/TabContainer/Room"]
 layout_mode = 2
 
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="Terrain" type="StaticBody2D" parent="."]
+z_index = -1
 position = Vector2(720, 1367)
 scale = Vector2(0.92, 1)
 
@@ -255,6 +273,7 @@ scale = Vector2(11.239995, 0.88)
 texture = ExtResource("1_88gup")
 
 [node name="Terrain2" type="StaticBody2D" parent="."]
+z_index = -1
 position = Vector2(703, 2273)
 scale = Vector2(0.92, 1)
 
@@ -266,6 +285,7 @@ scale = Vector2(11.239995, 0.88)
 texture = ExtResource("1_88gup")
 
 [node name="Terrain3" type="StaticBody2D" parent="."]
+z_index = -1
 position = Vector2(694, 636)
 scale = Vector2(0.8464, 1)
 
@@ -276,9 +296,6 @@ shape = SubResource("RectangleShape2D_v5vuv")
 scale = Vector2(11.239995, 0.88)
 texture = ExtResource("1_88gup")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("5_ka7wq")]
-position = Vector2(829, 1089)
-
 [node name="RayDown" type="Area2D" parent="."]
 collision_layer = 32768
 collision_mask = 32768
@@ -288,6 +305,60 @@ shape = SubResource("RectangleShape2D_4me0f")
 
 [node name="RayCast2D" type="RayCast2D" parent="RayDown"]
 target_position = Vector2(0, 800)
+
+[node name="FurnitureContainer" type="Node2D" parent="."]
+
+[node name="FurnitureQueue" type="Node2D" parent="."]
+
+[node name="AltSpawns" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="AltSpawns"]
+position = Vector2(289, 576)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltSpawns/Area2D"]
+shape = SubResource("CapsuleShape2D_ylb8k")
+
+[node name="Area2D2" type="Area2D" parent="AltSpawns"]
+position = Vector2(1168, 1311)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltSpawns/Area2D2"]
+shape = SubResource("CapsuleShape2D_ylb8k")
+
+[node name="Area2D3" type="Area2D" parent="AltSpawns"]
+position = Vector2(557, 1311)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltSpawns/Area2D3"]
+shape = SubResource("CapsuleShape2D_ylb8k")
+
+[node name="Area2D4" type="Area2D" parent="AltSpawns"]
+position = Vector2(720, 580)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltSpawns/Area2D4"]
+shape = SubResource("CapsuleShape2D_ylb8k")
+
+[node name="Area2D5" type="Area2D" parent="AltSpawns"]
+position = Vector2(289, 2217)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltSpawns/Area2D5"]
+shape = SubResource("CapsuleShape2D_ylb8k")
+
+[node name="Area2D6" type="Area2D" parent="AltSpawns"]
+position = Vector2(947, 2217)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltSpawns/Area2D6"]
+shape = SubResource("CapsuleShape2D_ylb8k")
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
@@ -354,19 +425,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="FurnitureContainer" type="Node2D" parent="."]
+[node name="Edit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1167.0
+offset_top = 275.0
+offset_right = 1238.0
+offset_bottom = 346.0
+toggle_mode = true
 
-[node name="FurnitureQueue" type="Node2D" parent="."]
-
-[connection signal="button_down" from="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_1.tscn"]]
-[connection signal="button_down" from="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect2/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_2.tscn"]]
-[connection signal="button_down" from="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect3/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_3.tscn"]]
-[connection signal="button_down" from="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect4/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_4.tscn"]]
-[connection signal="button_down" from="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect5/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_5.tscn"]]
-[connection signal="button_down" from="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect6/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_6.tscn"]]
-[connection signal="button_down" from="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect7/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_7.tscn"]]
-[connection signal="button_down" from="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect8/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_8.tscn"]]
-[connection signal="button_down" from="VBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect9/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_9.tscn"]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_1.tscn"]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect2/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_2.tscn"]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect3/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_3.tscn"]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect4/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_4.tscn"]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect5/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_5.tscn"]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect6/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_6.tscn"]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect7/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_7.tscn"]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect8/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_8.tscn"]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect9/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_9.tscn"]]
 [connection signal="pressed" from="Panel/HBoxContainer/TextureRect3/Cancel" to="." method="_on_cancel_pressed"]
 [connection signal="button_down" from="Panel/HBoxContainer/TextureRect2/Move" to="." method="_on_move_button_down"]
 [connection signal="pressed" from="Panel/HBoxContainer/TextureRect/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="toggled" from="Edit" to="." method="_on_edit_toggled"]

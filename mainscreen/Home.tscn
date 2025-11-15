@@ -54,11 +54,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 
-[node name="Room2" parent="ScrollContainer/HBoxContainer" instance=ExtResource("3_maaha")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-
 [node name="Button" type="Button" parent="ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(1440, 1440)
 layout_mode = 2
@@ -80,6 +75,7 @@ value = 1.0
 rounded = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
+z_index = 3
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -95,6 +91,7 @@ texture = ExtResource("3_kvmes")
 stretch_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+z_index = 3
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

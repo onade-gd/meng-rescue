@@ -16,7 +16,12 @@ func _on_menu_id_pressed(id: int):
 			get_tree().change_scene_to_file("res://Start.tscn")
 			
 func _on_map_button_pressed() -> void:
+	for step1_rand_furn in PlayerprogressSavefile.rooms[0]:
+		# save format : [[[{ "furniture": "res://extra assets/Furnitures/furniture_3.tscn", "pos": (288.0, 1308.0), "cat_spawn": [0] }]],[]]
+		for step2_rand_spot in step1_rand_furn[0]["cat_spawn"]:
+			step1_rand_furn[0]["cat_spawn"] = [0]
 	get_tree().change_scene_to_file("res://mainscreen/StagePicker.tscn")
+
 
 func _on_shop_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://mainscreen/shop.tscn")

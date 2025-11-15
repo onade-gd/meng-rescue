@@ -72,6 +72,7 @@ func _on_home_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://mainscreen/Home.tscn")
 
 func _on_close_pressed(which) -> void:
+	print(PlayerprogressSavefile.rooms)
 	match which :
 		"confirm":
 			$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel.visible = false
