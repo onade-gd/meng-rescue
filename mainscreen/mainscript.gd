@@ -60,3 +60,7 @@ func _on_exit_pressed() -> void:
 	PlayerprogressSavefile.save_data()
 	queue_free()
 	get_tree().change_scene_to_file("res://mainscreen/StagePicker.tscn")
+
+
+func _on_repeat_pressed() -> void:
+	get_tree().change_scene_to_file("res://load_room.tscn")

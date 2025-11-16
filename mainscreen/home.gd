@@ -3,6 +3,10 @@ var page
 var room = preload("res://mainscreen/room.tscn")
 
 func _ready() -> void:
+	for step1_rand_furn in PlayerprogressSavefile.rooms[0]:
+		# save format : [[[{ "furniture": "res://extra assets/Furnitures/furniture_3.tscn", "pos": (288.0, 1308.0), "cat_spawn": [0] }]],[]]
+		for step2_rand_spot in step1_rand_furn[0]["cat_spawn"]:
+			step1_rand_furn[0]["cat_spawn"] = [0]
 	var _menu_option = $VBoxContainer/HBoxContainer2/Menu.get_popup().id_pressed.connect(_on_menu_id_pressed)
 	$VBoxContainer/HBoxContainer2/TextureRect/HBoxContainer/Money2.text = str(PlayerprogressSavefile.money_2)
 	$VBoxContainer/HBoxContainer2/TextureRect2/HBoxContainer/Money1.text = str(PlayerprogressSavefile.money_1)
@@ -16,10 +20,6 @@ func _on_menu_id_pressed(id: int):
 			get_tree().change_scene_to_file("res://Start.tscn")
 			
 func _on_map_button_pressed() -> void:
-	for step1_rand_furn in PlayerprogressSavefile.rooms[0]:
-		# save format : [[[{ "furniture": "res://extra assets/Furnitures/furniture_3.tscn", "pos": (288.0, 1308.0), "cat_spawn": [0] }]],[]]
-		for step2_rand_spot in step1_rand_furn[0]["cat_spawn"]:
-			step1_rand_furn[0]["cat_spawn"] = [0]
 	get_tree().change_scene_to_file("res://mainscreen/StagePicker.tscn")
 
 

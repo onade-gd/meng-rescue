@@ -35,231 +35,6 @@ grow_vertical = 2
 size_flags_vertical = 0
 script = ExtResource("1_bisa2")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 1440.0
-offset_bottom = 2560.0
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.75
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TabContainer" type="TabContainer" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 14.0
-theme_override_constants/tab_separation = 15
-current_tab = 0
-
-[node name="Furnitures" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/TabContainer"]
-layout_mode = 2
-vertical_scroll_mode = 2
-metadata/_tab_index = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures"]
-custom_minimum_size = Vector2(0, 2400)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-columns = 3
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
-z_index = 2
-z_as_relative = false
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("2_clf8y")
-expand_mode = 4
-stretch_mode = 5
-
-[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-keep_pressed_outside = true
-
-[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
-z_index = 1
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("3_fjtnw")
-expand_mode = 4
-stretch_mode = 5
-
-[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect2"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-keep_pressed_outside = true
-
-[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
-z_index = 1
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("4_qxnob")
-expand_mode = 4
-stretch_mode = 5
-
-[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect3"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-keep_pressed_outside = true
-
-[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
-z_index = 1
-custom_minimum_size = Vector2(0, 0.02)
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("5_41lm1")
-expand_mode = 4
-stretch_mode = 5
-
-[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect4"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-keep_pressed_outside = true
-
-[node name="TextureRect5" type="TextureRect" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
-z_index = 1
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("6_txpam")
-expand_mode = 4
-stretch_mode = 5
-
-[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect5"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-keep_pressed_outside = true
-
-[node name="TextureRect6" type="TextureRect" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
-z_index = 1
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("7_y0e2r")
-expand_mode = 4
-stretch_mode = 5
-
-[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect6"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-keep_pressed_outside = true
-
-[node name="TextureRect7" type="TextureRect" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
-z_index = 1
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("8_bubna")
-expand_mode = 4
-stretch_mode = 5
-
-[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect7"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-keep_pressed_outside = true
-
-[node name="TextureRect8" type="TextureRect" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
-z_index = 1
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("9_yo58a")
-expand_mode = 4
-stretch_mode = 5
-
-[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect8"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-keep_pressed_outside = true
-
-[node name="TextureRect9" type="TextureRect" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer"]
-z_index = 1
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("10_8iqba")
-expand_mode = 4
-stretch_mode = 5
-
-[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect9"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-keep_pressed_outside = true
-
-[node name="Cats" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/TabContainer"]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/TabContainer/Cats"]
-layout_mode = 2
-
-[node name="Room" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/TabContainer"]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/TabContainer/Room"]
-layout_mode = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Terrain" type="StaticBody2D" parent="."]
 z_index = -1
 position = Vector2(720, 1367)
@@ -304,13 +79,16 @@ collision_mask = 32768
 shape = SubResource("RectangleShape2D_4me0f")
 
 [node name="RayCast2D" type="RayCast2D" parent="RayDown"]
-target_position = Vector2(0, 800)
+target_position = Vector2(0, 400)
 
 [node name="FurnitureContainer" type="Node2D" parent="."]
+z_index = -1
 
 [node name="FurnitureQueue" type="Node2D" parent="."]
+z_index = -1
 
 [node name="AltSpawns" type="Node2D" parent="."]
+z_index = -1
 
 [node name="Area2D" type="Area2D" parent="AltSpawns"]
 position = Vector2(289, 576)
@@ -359,6 +137,392 @@ collision_mask = 32768
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AltSpawns/Area2D6"]
 shape = SubResource("CapsuleShape2D_ylb8k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1440.0
+offset_bottom = 2560.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 14.0
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/tab_separation = 15
+current_tab = 0
+
+[node name="Furnitures" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer"]
+layout_mode = 2
+vertical_scroll_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures"]
+custom_minimum_size = Vector2(0, 2400)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer"]
+z_index = 2
+z_as_relative = false
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_clf8y")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+keep_pressed_outside = true
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -58.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_fjtnw")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect2"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+keep_pressed_outside = true
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -58.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_qxnob")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect3"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+keep_pressed_outside = true
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect3"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -58.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 1
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer"]
+z_index = 1
+custom_minimum_size = Vector2(0, 0.02)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_41lm1")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect4"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+keep_pressed_outside = true
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect4"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -58.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 1
+
+[node name="TextureRect5" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_txpam")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect5"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+keep_pressed_outside = true
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect5"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -58.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 1
+
+[node name="TextureRect6" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("7_y0e2r")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect6"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+keep_pressed_outside = true
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect6"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -58.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 1
+
+[node name="TextureRect7" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("8_bubna")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect7"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+keep_pressed_outside = true
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect7"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -58.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 1
+
+[node name="TextureRect8" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("9_yo58a")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect8"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+keep_pressed_outside = true
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect8"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -58.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 1
+
+[node name="TextureRect9" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("10_8iqba")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect9"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+keep_pressed_outside = true
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect9"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -58.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 1
+
+[node name="Cats" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Cats"]
+layout_mode = 2
+
+[node name="Room" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Room"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.93
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="DropDown" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(0, 73.91)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.55
+mouse_filter = 1
+mouse_force_pass_scroll_events = false
+toggle_mode = true
+text = "V"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.29
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
@@ -433,15 +597,16 @@ offset_right = 1238.0
 offset_bottom = 346.0
 toggle_mode = true
 
-[connection signal="button_down" from="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_1.tscn"]]
-[connection signal="button_down" from="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect2/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_2.tscn"]]
-[connection signal="button_down" from="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect3/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_3.tscn"]]
-[connection signal="button_down" from="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect4/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_4.tscn"]]
-[connection signal="button_down" from="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect5/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_5.tscn"]]
-[connection signal="button_down" from="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect6/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_6.tscn"]]
-[connection signal="button_down" from="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect7/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_7.tscn"]]
-[connection signal="button_down" from="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect8/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_8.tscn"]]
-[connection signal="button_down" from="VBoxContainer/HBoxContainer/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect9/Furn" to="." method="_on_furn_button_down" binds= ["res://extra assets/Furnitures/furniture_9.tscn"]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect/Furn" to="." method="_on_furn_button_down" binds= [0]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect2/Furn" to="." method="_on_furn_button_down" binds= [1]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect3/Furn" to="." method="_on_furn_button_down" binds= [2]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect4/Furn" to="." method="_on_furn_button_down" binds= [3]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect5/Furn" to="." method="_on_furn_button_down" binds= [4]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect6/Furn" to="." method="_on_furn_button_down" binds= [5]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect7/Furn" to="." method="_on_furn_button_down" binds= [6]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect8/Furn" to="." method="_on_furn_button_down" binds= [7]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect9/Furn" to="." method="_on_furn_button_down" binds= [8]]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/MarginContainer3/HBoxContainer/DropDown" to="." method="_on_drop_down_toggled"]
 [connection signal="pressed" from="Panel/HBoxContainer/TextureRect3/Cancel" to="." method="_on_cancel_pressed"]
 [connection signal="button_down" from="Panel/HBoxContainer/TextureRect2/Move" to="." method="_on_move_button_down"]
 [connection signal="pressed" from="Panel/HBoxContainer/TextureRect/Confirm" to="." method="_on_confirm_pressed"]

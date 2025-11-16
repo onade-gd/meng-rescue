@@ -21,14 +21,51 @@ extends Node2D
 }
 
 @export var inventory_furniture : Dictionary = {
-	"furn_1" : {
+	0 : {
 		"count" : 0,
 		"image": "res://icon.svg",
-		"furniture_scene" : "res://furniture_test.tscn",
-	},
-	"furn_2" : 0,
-	"furn_3" : 0
-	
+		"furniture_scene" : "res://extra assets/Furnitures/furniture_1.tscn",
+		},
+	1 : {
+		"count" : 0,
+		"image": "res://icon.svg",
+		"furniture_scene" : "res://extra assets/Furnitures/furniture_2.tscn",
+		},
+	2 : {
+		"count" : 3,
+		"image": "res://icon.svg",
+		"furniture_scene" : "res://extra assets/Furnitures/furniture_3.tscn",
+		},
+	3 : {
+		"count" : 0,
+		"image": "res://icon.svg",
+		"furniture_scene" : "res://extra assets/Furnitures/furniture_4.tscn",
+		},
+	4 : {
+		"count" : 0,
+		"image": "res://icon.svg",
+		"furniture_scene" : "res://extra assets/Furnitures/furniture_5.tscn",
+		},
+	5 : {
+		"count" : 0,
+		"image": "res://icon.svg",
+		"furniture_scene" : "res://extra assets/Furnitures/furniture_6.tscn",
+		},
+	6 : {
+		"count" : 0,
+		"image": "res://icon.svg",
+		"furniture_scene" : "res://extra assets/Furnitures/furniture_7.tscn",
+		},
+	7 : {
+		"count" : 0,
+		"image": "res://icon.svg",
+		"furniture_scene" : "res://extra assets/Furnitures/furniture_8.tscn",
+		},
+	8 : {
+		"count" : 0,
+		"image": "res://icon.svg",
+		"furniture_scene" : "res://extra assets/Furnitures/furniture_9.tscn",
+		},
 }
 
 @export var rooms : Array = [    #array because i dont know how to handle new instances of rooms with unique names (or not) in a dictionary
