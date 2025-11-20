@@ -4,9 +4,21 @@ extends Node2D
 @export var money_2 : int = 0
 @export var level_progress : int = 0
 
-@export var booster_magnet : int = 0
-@export var booster_invincible : int = 0
-@export var booster_heart : int = 0
+@export var booster_magnet : Dictionary = {
+	"count" : 0,
+	"image" : "res://assets/boosters/Sedot.png",
+	"value" : 50,
+}
+@export var booster_invincible : Dictionary = {
+	"count" : 0,
+	"image" : "res://assets/boosters/Sedot.png",
+	"value" : 50,
+}
+@export var booster_heart : Dictionary = {
+	"count" : 0,
+	"image" : "res://assets/boosters/Heart to heart.png",
+	"value" : 50,
+}
 
 @export var last_lobby : String
 

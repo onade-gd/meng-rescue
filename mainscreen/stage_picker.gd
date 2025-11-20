@@ -6,7 +6,9 @@ func _ready() -> void:
 	$ScrollContainer2/HBoxContainer/ScrollContainer.scroll_vertical = 2864
 	$VBoxContainer/HBoxContainer/TextureRect/HBoxContainer/Money2.text = str(PlayerprogressSavefile.money_2)
 	$VBoxContainer/HBoxContainer/TextureRect2/HBoxContainer/Money1.text = str(PlayerprogressSavefile.money_1)
-	
+	$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/GridContainer/VBoxContainer/HBoxContainer/TextureRect/Label.text = str(PlayerprogressSavefile.booster_heart["count"])
+	$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/GridContainer/VBoxContainer/HBoxContainer/TextureRect2/Label.text = str(PlayerprogressSavefile.booster_invincible["count"])
+	$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/GridContainer/VBoxContainer/HBoxContainer/TextureRect3/Label.text = str(PlayerprogressSavefile.booster_magnet["count"])
 func _on_button_pressed(extra_arg_0: int) -> void:
 	StageResource.which = extra_arg_0
 	var display_score = PlayerprogressSavefile.stages[StageResource.which]["stars"]
@@ -94,3 +96,22 @@ func _on_sound_fx_value_changed(value: float) -> void:
 
 func _on_bgm_value_changed(value: float) -> void:
 	$VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/ProgressBar.value = value
+
+func _on_heart_toggled(toggled_on: bool) -> void:
+	if PlayerprogressSavefile.booster_heart["count"] > 0:
+		StageResource.health = true
+		print("pressed")
+	else:
+		$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/GridContainer/VBoxContainer/HBoxContainer/TextureRect/Heart.button_pressed = false
+
+func _on_invincible_toggled(toggled_on: bool) -> void:
+	if PlayerprogressSavefile.booster_invincible["count"] > 0:
+		StageResource.invincible = true
+	else:
+		$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/GridContainer/VBoxContainer/HBoxContainer/TextureRect2/Invincible.button_pressed = false
+
+func _on_magnet_toggled(toggled_on: bool) -> void:
+	if PlayerprogressSavefile.booster_magnet["count"] > 0:
+		StageResource.magnet = true
+	else:
+		$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/GridContainer/VBoxContainer/HBoxContainer/TextureRect3/Magnet.button_pressed = false

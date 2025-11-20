@@ -7,3 +7,7 @@ extends Node2D
 	{"path" : "res://stages/stage_1.tscn", "cats" : 4},
 	{"path" : "res://stages/stage_2.tscn", "cats" : 6},
 ]
+
+@export var health : bool = false
+@export var invincible : bool = false
+@export var magnet : bool = false
