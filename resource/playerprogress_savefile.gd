@@ -15,6 +15,7 @@ extends Node2D
 		"count": 0, 
 		"image": "res://icon.svg",
 		"cat_1_scene" : "res://PLACEHOLDER PLEASE REPLACE",
+
 	},
 	"cat_2" : 0,
 	"cat_3" : 0
@@ -22,49 +23,58 @@ extends Node2D
 
 @export var inventory_furniture : Dictionary = {
 	0 : {
-		"count" : 0,
-		"image": "res://icon.svg",
+		"count" : 2,
+		"image": "res://assets/kasur/awan.png",
 		"furniture_scene" : "res://extra assets/Furnitures/furniture_1.tscn",
+		"value" :50
 		},
 	1 : {
-		"count" : 0,
-		"image": "res://icon.svg",
+		"count" : 5,
+		"image": "res://assets/kasur/bunga.png",
 		"furniture_scene" : "res://extra assets/Furnitures/furniture_2.tscn",
+		"value" :50
 		},
 	2 : {
 		"count" : 3,
-		"image": "res://icon.svg",
+		"image": "res://assets/kasur/kodok.png",
 		"furniture_scene" : "res://extra assets/Furnitures/furniture_3.tscn",
+		"value" :50
 		},
 	3 : {
-		"count" : 0,
-		"image": "res://icon.svg",
+		"count" : 1,
+		"image": "res://assets/kasur/ori 2.png",
 		"furniture_scene" : "res://extra assets/Furnitures/furniture_4.tscn",
+		"value" :50
 		},
 	4 : {
 		"count" : 0,
-		"image": "res://icon.svg",
+		"image": "res://assets/kasur/ori 3.png",
 		"furniture_scene" : "res://extra assets/Furnitures/furniture_5.tscn",
+		"value" :50
 		},
 	5 : {
 		"count" : 0,
-		"image": "res://icon.svg",
+		"image": "res://assets/kasur/ori.png",
 		"furniture_scene" : "res://extra assets/Furnitures/furniture_6.tscn",
+		"value" :50
 		},
 	6 : {
 		"count" : 0,
-		"image": "res://icon.svg",
+		"image": "res://assets/kasur/pisang.png",
 		"furniture_scene" : "res://extra assets/Furnitures/furniture_7.tscn",
+		"value" :50
 		},
 	7 : {
 		"count" : 0,
-		"image": "res://icon.svg",
+		"image": "res://assets/kasur/rumah.png",
 		"furniture_scene" : "res://extra assets/Furnitures/furniture_8.tscn",
+		"value" :50
 		},
 	8 : {
 		"count" : 0,
-		"image": "res://icon.svg",
+		"image": "res://assets/kasur/sofa.png",
 		"furniture_scene" : "res://extra assets/Furnitures/furniture_9.tscn",
+		"value" :50
 		},
 }
 
@@ -109,6 +119,7 @@ func save_data():
 	file.store_var(rooms)
 	file.store_var(money_1)
 	file.store_var(money_2)
+	file.store_var(inventory_furniture)
 	
 func load_data():
 	if FileAccess.file_exists("user://file1.save"):
@@ -117,6 +128,7 @@ func load_data():
 		rooms = file.get_var()
 		money_1 = file.get_var()
 		money_2 = file.get_var()
+		inventory_furniture = file.get_var()
 	else:
 		print("no save here")
 # array format -> cats = [<cat type>, <location>]   |     furniture in inventory = [<furniture>, <amount>]
