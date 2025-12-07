@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pow3qwb2cphs"
-path="res://.godot/imported/Level bonus.png-f2e06c0bd7712bc080bb25bc5660b4ca.ctex"
+uid="uid://cpv4gbd51qns3"
+path="res://.godot/imported/Tak berjudul129_20251123144108.png-3262c85eed65c019c54ba37b901e4d1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Level bonus.png"
-dest_files=["res://.godot/imported/Level bonus.png-f2e06c0bd7712bc080bb25bc5660b4ca.ctex"]
+source_file="res://assets/Button/Tak berjudul129_20251123144108.png"
+dest_files=["res://.godot/imported/Tak berjudul129_20251123144108.png-3262c85eed65c019c54ba37b901e4d1f.ctex"]
 
 [params]
 

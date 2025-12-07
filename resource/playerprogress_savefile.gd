@@ -22,15 +22,43 @@ extends Node2D
 
 @export var last_lobby : String
 
-@export var inventory_cats : Dictionary = {  #needs work
-	"cat_1" : {
+@export var inventory_cats : Dictionary = {
+	0 : {
 		"count": 0, 
 		"image": "res://icon.svg",
-		"cat_1_scene" : "res://PLACEHOLDER PLEASE REPLACE",
-
+		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
 	},
-	"cat_2" : 0,
-	"cat_3" : 0
+	1 : {
+		"count": 0, 
+		"image": "res://icon.svg",
+		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+	},
+	2 : {
+		"count": 0, 
+		"image": "res://icon.svg",
+		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+	},
+	3 : {
+		"count": 0, 
+		"image": "res://icon.svg",
+		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+	},
+	4 : {
+		"count": 0, 
+		"image": "res://icon.svg",
+		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+	},
+	5 : {
+		"count": 0, 
+		"image": "res://icon.svg",
+		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+	},
+	6 : {
+		"count": 0, 
+		"image": "res://icon.svg",
+		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+	},
+
 }
 
 @export var inventory_furniture : Dictionary = {
@@ -90,11 +118,50 @@ extends Node2D
 		},
 }
 
-@export var rooms : Array = [    #array because i dont know how to handle new instances of rooms with unique names (or not) in a dictionary
-	[
-		
-	]                                 #/
-]
+@export var rooms : Array = [
+	[[],
+	
+	[ {
+	0 : {
+		"count": 0, 
+		"image": "res://icon.svg",
+		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+	},
+	1 : {
+		"count": 0, 
+		"image": "res://icon.svg",
+		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+	},
+	2 : {
+		"count": 2, 
+		"image": "res://icon.svg",
+		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+	},
+	3 : {
+		"count": 3, 
+		"image": "res://icon.svg",
+		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+	},
+	4 : {
+		"count": 0, 
+		"image": "res://icon.svg",
+		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+	},
+	5 : {
+		"count": 0, 
+		"image": "res://icon.svg",
+		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+	},
+	6 : {
+		"count": 0, 
+		"image": "res://icon.svg",
+		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+	},
+
+}]]
+]  #array because i dont know how to handle new instances of rooms with unique names (or not) in a dictionary
+
+
 
 @export var stages : Dictionary = {
 	0 : {"stars": 0.0},

@@ -3,7 +3,7 @@ var page
 
 func _ready() -> void:
 	var _menu_option = $VBoxContainer/HBoxContainer/Menu.get_popup().id_pressed.connect(_on_menu_id_pressed)
-	$ScrollContainer2/HBoxContainer/ScrollContainer.scroll_vertical = 2864
+	$ScrollContainer2/HBoxContainer/ScrollContainer.scroll_vertical = 15000
 	$VBoxContainer/HBoxContainer/TextureRect/HBoxContainer/Money2.text = str(PlayerprogressSavefile.money_2)
 	$VBoxContainer/HBoxContainer/TextureRect2/HBoxContainer/Money1.text = str(PlayerprogressSavefile.money_1)
 	$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/GridContainer/VBoxContainer/HBoxContainer/TextureRect/Label.text = str(PlayerprogressSavefile.booster_heart["count"])

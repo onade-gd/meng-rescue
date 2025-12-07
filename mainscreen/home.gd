@@ -3,13 +3,18 @@ var page
 var room = preload("res://mainscreen/room.tscn")
 
 func _ready() -> void:
-	for step1_rand_furn in PlayerprogressSavefile.rooms[0]:
-		# save format : [[[{ "furniture": "res://extra assets/Furnitures/furniture_3.tscn", "pos": (288.0, 1308.0), "cat_spawn": [0] }]],[]]
-		for step2_rand_spot in step1_rand_furn[0]["cat_spawn"]:
-			step1_rand_furn[0]["cat_spawn"] = [0]
+
 	var _menu_option = $VBoxContainer/HBoxContainer2/Menu.get_popup().id_pressed.connect(_on_menu_id_pressed)
+	for i in PlayerprogressSavefile.rooms:
+		$ScrollContainer/HBoxContainer/Button.add_sibling(Control.new())
+		$ScrollContainer/HBoxContainer.get_child(-1).set_custom_minimum_size(Vector2(1440,2560))
+		$ScrollContainer/HBoxContainer.move_child($ScrollContainer/HBoxContainer.get_child(-1), -2)
+		$ScrollContainer/HBoxContainer.get_child(-2).add_child(room.instantiate())
+		$ScrollContainer/HBoxContainer.get_child(-2).get_child(0).set_mouse_filter(1)
+		$ScrollContainer/HBoxContainer.get_child(-2).set_mouse_filter(1)
 	$VBoxContainer/HBoxContainer2/TextureRect/HBoxContainer/Money2.text = str(PlayerprogressSavefile.money_2)
 	$VBoxContainer/HBoxContainer2/TextureRect2/HBoxContainer/Money1.text = str(PlayerprogressSavefile.money_1)
+
 func _on_menu_id_pressed(id: int):
 	match id:
 		0: 
@@ -21,7 +26,6 @@ func _on_menu_id_pressed(id: int):
 			
 func _on_map_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://mainscreen/StagePicker.tscn")
-
 
 func _on_shop_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://mainscreen/shop.tscn")
@@ -46,13 +50,53 @@ func _input(_event: InputEvent) -> void:
 			#if $ScrollContainer.scroll_horizontal <= 1444-120:
 				#tween.tween_property($ScrollContainer, "scroll_horizontal", 0 ,0.1)
 			#else: tween.tween_property($ScrollContainer, "scroll_horizontal", 1444 ,0.1)
-
 func _on_button_pressed() -> void:
-	$ScrollContainer/HBoxContainer.get_child(-2).add_sibling(room.instantiate())
-	var current_scene = get_tree().current_scene
-	var packed_scene = PackedScene.new()
-	packed_scene.pack(current_scene)
-	ResourceSaver.save(packed_scene, "res://Home.tscn")
+	$ScrollContainer/HBoxContainer.get_child(-2).add_sibling(Control.new())
+	$ScrollContainer/HBoxContainer.get_child(-2).set_custom_minimum_size(Vector2(1440,2560))
+	$ScrollContainer/HBoxContainer.get_child(-2).set_mouse_filter(1)
+	PlayerprogressSavefile.rooms.append([[],
+	
+	[ {
+	0 : {
+		"count": 0, 
+		"image": "res://icon.svg",
+		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+	},
+	1 : {
+		"count": 0, 
+		"image": "res://icon.svg",
+		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+	},
+	2 : {
+		"count": 0, 
+		"image": "res://icon.svg",
+		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+	},
+	3 : {
+		"count": 0, 
+		"image": "res://icon.svg",
+		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+	},
+	4 : {
+		"count": 0, 
+		"image": "res://icon.svg",
+		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+	},
+	5 : {
+		"count": 0, 
+		"image": "res://icon.svg",
+		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+	},
+	6 : {
+		"count": 0, 
+		"image": "res://icon.svg",
+		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+	},
+
+}]])
+	PlayerprogressSavefile.save_data()
+	$ScrollContainer/HBoxContainer.get_child(-2).add_child(room.instantiate())
+	$ScrollContainer/HBoxContainer.get_child(-2).get_child(0).set_mouse_filter(1)
 	
 func _on_close_pressed(which) -> void:
 	match which:

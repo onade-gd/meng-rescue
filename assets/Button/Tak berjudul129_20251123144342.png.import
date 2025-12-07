@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w0aea22bwxvl"
-path="res://.godot/imported/catsheet.png-1934cdf372aac7983812c559201f69bb.ctex"
+uid="uid://bpce270rx0cab"
+path="res://.godot/imported/Tak berjudul129_20251123144342.png-ad25ddf7fa98788ac121a46702bc99c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/catsheet.png"
-dest_files=["res://.godot/imported/catsheet.png-1934cdf372aac7983812c559201f69bb.ctex"]
+source_file="res://assets/Button/Tak berjudul129_20251123144342.png"
+dest_files=["res://.godot/imported/Tak berjudul129_20251123144342.png-ad25ddf7fa98788ac121a46702bc99c3.ctex"]
 
 [params]
 

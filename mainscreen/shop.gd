@@ -55,6 +55,19 @@ func _on_buy_pressed() -> void:
 					else :
 						PlayerprogressSavefile.booster_magnet["count"] += 1
 						PlayerprogressSavefile.money_1 -= PlayerprogressSavefile.booster_magnet["value"]
+		"gacha":
+			var rewards : Array = [
+				"money",
+				"cat",
+				"cat",
+				"cat",
+				"cat",
+				"cat",
+				"cat",
+				"cat",
+				"cat",
+				"booster"
+			]
 
 func _on_boost_pressed(extra_arg_0: int) -> void:
 	furn_or_boost = "booster"

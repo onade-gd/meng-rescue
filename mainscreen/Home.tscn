@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://jxkqltfollis" path="res://mainscreen/home.gd" id="1_jmugw"]
 [ext_resource type="Texture2D" uid="uid://cgb2yv5qqi5bv" path="res://assets/bar/Artboard 29.png" id="3_kvmes"]
-[ext_resource type="PackedScene" uid="uid://bhh061rlaupd0" path="res://mainscreen/room.tscn" id="3_maaha"]
 [ext_resource type="Texture2D" uid="uid://cwrtvibr26ykv" path="res://assets/bar/map.png" id="4_ep4d0"]
 [ext_resource type="Texture2D" uid="uid://cb20s0a3veyu4" path="res://assets/bar/op bar.png" id="4_fn3n7"]
 [ext_resource type="Texture2D" uid="uid://8erbdjt15kka" path="res://assets/bar/daily.png" id="4_syedr"]
@@ -13,6 +12,7 @@
 [ext_resource type="Theme" uid="uid://cy7jg2s223n6u" path="res://resource/panel.tres" id="6_hkdhm"]
 [ext_resource type="Texture2D" uid="uid://byctjbib4xkrm" path="res://assets/bar/Q bar.png" id="6_od1at"]
 [ext_resource type="Texture2D" uid="uid://bldakocspb8ml" path="res://assets/bar/x bar.png" id="7_75df2"]
+[ext_resource type="Script" uid="uid://ca2wwbwk56ydi" path="res://mainscreen/test_get_owner.gd" id="8_75df2"]
 [ext_resource type="Texture2D" uid="uid://7q2yh6cm05s0" path="res://assets/bar/vlm bar .png" id="11_75df2"]
 [ext_resource type="Texture2D" uid="uid://dr66n34a5vp1t" path="res://assets/bar/music bar.png" id="12_3yp1s"]
 
@@ -48,11 +48,6 @@ vertical_scroll_mode = 0
 custom_minimum_size = Vector2(1440, 2560)
 layout_mode = 2
 theme_override_constants/separation = 0
-
-[node name="Room" parent="ScrollContainer/HBoxContainer" instance=ExtResource("3_maaha")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
 
 [node name="Button" type="Button" parent="ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(1440, 1440)
@@ -139,6 +134,7 @@ grow_vertical = 2
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2/TextureRect/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("8_75df2")
 
 [node name="Money2" type="Label" parent="VBoxContainer/HBoxContainer2/TextureRect/HBoxContainer"]
 layout_mode = 2
@@ -351,7 +347,6 @@ texture_normal = ExtResource("6_786yl")
 stretch_mode = 3
 
 [connection signal="pressed" from="ScrollContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/Close" to="." method="_on_close_pressed" binds= ["settings"]]
 [connection signal="value_changed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/SoundFX" to="." method="_on_sound_fx_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/BGM" to="." method="_on_bgm_value_changed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MapButton" to="." method="_on_map_button_pressed"]

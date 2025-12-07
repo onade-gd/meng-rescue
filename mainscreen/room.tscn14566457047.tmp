@@ -1,10 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://bhh061rlaupd0"]
+[gd_scene load_steps=19 format=3 uid="uid://bhh061rlaupd0"]
 
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_88gup"]
 [ext_resource type="Script" uid="uid://dmsbln6tnded6" path="res://mainscreen/room.gd" id="1_bisa2"]
 [ext_resource type="Texture2D" uid="uid://b0f8bhcklugxb" path="res://assets/kasur/awan.png" id="2_clf8y"]
 [ext_resource type="Texture2D" uid="uid://bti2uceerb483" path="res://assets/kasur/bunga.png" id="3_fjtnw"]
-[ext_resource type="Script" uid="uid://ca2wwbwk56ydi" path="res://mainscreen/test_get_owner.gd" id="3_qxnob"]
 [ext_resource type="Texture2D" uid="uid://wegcsihg41c4" path="res://assets/bar/CENTANG.png" id="4_4me0f"]
 [ext_resource type="Texture2D" uid="uid://bhfywyvnb44hb" path="res://assets/kasur/kodok.png" id="4_qxnob"]
 [ext_resource type="Texture2D" uid="uid://djepukgf0fkg1" path="res://assets/kasur/ori 2.png" id="5_41lm1"]
@@ -171,9 +170,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 0
 theme_override_constants/tab_separation = 15
-current_tab = 0
+current_tab = 1
 
 [node name="Furnitures" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer"]
+visible = false
 layout_mode = 2
 vertical_scroll_mode = 2
 metadata/_tab_index = 0
@@ -187,7 +187,6 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 columns = 3
-script = ExtResource("3_qxnob")
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer"]
 z_index = 2
@@ -480,48 +479,11 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="Cats" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Cats"]
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Cats/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-columns = 3
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Cats/VBoxContainer/GridContainer"]
-z_index = 2
-z_as_relative = false
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("2_clf8y")
-expand_mode = 4
-stretch_mode = 5
-
-[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Cats/VBoxContainer/GridContainer/TextureRect"]
-z_index = -1
-custom_minimum_size = Vector2(186.04, 0)
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 8.0
-grow_vertical = 2
-
-[node name="Furn2" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Cats/VBoxContainer/GridContainer/TextureRect"]
-z_index = -1
-custom_minimum_size = Vector2(186.04, 0)
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -8.0
-grow_horizontal = 0
-grow_vertical = 2
 
 [node name="Room" type="MarginContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer"]
 visible = false
@@ -689,31 +651,6 @@ offset_top = 275.0
 offset_right = 1238.0
 offset_bottom = 346.0
 toggle_mode = true
-
-[node name="PresetToCopyCuzImLazy" type="Control" parent="."]
-anchors_preset = 0
-offset_left = -86.0
-offset_top = -120.0
-offset_right = -46.0
-offset_bottom = -80.0
-
-[node name="TextureRect" type="TextureRect" parent="PresetToCopyCuzImLazy"]
-z_index = 2
-z_as_relative = false
-layout_mode = 0
-size_flags_horizontal = 3
-texture = ExtResource("2_clf8y")
-expand_mode = 4
-stretch_mode = 5
-
-[node name="Furn" type="Button" parent="PresetToCopyCuzImLazy/TextureRect"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect/Furn" to="." method="_on_furn_button_down" binds= [0]]
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect2/Furn" to="." method="_on_furn_button_down" binds= [1]]

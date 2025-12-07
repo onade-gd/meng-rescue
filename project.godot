@@ -29,6 +29,10 @@ window/size/mode=1
 window/stretch/mode="canvas_items"
 window/handheld/orientation=1
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ReorderableContainer/plugin.cfg")
+
 [gui]
 
 theme/custom="uid://cy7jg2s223n6u"
