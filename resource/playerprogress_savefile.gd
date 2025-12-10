@@ -1,8 +1,14 @@
 extends Node2D
 
-@export var money_1 : int = 0
-@export var money_2 : int = 0
+
+@export var money_1 : int = 10000
+@export var money_2 : int = 300
 @export var level_progress : int = 0
+
+@export var first_times : Dictionary = {
+	"first_login": true,
+	"first_tutorial": true
+}
 
 @export var booster_magnet : Dictionary = {
 	"count" : 0,
@@ -116,8 +122,14 @@ extends Node2D
 		"furniture_scene" : "res://extra assets/Furnitures/furniture_9.tscn",
 		"value" :50
 		},
+	9 : {
+		"count" : 0,
+		"image": "res://assets/furniture tall/bunga.png",
+		"furniture_scene" : "res://extra assets/Furnitures/furniture_10.tscn",
+		"value" : 150
+	}
 }
-
+#array because i dont know how to handle new instances of rooms with unique names (or not) in a dictionary
 @export var rooms : Array = [
 	[[],
 	
@@ -159,37 +171,35 @@ extends Node2D
 	},
 
 }]]
-]  #array because i dont know how to handle new instances of rooms with unique names (or not) in a dictionary
-
-
+]  
 
 @export var stages : Dictionary = {
-	0 : {"stars": 0.0},
-	1 : {"stars": 0.0},
-	2 : {"stars": 0.0},
-	3 : {"stars": 0.0},
-	4 : {"stars": 0.0},
-	5 : {"stars": 0.0},
-	6 : {"stars": 0.0},
-	7 : {"stars": 0.0},
-	8 : {"stars": 0.0},
-	9 : {"stars": 0.0},
-	10 : {"stars": 0.0},
-	11 : {"stars": 0.0},
-	12 : {"stars": 0.0},
-	13 : {"stars": 0.0},
-	14 : {"stars": 0.0},
-	15 : {"stars": 0.0},
-	16 : {"stars": 0.0},
-	17 : {"stars": 0.0},
-	18 : {"stars": 0.0},
-	19 : {"stars": 0.0},
-	20 : {"stars": 0.0},
-	21 : {"stars": 0.0},
-	22 : {"stars": 0.0},
-	23 : {"stars": 0.0},
-	24 : {"stars": 0.0},
-	25 : {"stars": 0.0}
+	0 : {"stars": 0.0 , "first_clear": false},
+	1 : {"stars": 0.0 , "first_clear": false},
+	2 : {"stars": 0.0 , "first_clear": false},
+	3 : {"stars": 0.0 , "first_clear": false},
+	4 : {"stars": 0.0 , "first_clear": false},
+	5 : {"stars": 0.0 , "first_clear": false},
+	6 : {"stars": 0.0 , "first_clear": false},
+	7 : {"stars": 0.0 , "first_clear": false},
+	8 : {"stars": 0.0 , "first_clear": false},
+	9 : {"stars": 0.0 , "first_clear": false},
+	10 : {"stars": 0.0 , "first_clear": false},
+	11 : {"stars": 0.0 , "first_clear": false},
+	12 : {"stars": 0.0 , "first_clear": false},
+	13 : {"stars": 0.0 , "first_clear": false},
+	14 : {"stars": 0.0 , "first_clear": false},
+	15 : {"stars": 0.0 , "first_clear": false},
+	16 : {"stars": 0.0 , "first_clear": false},
+	17 : {"stars": 0.0 , "first_clear": false},
+	18 : {"stars": 0.0 , "first_clear": false},
+	19 : {"stars": 0.0 , "first_clear": false},
+	20 : {"stars": 0.0 , "first_clear": false},
+	21 : {"stars": 0.0 , "first_clear": false},
+	22 : {"stars": 0.0 , "first_clear": false},
+	23 : {"stars": 0.0 , "first_clear": false},
+	24 : {"stars": 0.0 , "first_clear": false},
+	25 : {"stars": 0.0 , "first_clear": false}
 }
 
 func save_data():
@@ -199,7 +209,12 @@ func save_data():
 	file.store_var(money_1)
 	file.store_var(money_2)
 	file.store_var(inventory_furniture)
-	
+	file.store_var(inventory_cats)
+	file.store_var(booster_magnet)
+	file.store_var(booster_invincible)
+	file.store_var(booster_heart)
+	file.store_var(first_times)
+
 func load_data():
 	if FileAccess.file_exists("user://file1.save"):
 		var file = FileAccess.open("user://file1.save", FileAccess.READ)
@@ -208,6 +223,12 @@ func load_data():
 		money_1 = file.get_var()
 		money_2 = file.get_var()
 		inventory_furniture = file.get_var()
+		inventory_cats = file.get_var()
+		booster_magnet = file.get_var()
+		booster_invincible = file.get_var()
+		booster_heart = file.get_var()
+		first_times = file.get_var()
+
 	else:
 		print("no save here")
 # array format -> cats = [<cat type>, <location>]   |     furniture in inventory = [<furniture>, <amount>]

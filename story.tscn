@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6lu31226fdja"]
+
+[ext_resource type="Script" uid="uid://bdw1h80q4ctr2" path="res://story.gd" id="1_27gb3"]
+[ext_resource type="Texture2D" uid="uid://ch731ssqubvik" path="res://assets/story/Story 1.png" id="1_76aiv"]
+
+[node name="Story" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_27gb3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -320.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_76aiv")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

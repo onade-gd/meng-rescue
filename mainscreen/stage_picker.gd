@@ -2,6 +2,14 @@ extends Control
 var page
 
 func _ready() -> void:
+	var read : int = 0
+	for i in $ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control.get_children():
+		if PlayerprogressSavefile.stages[read]["first_clear"] == true:
+			$ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control.get_child(read+1).get_child(2).disabled = false
+			$ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control.get_child(read+1).modulate = Color.WHITE
+			read += 1
+		else: break
+		
 	var _menu_option = $VBoxContainer/HBoxContainer/Menu.get_popup().id_pressed.connect(_on_menu_id_pressed)
 	$ScrollContainer2/HBoxContainer/ScrollContainer.scroll_vertical = 15000
 	$VBoxContainer/HBoxContainer/TextureRect/HBoxContainer/Money2.text = str(PlayerprogressSavefile.money_2)

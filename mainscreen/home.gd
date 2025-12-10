@@ -3,7 +3,6 @@ var page
 var room = preload("res://mainscreen/room.tscn")
 
 func _ready() -> void:
-
 	var _menu_option = $VBoxContainer/HBoxContainer2/Menu.get_popup().id_pressed.connect(_on_menu_id_pressed)
 	for i in PlayerprogressSavefile.rooms:
 		$ScrollContainer/HBoxContainer/Button.add_sibling(Control.new())

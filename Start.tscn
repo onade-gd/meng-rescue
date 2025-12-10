@@ -16,8 +16,9 @@ script = ExtResource("1_upmy7")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_top = -270.0
+offset_right = 1440.0
+offset_bottom = 2930.0
 texture = ExtResource("1_r305v")
 stretch_mode = 2
 
@@ -43,9 +44,9 @@ stretch_mode = 3
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 129.0
-offset_top = 134.0
+offset_top = 203.0
 offset_right = 1283.0
-offset_bottom = 790.0
+offset_bottom = 859.0
 texture = ExtResource("4_gx2gx")
 
 [connection signal="pressed" from="VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]

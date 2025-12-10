@@ -42,6 +42,8 @@ func _on_main_char_finishline(endcondition) -> void:
 	else:
 		if PlayerprogressSavefile.stages[StageResource.which]["stars"] < final_score:
 			PlayerprogressSavefile.stages[StageResource.which]["stars"] = final_score
+			PlayerprogressSavefile.stages[StageResource.which]["first_clear"] = true
+			PlayerprogressSavefile.save_data()
 	match final_score :
 		0.0: 
 			$CanvasLayer/winlosescreen/Win.visible = false

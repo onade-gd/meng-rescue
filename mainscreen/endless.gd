@@ -43,3 +43,8 @@ func _on_main_char_scoresignal(value) -> void:
 	$CanvasLayer/UI/VBoxContainer/MarginContainer/Score.text = str("score:", score)
 	if score >= $StageParent/stage.get_meta("catsneeded"):
 		$MoveForward/MainChar.winlose = 1
+
+
+func _on_main_char_finishline(endcondition) -> void:
+	PlayerprogressSavefile.save_data()
+	get_tree().change_scene_to_file("res://mainscreen/StagePicker.tscn")

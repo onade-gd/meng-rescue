@@ -71,12 +71,13 @@ func _ready() -> void:
 	var cats_grid = $VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Cats/VBoxContainer/GridContainer
 	for i in PlayerprogressSavefile.inventory_cats:
 		cats_grid.add_child($PresetToCopyCuzImLazy/TextureRect.duplicate())
-		cats_grid.get_child(-1).texture = load(PlayerprogressSavefile.inventory_furniture[i]["image"])
+		cats_grid.get_child(-1).texture = load(PlayerprogressSavefile.inventory_cats[i]["image"])
 		cats_grid.get_child(-1).get_child(0).pressed.connect(add_cat.bind(i))
 	set_physics_process(false)
 	
 func add_cat(id):
-	pass
+	PlayerprogressSavefile.rooms[current_room][1][id]["count"] += 1
+	PlayerprogressSavefile.inventory_cats[id]["count"] -= 1
 	
 func _physics_process(_delta: float) -> void:
 	if $FurnitureQueue.get_child(0).get_child(0).get_overlapping_areas() == []:
@@ -157,12 +158,11 @@ func _button_down_furniture(source):
 	furniture_name = source
 
 func _on_confirm_pressed() -> void:
-
 	if PlayerprogressSavefile.inventory_furniture[furniture_index]["count"] <= 0:
 		confirmable = false
-	elif PlayerprogressSavefile.inventory_furniture[furniture_index]["count"] > 0:
+	elif PlayerprogressSavefile.inventory_furniture[furniture_index]["count"] > 0 and confirmable == true:
 		confirmable = true
-	if confirmable:
+	if confirmable == true:
 		if tween:
 			tween.kill
 		tween = create_tween()

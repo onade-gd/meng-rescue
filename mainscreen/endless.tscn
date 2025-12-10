@@ -61,6 +61,7 @@ offset_bottom = 8.0
 scale = Vector2(11.142898, 13.399999)
 
 [connection signal="direction" from="MoveForward/MainChar" to="MoveForward/MainCharController" method="_on_main_char_direction"]
+[connection signal="finishline" from="MoveForward/MainChar" to="." method="_on_main_char_finishline"]
 [connection signal="finishline" from="MoveForward/MainChar" to="MoveForward" method="_on_main_char_finishline"]
 [connection signal="hp" from="MoveForward/MainChar" to="." method="_on_main_char_hp"]
 [connection signal="scoresignal" from="MoveForward/MainChar" to="." method="_on_main_char_scoresignal"]
