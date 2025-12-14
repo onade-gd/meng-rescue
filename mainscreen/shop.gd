@@ -29,6 +29,15 @@ func _on_cancel_pressed() -> void:
 
 func _on_buy_pressed() -> void:
 	match furn_or_boost_or_gacha:
+		"convert":
+			if PlayerprogressSavefile.money_1 < 100:
+				pass
+			else:
+				PlayerprogressSavefile.money_1 -= 100
+				PlayerprogressSavefile.money_2 += 10
+				PlayerprogressSavefile.save_data()
+				$VBoxContainer/MarginContainer/HBoxContainer2/TextureRect2/HBoxContainer/Money1.text = str(PlayerprogressSavefile.money_1)
+				$VBoxContainer/MarginContainer/HBoxContainer2/TextureRect/HBoxContainer/Money2.text = str(PlayerprogressSavefile.money_2)
 		"furniture":
 			if PlayerprogressSavefile.money_1 < PlayerprogressSavefile.inventory_furniture[to_buy]["value"]:
 				pass
@@ -131,3 +140,10 @@ func _on_gacha_pressed() -> void:
 
 func _on_bought_pressed() -> void:
 	$Bought.visible = false
+
+
+func _convert() -> void:
+	$ConfirmBuy.visible = true
+	$ConfirmBuy/Panel2/Display.texture = preload("res://assets/bar/kaleng.png")
+	$ConfirmBuy/Panel2/Cost.text = str(100)
+	furn_or_boost_or_gacha = "convert"

@@ -24,4 +24,4 @@ tile_set = ExtResource("3_th1xc")
 
 [node name="background" type="TileMapLayer" parent="."]
 
-[connection signal="body_entered" from="jumpables/@Area2D@40979" to="jumpables/@Area2D@40979" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/Cat" to="jumpables/Cat" method="_on_body_entered"]

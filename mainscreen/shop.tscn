@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://mugkt143g3np"]
+[gd_scene load_steps=25 format=3 uid="uid://mugkt143g3np"]
 
 [ext_resource type="Script" uid="uid://dwcc2wem003um" path="res://mainscreen/shop.gd" id="1_e7rdd"]
 [ext_resource type="Texture2D" uid="uid://bldakocspb8ml" path="res://assets/bar/x bar.png" id="2_cjguc"]
 [ext_resource type="Texture2D" uid="uid://4vd76hiynet8" path="res://assets/bar/kaleng bar .png" id="3_il3jw"]
 [ext_resource type="Theme" uid="uid://cy7jg2s223n6u" path="res://resource/panel.tres" id="4_4617y"]
 [ext_resource type="Texture2D" uid="uid://c1j3nas8y5frk" path="res://assets/bar/fish bar.png" id="5_0c1vc"]
+[ext_resource type="FontFile" uid="uid://b1l66bm4r85jp" path="res://assets/mabook font/Mabook.otf" id="6_v31yg"]
 [ext_resource type="Texture2D" uid="uid://cos6p10jniebs" path="res://assets/boosters/Heart to heart.png" id="6_wu31g"]
 [ext_resource type="Texture2D" uid="uid://b0f8bhcklugxb" path="res://assets/kasur/awan.png" id="7_co4k3"]
 [ext_resource type="Texture2D" uid="uid://bj27x50ostfjp" path="res://assets/boosters/Inpisibel.png" id="7_hwuhu"]
@@ -52,6 +53,30 @@ corner_radius_bottom_left = 40
 [sub_resource type="Theme" id="Theme_v31yg"]
 Button/styles/normal = SubResource("StyleBoxFlat_hwuhu")
 Button/styles/pressed = SubResource("StyleBoxFlat_v31yg")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yy0qm"]
+content_margin_left = 68.0
+
+[sub_resource type="Theme" id="Theme_co4k3"]
+RichTextLabel/colors/default_color = Color(1, 0.7882353, 0.48235294, 1)
+RichTextLabel/font_sizes/normal_font_size = 100
+RichTextLabel/fonts/normal_font = ExtResource("6_v31yg")
+RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_yy0qm")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yy0qm"]
+bg_color = Color(0.48235294, 0.2509804, 0.09803922, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="Theme" id="Theme_sv7f7"]
+Button/styles/normal = SubResource("StyleBoxFlat_yy0qm")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_il3jw"]
 bg_color = Color(0, 0, 0, 0.654902)
@@ -226,6 +251,34 @@ theme = ExtResource("4_4617y")
 custom_minimum_size = Vector2(0, 11.925)
 layout_mode = 2
 
+[node name="Panel3" type="TabContainer" parent="VBoxContainer/MarginContainer2/HBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 450)
+layout_mode = 2
+theme_type_variation = &"ShopTabContainer"
+theme_override_constants/side_margin = 25
+current_tab = 0
+
+[node name="Convert" type="MarginContainer" parent="VBoxContainer/MarginContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Panel3"]
+layout_mode = 2
+theme = SubResource("Theme_v31yg")
+metadata/_tab_index = 0
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Panel3/Convert"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Panel3/Convert"]
+layout_mode = 2
+mouse_filter = 2
+theme = SubResource("Theme_co4k3")
+bbcode_enabled = true
+text = "100 [img]res://assets/fish.png[/img]   into   10 [img]res://assets/bar/kaleng.png"
+vertical_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/MarginContainer2/HBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 45.47)
+layout_mode = 2
+mouse_filter = 1
+
 [node name="Panel" type="TabContainer" parent="VBoxContainer/MarginContainer2/HBoxContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 450)
 layout_mode = 2
@@ -380,6 +433,7 @@ metadata/_tab_index = 0
 
 [node name="Furnitures" type="GridContainer" parent="VBoxContainer/MarginContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Panel2/Furnitures"]
 layout_mode = 2
+theme = SubResource("Theme_sv7f7")
 columns = 3
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer2/HBoxContainer"]
@@ -441,6 +495,7 @@ offset_bottom = 873.0
 texture = ExtResource("2_cjguc")
 
 [node name="Cancel" type="Button" parent="ConfirmBuy/Panel2/TextureRect"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -458,6 +513,7 @@ offset_bottom = 871.0
 texture = ExtResource("8_4617y")
 
 [node name="Buy" type="Button" parent="ConfirmBuy/Panel2/TextureRect2"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -538,6 +594,7 @@ theme_override_font_sizes/font_size = 170
 text = "YOU GOT!"
 
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer2/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Panel3/Convert/Button" to="." method="_convert"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Panel/Boosters/GridContainer/TextureRect/Boost" to="." method="_on_boost_pressed" binds= [0]]
 [connection signal="pressed" from="VBoxContainer/MarginContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Panel/Boosters/GridContainer/TextureRect2/Boost" to="." method="_on_boost_pressed" binds= [1]]
 [connection signal="pressed" from="VBoxContainer/MarginContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Panel/Boosters/GridContainer/TextureRect3/Boost" to="." method="_on_boost_pressed" binds= [2]]

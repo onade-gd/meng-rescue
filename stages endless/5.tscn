@@ -9,6 +9,7 @@ metadata/next = [0, 1, 5, 8]
 
 [node name="jumpables" type="TileMapLayer" parent="."]
 y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD+//7/AgAAAAAABAD+//r/AgAAAAAABAD+//b/AgAAAAAABAA=")
 tile_set = ExtResource("1_471wn")
 
 [node name="walls" type="TileMapLayer" parent="."]
@@ -22,3 +23,7 @@ y_sort_enabled = true
 tile_set = ExtResource("3_1e0fh")
 
 [node name="background" type="TileMapLayer" parent="."]
+
+[connection signal="body_entered" from="jumpables/fish" to="jumpables/fish" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@177684" to="jumpables/@Area2D@177684" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@177685" to="jumpables/@Area2D@177685" method="_on_body_entered"]
