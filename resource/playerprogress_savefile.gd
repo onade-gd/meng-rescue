@@ -31,40 +31,45 @@ extends Node2D
 @export var inventory_cats : Dictionary = {
 	0 : {
 		"count": 0, 
-		"image": "res://icon.svg",
-		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+		"image": "res://assets/Kepala/Tak berjudul324_20251212163405.png",
+		"cat_scene" : "res://extra assets/cats/cat_0.tscn",
 	},
 	1 : {
 		"count": 0, 
-		"image": "res://icon.svg",
-		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+		"image": "res://assets/Kepala/Tak berjudul324_20251212163414.png",
+		"cat_scene" : "res://extra assets/cats/cat_1.tscn",
 	},
 	2 : {
 		"count": 0, 
-		"image": "res://icon.svg",
-		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+		"image": "res://assets/Kepala/Tak berjudul324_20251212163423.png",
+		"cat_scene" : "res://extra assets/cats/cat_2.tscn",
 	},
 	3 : {
 		"count": 0, 
-		"image": "res://icon.svg",
-		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+		"image": "res://assets/Kepala/Tak berjudul324_20251212163428.png",
+		"cat_scene" : "res://extra assets/cats/cat_3.tscn",
+
 	},
 	4 : {
 		"count": 0, 
-		"image": "res://icon.svg",
-		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+		"image": "res://assets/Kepala/Tak berjudul324_20251212163434.png",
+		"cat_scene" : "res://extra assets/cats/cat_4.tscn",
 	},
 	5 : {
 		"count": 0, 
-		"image": "res://icon.svg",
-		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+		"image": "res://assets/Kepala/Tak berjudul324_20251212163438.png",
+		"cat_scene" : "res://extra assets/cats/cat_5.tscn",
 	},
 	6 : {
 		"count": 0, 
-		"image": "res://icon.svg",
-		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+		"image": "res://assets/Kepala/Tak berjudul324_20251212163442.png",
+		"cat_scene" : "res://extra assets/cats/cat_6.tscn",
+	7 : {
+		"count": 0,
+		"image": "res://assets/Kepala/Tak berjudul324_20251212163445.png",
+		"cat_scene" : "res://extra assets/cats/cat_7.tscn",
+		}
 	},
-
 }
 
 @export var inventory_furniture : Dictionary = {
@@ -137,40 +142,41 @@ extends Node2D
 	0 : {
 		"count": 0, 
 		"image": "res://icon.svg",
-		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+		"cat_scene" : "res://extra assets/cats/cat_0.tscn",
 	},
 	1 : {
 		"count": 0, 
 		"image": "res://icon.svg",
-		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+		"cat_scene" : "res://extra assets/cats/cat_1.tscn",
 	},
 	2 : {
 		"count": 2, 
 		"image": "res://icon.svg",
-		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+		"cat_scene" : "res://extra assets/cats/cat_2.tscn",
 	},
 	3 : {
 		"count": 3, 
 		"image": "res://icon.svg",
-		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+		"cat_scene" : "res://extra assets/cats/cat_3.tscn",
 	},
 	4 : {
 		"count": 0, 
 		"image": "res://icon.svg",
-		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+		"cat_scene" : "res://extra assets/cats/cat_4.tscn",
 	},
 	5 : {
 		"count": 0, 
 		"image": "res://icon.svg",
-		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+		"cat_scene" : "res://extra assets/cats/cat_5.tscn",
 	},
 	6 : {
 		"count": 0, 
 		"image": "res://icon.svg",
-		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+		"cat_scene" : "res://extra assets/cats/cat_6.tscn",
 	},
-
-}]]
+	} ],
+	{"model": 0}
+	]
 ]  
 
 @export var stages : Dictionary = {

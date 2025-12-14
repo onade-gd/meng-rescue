@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi5ky28ybxvd2"
-path="res://.godot/imported/blue eyak.jpg-d66656209e09ca2c07c9f154503faee3.ctex"
+uid="uid://d0w856j2u25qd"
+path="res://.godot/imported/brown cat house.png-037434370b9317ebc1c041a2b2912900.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rooms/blue eyak.jpg"
-dest_files=["res://.godot/imported/blue eyak.jpg-d66656209e09ca2c07c9f154503faee3.ctex"]
+source_file="res://assets/rooms/brown cat house.png"
+dest_files=["res://.godot/imported/brown cat house.png-037434370b9317ebc1c041a2b2912900.ctex"]
 
 [params]
 

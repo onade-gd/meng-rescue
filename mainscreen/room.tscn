@@ -1,6 +1,5 @@
-[gd_scene load_steps=22 format=3 uid="uid://bhh061rlaupd0"]
+[gd_scene load_steps=23 format=3 uid="uid://bhh061rlaupd0"]
 
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_88gup"]
 [ext_resource type="Script" uid="uid://dmsbln6tnded6" path="res://mainscreen/room.gd" id="1_bisa2"]
 [ext_resource type="Texture2D" uid="uid://b0f8bhcklugxb" path="res://assets/kasur/awan.png" id="2_clf8y"]
 [ext_resource type="Texture2D" uid="uid://bti2uceerb483" path="res://assets/kasur/bunga.png" id="3_fjtnw"]
@@ -15,20 +14,31 @@
 [ext_resource type="Texture2D" uid="uid://cbwirdw2sgo4h" path="res://assets/kasur/pisang.png" id="8_bubna"]
 [ext_resource type="Texture2D" uid="uid://vi8du5fr3l2" path="res://assets/kasur/rumah.png" id="9_yo58a"]
 [ext_resource type="Texture2D" uid="uid://dyti57f7ustl2" path="res://assets/kasur/sofa.png" id="10_8iqba"]
-[ext_resource type="Script" uid="uid://42jukdti5xch" path="res://addons/ReorderableContainer/reorderable_hbox.gd" id="12_clf8y"]
 [ext_resource type="Texture2D" uid="uid://rhb4mx2d1jk8" path="res://assets/furniture tall/bunga.png" id="13_qxnob"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5vuv"]
-size = Vector2(1441.3988, 118)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxnob"]
-size = Vector2(1440.2172, 118)
+[ext_resource type="Texture2D" uid="uid://dfklhng2vgylh" path="res://assets/rooms/blue cat house.png" id="14_txpam"]
+[ext_resource type="Texture2D" uid="uid://lv15rdcckqp" path="res://assets/rooms/pink cat house.png" id="15_41lm1"]
+[ext_resource type="Texture2D" uid="uid://d0w856j2u25qd" path="res://assets/rooms/brown cat house.png" id="15_y0e2r"]
+[ext_resource type="FontFile" uid="uid://b1l66bm4r85jp" path="res://assets/mabook font/Mabook.otf" id="19_txpam"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4me0f"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ylb8k"]
-radius = 126.0
-height = 252.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_41lm1"]
+bg_color = Color(0.84762603, 0.7067002, 0.5989891, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.44288447, 0.28630653, 0.20789829, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="Theme" id="Theme_txpam"]
+Button/colors/font_color = Color(0.44313726, 0.28627452, 0.20784314, 1)
+Button/font_sizes/font_size = 34
+Button/fonts/font = ExtResource("19_txpam")
+Button/styles/normal = SubResource("StyleBoxFlat_41lm1")
 
 [node name="Room" type="Control"]
 custom_minimum_size = Vector2(1440, 2560)
@@ -40,48 +50,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 0
 script = ExtResource("1_bisa2")
-
-[node name="Terrain" type="StaticBody2D" parent="."]
-z_index = -1
-position = Vector2(720, 1367)
-scale = Vector2(0.92, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain"]
-shape = SubResource("RectangleShape2D_v5vuv")
-
-[node name="Sprite2D" type="Sprite2D" parent="Terrain"]
-scale = Vector2(11.239995, 0.88)
-texture = ExtResource("1_88gup")
-
-[node name="Terrain2" type="StaticBody2D" parent="."]
-z_index = -1
-position = Vector2(703, 2273)
-scale = Vector2(0.92, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain2"]
-shape = SubResource("RectangleShape2D_v5vuv")
-
-[node name="Sprite2D" type="Sprite2D" parent="Terrain2"]
-scale = Vector2(11.239995, 0.88)
-texture = ExtResource("1_88gup")
-
-[node name="Terrain3" type="StaticBody2D" parent="."]
-z_index = -1
-position = Vector2(694, 636)
-scale = Vector2(0.8464, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain3"]
-shape = SubResource("RectangleShape2D_v5vuv")
-
-[node name="Sprite2D" type="Sprite2D" parent="Terrain3"]
-scale = Vector2(11.239995, 0.88)
-texture = ExtResource("1_88gup")
-
-[node name="Area2D" type="Area2D" parent="Terrain3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain3/Area2D"]
-position = Vector2(-0.5906372, 0)
-shape = SubResource("RectangleShape2D_qxnob")
 
 [node name="RayDown" type="Area2D" parent="."]
 collision_layer = 32768
@@ -99,56 +67,8 @@ z_index = -1
 [node name="FurnitureQueue" type="Node2D" parent="."]
 z_index = -1
 
-[node name="AltSpawns" type="Node2D" parent="."]
-z_index = -1
-
-[node name="Area2D" type="Area2D" parent="AltSpawns"]
-position = Vector2(289, 576)
-collision_layer = 32768
-collision_mask = 32768
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AltSpawns/Area2D"]
-shape = SubResource("CapsuleShape2D_ylb8k")
-
-[node name="Area2D2" type="Area2D" parent="AltSpawns"]
-position = Vector2(1168, 1311)
-collision_layer = 32768
-collision_mask = 32768
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AltSpawns/Area2D2"]
-shape = SubResource("CapsuleShape2D_ylb8k")
-
-[node name="Area2D3" type="Area2D" parent="AltSpawns"]
-position = Vector2(557, 1311)
-collision_layer = 32768
-collision_mask = 32768
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AltSpawns/Area2D3"]
-shape = SubResource("CapsuleShape2D_ylb8k")
-
-[node name="Area2D4" type="Area2D" parent="AltSpawns"]
-position = Vector2(720, 580)
-collision_layer = 32768
-collision_mask = 32768
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AltSpawns/Area2D4"]
-shape = SubResource("CapsuleShape2D_ylb8k")
-
-[node name="Area2D5" type="Area2D" parent="AltSpawns"]
-position = Vector2(289, 2217)
-collision_layer = 32768
-collision_mask = 32768
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AltSpawns/Area2D5"]
-shape = SubResource("CapsuleShape2D_ylb8k")
-
-[node name="Area2D6" type="Area2D" parent="AltSpawns"]
-position = Vector2(947, 2217)
-collision_layer = 32768
-collision_mask = 32768
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AltSpawns/Area2D6"]
-shape = SubResource("CapsuleShape2D_ylb8k")
+[node name="Model" type="Node2D" parent="."]
+position = Vector2(716, 1251)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -182,9 +102,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 0
 theme_override_constants/tab_separation = 15
-current_tab = 0
+current_tab = 1
 
 [node name="Furnitures" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer"]
+visible = false
 layout_mode = 2
 vertical_scroll_mode = 2
 metadata/_tab_index = 0
@@ -523,7 +444,6 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="Cats" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -536,35 +456,9 @@ layout_mode = 2
 size_flags_vertical = 3
 columns = 3
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Cats/VBoxContainer/GridContainer"]
-z_index = 2
-z_as_relative = false
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Cats/VBoxContainer"]
+custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("2_clf8y")
-expand_mode = 4
-stretch_mode = 5
-
-[node name="Furn" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Cats/VBoxContainer/GridContainer/TextureRect"]
-z_index = -1
-custom_minimum_size = Vector2(186.04, 0)
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 8.0
-grow_vertical = 2
-
-[node name="Furn2" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Cats/VBoxContainer/GridContainer/TextureRect"]
-z_index = -1
-custom_minimum_size = Vector2(186.04, 0)
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -8.0
-grow_horizontal = 0
-grow_vertical = 2
 
 [node name="Room" type="MarginContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer"]
 visible = false
@@ -577,55 +471,63 @@ layout_mode = 2
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Room/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.28
 
-[node name="ReorderableVBox" type="Container" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Room/VBoxContainer"]
-process_mode = 1
-custom_minimum_size = Vector2(1072.75, 0)
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Room/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "Room must be empty to change styles!"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Room/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Room/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource("12_clf8y")
-hold_duration = 0.2
-metadata/_custom_type_script = "uid://42jukdti5xch"
+texture = ExtResource("14_txpam")
+expand_mode = 3
+stretch_mode = 5
 
-[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Room/VBoxContainer/ReorderableVBox"]
-custom_minimum_size = Vector2(206.55, 0)
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Room/VBoxContainer/HBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Room/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 1
+texture = ExtResource("15_y0e2r")
+expand_mode = 3
 
-[node name="Panel2" type="Panel" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Room/VBoxContainer/ReorderableVBox"]
-custom_minimum_size = Vector2(206.55, 0)
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Room/VBoxContainer/HBoxContainer/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Room/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 1
+texture = ExtResource("15_41lm1")
+expand_mode = 3
 
-[node name="Panel3" type="Panel" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Room/VBoxContainer/ReorderableVBox"]
-custom_minimum_size = Vector2(206.55, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 1
-
-[node name="Panel4" type="Panel" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Room/VBoxContainer/ReorderableVBox"]
-custom_minimum_size = Vector2(206.55, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 1
-
-[node name="Panel5" type="Panel" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Room/VBoxContainer/ReorderableVBox"]
-custom_minimum_size = Vector2(206.55, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 1
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Room/VBoxContainer/HBoxContainer/TextureRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Room/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.46
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3"]
 layout_mode = 2
@@ -727,11 +629,13 @@ grow_vertical = 2
 
 [node name="Edit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1167.0
+offset_left = 1186.0
 offset_top = 275.0
-offset_right = 1238.0
+offset_right = 1283.0
 offset_bottom = 346.0
+theme = SubResource("Theme_txpam")
 toggle_mode = true
+text = "EDIT"
 
 [node name="PresetToCopyCuzImLazy" type="Control" parent="."]
 anchors_preset = 0
@@ -770,6 +674,24 @@ offset_left = -8.0
 grow_horizontal = 0
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="PresetToCopyCuzImLazy/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -39.0
+offset_top = -58.0
+offset_right = 39.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 65
+text = "10"
+horizontal_alignment = 1
+
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect/Furn" to="." method="_on_furn_button_down" binds= [0]]
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect2/Furn" to="." method="_on_furn_button_down" binds= [1]]
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect3/Furn" to="." method="_on_furn_button_down" binds= [2]]
@@ -780,7 +702,9 @@ grow_vertical = 2
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect8/Furn" to="." method="_on_furn_button_down" binds= [7]]
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect9/Furn" to="." method="_on_furn_button_down" binds= [8]]
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer/TextureRect10/Furn" to="." method="_on_furn_button_down" binds= [9]]
-[connection signal="sort_children" from="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Room/VBoxContainer/ReorderableVBox" to="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Room/VBoxContainer/ReorderableVBox" method="_on_sort_children"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Room/VBoxContainer/HBoxContainer/TextureRect/Button" to="." method="_on_roomtype_pressed" binds= [0]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Room/VBoxContainer/HBoxContainer/TextureRect2/Button" to="." method="_on_roomtype_pressed" binds= [1]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Room/VBoxContainer/HBoxContainer/TextureRect3/Button" to="." method="_on_roomtype_pressed" binds= [2]]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/MarginContainer3/HBoxContainer/DropDown" to="." method="_on_drop_down_toggled"]
 [connection signal="pressed" from="Panel/HBoxContainer/TextureRect3/Cancel" to="." method="_on_cancel_pressed"]
 [connection signal="button_down" from="Panel/HBoxContainer/TextureRect2/Move" to="." method="_on_move_button_down"]

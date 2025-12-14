@@ -7,28 +7,36 @@ var confirmable: bool
 var new_or_edit : String
 var current_room 
 var cat
-# save format: [[[[{ "furniture": "res://extra assets/Furnitures/furniture_3.tscn", "pos": (288.0, 1308.0), "cat_spawn": [0] }]],[]],[{cats:[]}]]    
+var model = 0
+var cat_count
+# save format: [[[[{ "furniture": "res://extra assets/Furnitures/furniture_3.tscn", "pos": (288.0, 1308.0), "cat_spawn": [0] }]],[]],[{cats:[]}]]     outdated ref
 
 func _ready() -> void:
 	current_room = get_parent().get_index()
 	print(get_owner())
+	model = PlayerprogressSavefile.rooms[current_room][2]["model"] #match room style to save
+	match model:
+		0: $Model.add_child(load("res://extra assets/rooms/room_1.tscn").instantiate())
+		1: $Model.add_child(load("res://extra assets/rooms/room_2.tscn").instantiate())
+		2: $Model.add_child(load("res://extra assets/rooms/room_3.tscn").instantiate())
+		
 	var cat_list : Array
-	for i in PlayerprogressSavefile.rooms[current_room][1][0]:
-		while PlayerprogressSavefile.rooms[current_room][1][0][i]["count"] > 0:
-			PlayerprogressSavefile.rooms[current_room][1][0][i]["count"] -=1
-			cat_list.append(PlayerprogressSavefile.rooms[current_room][1][0][i]["cat_scene"])
-	
+	cat_count = PlayerprogressSavefile.rooms[current_room][1][0]   
+	for i in cat_count:
+		for x in cat_count[i]["count"]:
+			cat_list.append(PlayerprogressSavefile.inventory_cats[i]["cat_scene"]) #add scenes of cats from save file to a temporary list
+	print("cat list:   ", cat_list)
 	cat = cat_list.size()
 	$VBoxContainer/HBoxContainer/MarginContainer3/HBoxContainer.set_mouse_filter(2)
 	$VBoxContainer.set_mouse_filter(2)
 	var total_furn_spot : int = 0
 	var availability : Array
-	var cat_in_queue = cat
-	
-	availability.resize($AltSpawns.get_child_count())
+	var cat_in_queue = cat-1
+
+	availability.resize($Model.get_child(0).get_child(3).get_child_count())
 	for i in range(availability.size()):
 		availability[i] = 0
-		# save format: [[[[{ "furniture": "res://extra assets/Furnitures/furniture_3.tscn", "pos": (288.0, 1308.0), "cat_spawn": [0] }]],[]],[{cats:[]}]]    
+		# save format: [[[[{ "furniture": "res://extra assets/Furnitures/furniture_3.tscn", "pos": (288.0, 1308.0), "cat_spawn": [0] }]],[]],[{cats:[]}]]     all this and similar below are outdated reference
 	for furnitures in PlayerprogressSavefile.rooms[current_room][0]:
 		$FurnitureContainer.add_child(load(furnitures[0]["furniture"]).instantiate())
 		$FurnitureContainer.get_child(-1).position = Vector2(furnitures[0]["pos"])
@@ -39,10 +47,9 @@ func _ready() -> void:
 		if total_furn_spot > 0:
 			var step1_rand_furn = randi_range(0, $FurnitureContainer.get_child_count()-1)
 			var step2_rand_spot = randi_range(0,$FurnitureContainer.get_child(step1_rand_furn).find_child("Sleep").get_child_count()-1)
-				# save format: [[[[{ "furniture": "res://extra assets/Furnitures/furniture_3.tscn", "pos": (288.0, 1308.0), "cat_spawn": [0] }]],[]],[{cats:[]}]]    
+				# save format: [[[[{ "furniture": "res://extra assets/Furnitures/furniture_3.tscn", "pos": (288.0, 1308.0), "cat_spawn": [0] }]],[]],[{cats:[]}]]     outdated ref
 			if PlayerprogressSavefile.rooms[current_room][0][step1_rand_furn][0]["cat_spawn"][step2_rand_spot] == 0:
-				
-				$FurnitureContainer.get_child(step1_rand_furn).get_child(2).get_child(step2_rand_spot).add_child(load(cat_list.get(cat_in_queue)).instantiate())
+				$FurnitureContainer.get_child(step1_rand_furn).get_child(2).get_child(step2_rand_spot).get_child(0).add_child(load(cat_list.get(cat_in_queue)).instantiate())
 				PlayerprogressSavefile.rooms[current_room][0][step1_rand_furn][0]["cat_spawn"][step2_rand_spot] = 1
 				cat_in_queue -= 1
 				cat -= 1
@@ -52,10 +59,11 @@ func _ready() -> void:
 			else:
 				pass
 		else: 
-			var rand_spot = randi_range(0,$AltSpawns.get_child_count()-1)
+			var rand_spot = randi_range(0,$Model.get_child(0).get_child(3).get_child_count()-1)
 			if availability[rand_spot] == 0:
-				$AltSpawns.get_child(rand_spot).add_child(preload("res://extra assets/Furnitures/furniture_cat.tscn").instantiate())
+				$Model.get_child(0).get_child(3).get_child(rand_spot).get_child(0).add_child(load(cat_list.get(cat_in_queue)).instantiate())
 				availability[rand_spot] = 1
+				cat_in_queue -= 1
 				cat -= 1
 			else:
 				pass
@@ -72,12 +80,24 @@ func _ready() -> void:
 	for i in PlayerprogressSavefile.inventory_cats:
 		cats_grid.add_child($PresetToCopyCuzImLazy/TextureRect.duplicate())
 		cats_grid.get_child(-1).texture = load(PlayerprogressSavefile.inventory_cats[i]["image"])
-		cats_grid.get_child(-1).get_child(0).pressed.connect(add_cat.bind(i))
+		cats_grid.get_child(-1).get_child(1).pressed.connect(add_cat.bind(i))
+		cats_grid.get_child(-1).get_child(0).pressed.connect(negate_cat.bind(i))
+		cats_grid.get_child(-1).get_child(2).text = str(PlayerprogressSavefile.inventory_cats[i]["count"])
 	set_physics_process(false)
 	
+func negate_cat(id):
+	if PlayerprogressSavefile.rooms[current_room][1][0][id]["count"] > 0:
+		PlayerprogressSavefile.rooms[current_room][1][0][id]["count"] -= 1
+		PlayerprogressSavefile.inventory_cats[id]["count"] += 1
+	$VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Cats/VBoxContainer/GridContainer.get_child(id).get_child(2).text = str(PlayerprogressSavefile.inventory_cats[id]["count"])
+	PlayerprogressSavefile.save_data()
+
 func add_cat(id):
-	PlayerprogressSavefile.rooms[current_room][1][id]["count"] += 1
-	PlayerprogressSavefile.inventory_cats[id]["count"] -= 1
+	if PlayerprogressSavefile.inventory_cats[id]["count"] > 0:
+		PlayerprogressSavefile.rooms[current_room][1][0][id]["count"] += 1
+		PlayerprogressSavefile.inventory_cats[id]["count"] -= 1
+	$VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Cats/VBoxContainer/GridContainer.get_child(id).get_child(2).text = str(PlayerprogressSavefile.inventory_cats[id]["count"])
+	PlayerprogressSavefile.save_data()
 	
 func _physics_process(_delta: float) -> void:
 	if $FurnitureQueue.get_child(0).get_child(0).get_overlapping_areas() == []:
@@ -123,12 +143,13 @@ func _on_cancel_pressed() -> void:
 			$Panel.visible = false
 		"edit":
 			PlayerprogressSavefile.inventory_furniture[PlayerprogressSavefile.rooms[current_room][0][furniture_name][0]["furniture_id"]]["count"] += 1
+			#PlayerprogressSavefile.inventory_furniture[PlayerprogressSavefile.rooms[i][0][x][0]["cat_spawn"][y] += 1
 			tween.tween_property($VBoxContainer/HBoxContainer,"size_flags_stretch_ratio",0.75,0.1)
 			$VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer.get_child(PlayerprogressSavefile.rooms[current_room][0][furniture_name][0]["furniture_id"]).get_child(1).text = str(PlayerprogressSavefile.inventory_furniture[PlayerprogressSavefile.rooms[current_room][0][furniture_name][0]["furniture_id"]]["count"])
 			if PlayerprogressSavefile.inventory_furniture[PlayerprogressSavefile.rooms[current_room][0][furniture_name][0]["furniture_id"]]["count"] > 0:
 				$VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer.get_child(PlayerprogressSavefile.rooms[current_room][0][furniture_name][0]["furniture_id"]).visible = true
 			$FurnitureContainer.get_child(furniture_name).queue_free()# save format: [[[[{ "furniture": "res://extra assets/Furnitures/furniture_3.tscn", "pos": (288.0, 1308.0), "cat_spawn": [0] }]],[]],[{cats:[]}]]    
-																	  #[room[furnitureobject[uselessbracket{array
+																	  #[room[furnitureobject[uselessbracket{array    outdated reference
 			var current_index = furniture_name +1
 			var to_shift : Array
 			PlayerprogressSavefile.rooms[current_room][0].remove_at(furniture_name)
@@ -141,7 +162,6 @@ func _on_cancel_pressed() -> void:
 				i.get_child(3).button_down.connect(_button_down_furniture.bind(i.get_index()-1))
 			$FurnitureQueue.get_child(0).queue_free()
 			PlayerprogressSavefile.save_data()
-
 			$Panel.visible = false
 
 func _area_entered_room(area):
@@ -201,7 +221,7 @@ func _on_confirm_pressed() -> void:
 				PlayerprogressSavefile.save_data()
 				$Panel.visible = false
 				# save format: [[[{ "furniture": "res://extra assets/Furnitures/furniture_3.tscn", "pos": (288.0, 1308.0), "cat_spawn": [0] }]],[]]    [room[furnitureobject[uselessbracket{array
-
+					#outdated reference
 func _on_edit_toggled(toggled_on: bool) -> void:
 	if tween:
 		tween.kill
@@ -215,11 +235,12 @@ func _on_edit_toggled(toggled_on: bool) -> void:
 			i.get_child(3).pivot_offset = Vector2(4,4)
 			i.get_child(3).scale = Vector2(50,50)
 			i.get_child(3).keep_pressed_outside = true
-
+		get_parent().get_parent().get_parent().set_mouse_filter(2)
 	else: 
 		tween.tween_property($VBoxContainer/HBoxContainer,"size_flags_stretch_ratio",0,0.1)
 		for i in $FurnitureContainer.get_children():
 				i.get_child(3).queue_free()
+		get_parent().get_parent().get_parent().set_mouse_filter(1)
 
 func _on_drop_down_toggled(toggled_on: bool) -> void:
 	if tween:
@@ -229,3 +250,15 @@ func _on_drop_down_toggled(toggled_on: bool) -> void:
 		tween.tween_property($VBoxContainer/HBoxContainer,"size_flags_stretch_ratio",0.75,0.1)
 	else:
 		tween.tween_property($VBoxContainer/HBoxContainer,"size_flags_stretch_ratio",0.15,0.1)
+
+func _on_roomtype_pressed(extra_arg_0: int) -> void:
+	if PlayerprogressSavefile.rooms[current_room][0] != []:
+		pass
+	else:
+		$Model.get_child(0).queue_free()
+		match extra_arg_0:
+			0:$Model.add_child(load("res://extra assets/rooms/room_1.tscn").instantiate())
+			1:$Model.add_child(load("res://extra assets/rooms/room_2.tscn").instantiate())
+			2:$Model.add_child(load("res://extra assets/rooms/room_3.tscn").instantiate())
+		PlayerprogressSavefile.rooms[current_room][2]["model"] = extra_arg_0
+		PlayerprogressSavefile.save_data()

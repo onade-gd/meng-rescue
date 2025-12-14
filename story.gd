@@ -18,9 +18,7 @@ func _on_button_pressed() -> void:
 			PlayerprogressSavefile.save_data()
 			page += 1
 		3:
-
 			get_tree().change_scene_to_file("res://mainscreen/StagePicker.tscn")
-
 
 func page_animation():
 		if tween:

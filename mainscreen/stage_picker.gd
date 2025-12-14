@@ -79,7 +79,12 @@ func _input(_event: InputEvent) -> void:
 			#else: tween.tween_property($ScrollContainer2, "scroll_horizontal", 1440 ,0.1)
 
 func _on_home_button_pressed() -> void:
+	for i in PlayerprogressSavefile.rooms.size():
+		for x in PlayerprogressSavefile.rooms[i][0].size():
+			for y in PlayerprogressSavefile.rooms[i][0][x][0]["cat_spawn"].size():
+				PlayerprogressSavefile.rooms[i][0][x][0]["cat_spawn"][y] = 0
 	get_tree().change_scene_to_file("res://mainscreen/Home.tscn")
+
 
 func _on_close_pressed(which) -> void:
 	print(PlayerprogressSavefile.rooms)

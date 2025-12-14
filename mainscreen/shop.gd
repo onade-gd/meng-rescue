@@ -3,6 +3,7 @@ var to_buy
 var furn_or_boost_or_gacha
 var which_booster
 func _ready() -> void:
+	print(PlayerprogressSavefile.rooms)
 	$VBoxContainer/MarginContainer/HBoxContainer2/TextureRect/HBoxContainer/Money2.text = str(PlayerprogressSavefile.money_2)
 	$VBoxContainer/MarginContainer/HBoxContainer2/TextureRect2/HBoxContainer/Money1.text = str(PlayerprogressSavefile.money_1)
 	var furnitures = $VBoxContainer/MarginContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Panel2/Furnitures/Furnitures
@@ -123,6 +124,8 @@ func _on_boost_pressed(extra_arg_0: int) -> void:
 			$Bought/Got.texture = load(PlayerprogressSavefile.booster_magnet["image"])
 
 func _on_gacha_pressed() -> void:
+	$ConfirmBuy/Panel2/Display.texture = preload("res://assets/gacha.png")
+	$ConfirmBuy/Panel2/Cost.text = str(300)
 	furn_or_boost_or_gacha = "gacha"
 	$ConfirmBuy.visible = true
 

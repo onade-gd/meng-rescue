@@ -107,7 +107,7 @@ theme_override_constants/separation = 0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer2/HBoxContainer"]
 layout_mode = 2
-scroll_vertical = 12717
+scroll_vertical = 100
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
