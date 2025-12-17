@@ -5,6 +5,7 @@
 [ext_resource type="TileSet" uid="uid://g0lrcp6kq76w" path="res://resource/tilemap_duckables.tres" id="3_fpujd"]
 
 [node name="stage" type="Node2D"]
+y_sort_enabled = true
 metadata/catsneeded = 0
 metadata/level = 5
 
