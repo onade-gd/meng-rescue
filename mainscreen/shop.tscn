@@ -265,6 +265,7 @@ metadata/_tab_index = 0
 
 [node name="Button" type="Button" parent="VBoxContainer/MarginContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Panel3/Convert"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Panel3/Convert"]
 layout_mode = 2
@@ -312,6 +313,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="TextureRect2" type="TextureRect" parent="VBoxContainer/MarginContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Panel/Boosters/GridContainer"]
 z_index = 2
@@ -330,6 +332,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="TextureRect3" type="TextureRect" parent="VBoxContainer/MarginContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Panel/Boosters/GridContainer"]
 visible = false
@@ -349,6 +352,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/MarginContainer2/HBoxContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 45.47)
@@ -395,6 +399,7 @@ size_flags_horizontal = 3
 [node name="Gacha1" type="Button" parent="VBoxContainer/MarginContainer2/HBoxContainer/ScrollContainer/VBoxContainer/PanelContainer2/Panel/Gacha/GachaContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 icon = ExtResource("10_hwuhu")
 flat = true
 autowrap_mode = 1
@@ -465,6 +470,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="ConfirmBuy" type="Panel" parent="."]
 visible = false

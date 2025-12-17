@@ -130,7 +130,7 @@ func i_frame():
 	$hitbox_front.set_deferred("monitoring",false)
 	$hitbox_left.set_deferred("monitoring",false)
 	$hitbox_right.set_deferred("monitoring",false)
-	$".".set_modulate(Color.RED)
+	$".".modulate = Color(1,1,1,0.2)
 
 func _on_timer_timeout() -> void:
 	invc_available = true
