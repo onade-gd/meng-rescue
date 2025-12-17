@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://r32cudy7uih5"]
+[gd_scene load_steps=4 format=4 uid="uid://r32cudy7uih5"]
 
 [ext_resource type="TileSet" uid="uid://lgwqni31eef4" path="res://resource/tilemap_jumpable.tres" id="1_klpvp"]
 [ext_resource type="TileSet" uid="uid://cwhp3lwdusbj2" path="res://resource/tilemap_walls.tres" id="2_5803l"]
@@ -10,16 +10,18 @@ metadata/level = 19
 
 [node name="jumpables" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 2, 0, 0, 0, 0, 0, 1, 0)
+tile_map_data = PackedByteArray("AAAAAP//AgAAAAAAAQD//wYAAwAKAAoAAAD//wUAAwAOAAoAAAD+/wYAAwAQAAoAAAARAPr/BAAMAAoAAAAQAPv/BAAPAAsAAAAQAPr/BAAbAAoAAAAMAPv/BAAUAAYAAAAMAPr/BAAUAAgAAAALAPv/BAAWAAYAAAAIAPv/BAAMAAYAAAAHAPv/BAAMAAgAAAAIAPr/BAAPAAYAAAALAPf/BAAMAAQAAAAKAPf/BAAOAAQAAAALAPb/BAASAAQAAAAOAPj/BAAMAAIAAAANAPj/BAASAAIAAAANAPn/BAAaAAMAAAAQAPj/BAAOAAIAAAAPAPn/BAAXAAMAAAAPAPj/BAASAAIAAAA=")
 tile_set = ExtResource("1_klpvp")
 
 [node name="walls" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 scale = Vector2(0.99926186, 1)
+tile_map_data = PackedByteArray("AAAMAAQABgABAAgAAAALAAQABgAAAAsAAAAKAAQABgABAA0AAAAOAAQABgAEAAAAAAAOAAYABgAEAAQAAAAOAAUABgADAAcAAAAQAPT/BQAAABMAAAAPAPT/BQAFABQAAAAQAPP/BQAQABMAAAAVAPj/BQAQABgAAAAVAPf/BQAVABgAAAAWAPj/BAAGAAoAAAAXAPj/BAAAAAoAAAAXAPf/BAAEAAoAAAAWAPP/BAACAAYAAAAWAPT/BAAKAAkAAAAVAPT/BAAOAAkAAAAXAPD/BAAEAAAAAAAWAPD/BAAIAAAAAAAXAO//BAAMAAAAAAA=")
 tile_set = ExtResource("2_5803l")
 
 [node name="duckables" type="TileMapLayer" parent="."]
 y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAGAAQAAAAHAAIAAAAHAAUAAAAHAAYAAAAHAAQAAAAKAAQAAAAHAAAAAAAAAAIAAAAHAAEAAAAAAAUAAAAJAAAAAAAAAAcAAAAUAPP/AwAAAAYAAAAUAPT/AwAIAAkAAAATAPT/AwAMAAkAAAATAO7/BgAFAA4AAAASAO//BgACABEAAAA=")
 tile_set = ExtResource("3_jyxa4")
 
 [node name="background" type="TileMapLayer" parent="."]

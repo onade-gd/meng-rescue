@@ -1,9 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://bhh061rlaupd0"]
+[gd_scene load_steps=26 format=3 uid="uid://bhh061rlaupd0"]
 
 [ext_resource type="Script" uid="uid://dmsbln6tnded6" path="res://mainscreen/room.gd" id="1_bisa2"]
 [ext_resource type="Texture2D" uid="uid://b0f8bhcklugxb" path="res://assets/kasur/awan.png" id="2_clf8y"]
 [ext_resource type="Texture2D" uid="uid://bti2uceerb483" path="res://assets/kasur/bunga.png" id="3_fjtnw"]
-[ext_resource type="Script" uid="uid://ca2wwbwk56ydi" path="res://mainscreen/test_get_owner.gd" id="3_qxnob"]
 [ext_resource type="Texture2D" uid="uid://wegcsihg41c4" path="res://assets/bar/CENTANG.png" id="4_4me0f"]
 [ext_resource type="Texture2D" uid="uid://bhfywyvnb44hb" path="res://assets/kasur/kodok.png" id="4_qxnob"]
 [ext_resource type="Texture2D" uid="uid://djepukgf0fkg1" path="res://assets/kasur/ori 2.png" id="5_41lm1"]
@@ -39,6 +38,30 @@ Button/colors/font_color = Color(0.44313726, 0.28627452, 0.20784314, 1)
 Button/font_sizes/font_size = 34
 Button/fonts/font = ExtResource("19_txpam")
 Button/styles/normal = SubResource("StyleBoxFlat_41lm1")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_txpam"]
+bg_color = Color(0.48235294, 0.2509804, 0.09803922, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="Theme" id="Theme_y0e2r"]
+Button/styles/normal = SubResource("StyleBoxFlat_txpam")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0e2r"]
+bg_color = Color(0.48235294, 0.2509804, 0.09803922, 1)
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+
+[sub_resource type="Theme" id="Theme_bubna"]
+Button/styles/normal = SubResource("StyleBoxFlat_y0e2r")
 
 [node name="Room" type="Control"]
 custom_minimum_size = Vector2(1440, 2560)
@@ -85,7 +108,6 @@ mouse_behavior_recursive = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -119,7 +141,6 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 columns = 3
-script = ExtResource("3_qxnob")
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer"]
 z_index = 2
@@ -655,16 +676,18 @@ stretch_mode = 5
 
 [node name="Furn" type="Button" parent="PresetToCopyCuzImLazy/TextureRect"]
 z_index = -1
-custom_minimum_size = Vector2(186.04, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 8.0
 grow_vertical = 2
+theme = SubResource("Theme_y0e2r")
+text = "ADD"
 
 [node name="Furn2" type="Button" parent="PresetToCopyCuzImLazy/TextureRect"]
 z_index = -1
-custom_minimum_size = Vector2(186.04, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -673,6 +696,7 @@ anchor_bottom = 1.0
 offset_left = -8.0
 grow_horizontal = 0
 grow_vertical = 2
+theme = SubResource("Theme_bubna")
 
 [node name="Label" type="Label" parent="PresetToCopyCuzImLazy/TextureRect"]
 layout_mode = 1

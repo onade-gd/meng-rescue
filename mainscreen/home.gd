@@ -60,58 +60,63 @@ func _input(_event: InputEvent) -> void:
 				#tween.tween_property($ScrollContainer, "scroll_horizontal", 0 ,0.1)
 			#else: tween.tween_property($ScrollContainer, "scroll_horizontal", 1444 ,0.1)
 func _on_button_pressed() -> void:
-	$ScrollContainer/HBoxContainer.get_child(-2).add_sibling(Control.new())
-	$ScrollContainer/HBoxContainer.get_child(-2).set_custom_minimum_size(Vector2(1440,2560))
-	$ScrollContainer/HBoxContainer.get_child(-2).set_mouse_filter(1)
-	PlayerprogressSavefile.rooms.append([[],
-	
-	[ {
-	0 : {
-		"count": 0, 
-		"image": "res://icon.svg",
-		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
-	},
-	1 : {
-		"count": 0, 
-		"image": "res://icon.svg",
-		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
-	},
-	2 : {
-		"count": 0, 
-		"image": "res://icon.svg",
-		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
-	},
-	3 : {
-		"count": 0, 
-		"image": "res://icon.svg",
-		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
-	},
-	4 : {
-		"count": 0, 
-		"image": "res://icon.svg",
-		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
-	},
-	5 : {
-		"count": 0, 
-		"image": "res://icon.svg",
-		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
-	},
-	6 : {
-		"count": 0, 
-		"image": "res://icon.svg",
-		"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
-	},
-	7 : {
-		"count": 0,
-		"image": "res://assets/Kepala/Tak berjudul324_20251212163445.png",
-		"cat_scene" : "res://extra assets/cats/cat_7.tscn",
-		}
-	} ], 
-	{"model": 0}
-])
-	PlayerprogressSavefile.save_data()
-	$ScrollContainer/HBoxContainer.get_child(-2).add_child(room.instantiate())
-	$ScrollContainer/HBoxContainer.get_child(-2).get_child(0).set_mouse_filter(1)
+	if PlayerprogressSavefile.money_2 < 200 :
+		pass
+	else:
+		$ScrollContainer/HBoxContainer.get_child(-2).add_sibling(Control.new())
+		$ScrollContainer/HBoxContainer.get_child(-2).set_custom_minimum_size(Vector2(1440,2560))
+		$ScrollContainer/HBoxContainer.get_child(-2).set_mouse_filter(1)
+		PlayerprogressSavefile.rooms.append([[],
+		
+		[ {
+		0 : {
+			"count": 0, 
+			"image": "res://icon.svg",
+			"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+		},
+		1 : {
+			"count": 0, 
+			"image": "res://icon.svg",
+			"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+		},
+		2 : {
+			"count": 0, 
+			"image": "res://icon.svg",
+			"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+		},
+		3 : {
+			"count": 0, 
+			"image": "res://icon.svg",
+			"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+		},
+		4 : {
+			"count": 0, 
+			"image": "res://icon.svg",
+			"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+		},
+		5 : {
+			"count": 0, 
+			"image": "res://icon.svg",
+			"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+		},
+		6 : {
+			"count": 0, 
+			"image": "res://icon.svg",
+			"cat_scene" : "res://extra assets/Furnitures/furniture_cat.tscn",
+		},
+		7 : {
+			"count": 0,
+			"image": "res://assets/Kepala/Tak berjudul324_20251212163445.png",
+			"cat_scene" : "res://extra assets/cats/cat_7.tscn",
+			}
+		} ], 
+		{"model": 0}
+	])
+		PlayerprogressSavefile.money_2 -= 200
+		PlayerprogressSavefile.save_data()
+		$VBoxContainer/HBoxContainer2/TextureRect/HBoxContainer/Money2.text = str(PlayerprogressSavefile.money_2)
+		$ScrollContainer/HBoxContainer.get_child(-2).add_child(room.instantiate())
+		$ScrollContainer/HBoxContainer.get_child(-2).get_child(0).set_mouse_filter(1)
 	
 func _on_close_pressed(which) -> void:
 	match which:
