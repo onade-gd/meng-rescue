@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c05uhf3e2e131"]
+[gd_scene load_steps=4 format=4 uid="uid://c05uhf3e2e131"]
 
 [ext_resource type="TileSet" uid="uid://lgwqni31eef4" path="res://resource/tilemap_jumpable.tres" id="1_wg6uv"]
 [ext_resource type="TileSet" uid="uid://cwhp3lwdusbj2" path="res://resource/tilemap_walls.tres" id="2_s6pme"]
@@ -9,6 +9,7 @@ metadata/next = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 [node name="jumpables" type="TileMapLayer" parent="."]
 y_sort_enabled = true
+tile_map_data = PackedByteArray("AAACAP3/AgAAAAAABAAAAP3/AgAAAAAABAD+//3/AgAAAAAABAACAPv/AgAAAAAABAAAAPv/AgAAAAAABAD+//v/AgAAAAAABAACAPn/AgAAAAAABAAAAPn/AgAAAAAABAD+//n/AgAAAAAABAA=")
 tile_set = ExtResource("1_wg6uv")
 
 [node name="walls" type="TileMapLayer" parent="."]
@@ -21,3 +22,13 @@ y_sort_enabled = true
 tile_set = ExtResource("3_koacl")
 
 [node name="background" type="TileMapLayer" parent="."]
+
+[connection signal="body_entered" from="jumpables/@Area2D@245304" to="jumpables/@Area2D@245304" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/fish" to="jumpables/fish" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@245305" to="jumpables/@Area2D@245305" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@245306" to="jumpables/@Area2D@245306" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@245307" to="jumpables/@Area2D@245307" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@245308" to="jumpables/@Area2D@245308" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@245309" to="jumpables/@Area2D@245309" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@245310" to="jumpables/@Area2D@245310" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@245311" to="jumpables/@Area2D@245311" method="_on_body_entered"]

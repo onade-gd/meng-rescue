@@ -1,28 +1,56 @@
-[gd_scene load_steps=4 format=3 uid="uid://jf1gffdmjeq"]
+[gd_scene load_steps=4 format=4 uid="uid://jf1gffdmjeq"]
 
-[ext_resource type="TileSet" uid="uid://lgwqni31eef4" path="res://resource/tilemap_jumpable.tres" id="1_s27ut"]
-[ext_resource type="TileSet" uid="uid://cwhp3lwdusbj2" path="res://resource/tilemap_walls.tres" id="2_ggt2r"]
-[ext_resource type="TileSet" uid="uid://g0lrcp6kq76w" path="res://resource/tilemap_duckables.tres" id="3_7pf8q"]
+[ext_resource type="TileSet" uid="uid://lgwqni31eef4" path="res://resource/tilemap_jumpable.tres" id="1_4vy5s"]
+[ext_resource type="TileSet" uid="uid://cwhp3lwdusbj2" path="res://resource/tilemap_walls.tres" id="2_svt2u"]
+[ext_resource type="TileSet" uid="uid://g0lrcp6kq76w" path="res://resource/tilemap_duckables.tres" id="3_fp22a"]
 
-[node name="stage" type="Node2D"]
+[node name="stage2" type="Node2D"]
 y_sort_enabled = true
 metadata/catsneeded = 0
 metadata/level = 25
 
 [node name="jumpables" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 2, 0, 0, 0, 0, 0, 1, 0)
-tile_set = ExtResource("1_s27ut")
+tile_map_data = PackedByteArray("AAACAPv/AwAMAAoAAAABAPv/AwAQAAoAAAACAO3/AQAKAAAAAAACAOz/AQAAAAAAAAABAO3/AQAKAAQAAAD//+H/AQAGAAAAAAD+//f/AAAMAAwAAAD9//f/AAAOAAwAAAD+/8v/BAAMAAYAAAAAANH/BQAFAAgAAAACANH/BQALAAYAAAABANL/BQALAAkAAAACANL/BQALAAoAAAACAOb/AwAKAAoAAAACAOX/AwAOAAoAAAABAOb/AwAQAAoAAAACAO7/AwAAAA4AAAABAO7/AwAGAA4AAAD9/7z/AQAKAAAAAAD9/7r/AQAAAAAAAAD9/7n/AQAAAAIAAAD9/7v/AQAKAAIAAAD8/7r/AQAAAAQAAAD8/7z/AQAKAAQAAAACANT/AwACAA4AAAACANP/AwAEAA4AAAABANT/AwAGAA4AAAD+/7//BQAIAA4AAAD+/8D/BQAIABAAAAD9/8D/BgAAAAAAAAACALv/BAAMAAoAAAACAMf/BAAMAAIAAAACAPn/AwAMAAwAAAACAPr/AwAOAAoAAAABAPn/AwAQAAwAAAACAPj/AwAOAAwAAAD9//j/AAAIAAwAAAD+/8r/BAAPAAYAAAD9/8v/BAAMAAgAAAABAMj/BAAaAAMAAAABAMf/BAASAAIAAAABALz/BAAPAAsAAAABALv/BAAbAAoAAAAAAPr/AgAAAAAABAACAPb/AgAAAAAABAD+/+3/AgAAAAAABAD+/+7/AgAAAAAABAAAAOn/AgAAAAAABAD+/+P/AgAAAAAABAD+/9v/AgAAAAAABAAAANT/AgAAAAAABAD+/8z/AgAAAAAABAD+/83/AgAAAAAABAACAMT/AgAAAAAABAACALz/AgAAAAAABAACAL3/AgAAAAAABAACAMP/AgAAAAAABAACAPf/AgAAAAAABAAAAPD/AgAAAAAABAACAPX/AQAMAAAAAAABAPX/AQAMAAQAAAACAPT/AQAMAAIAAAABAPH/BQALAAkAAAACAPD/BQALAAYAAAACAPH/BQALAAoAAAD+/8j/AgAAAAAABAAAANP/AgAAAAAABAD+/9H/BQAEAAwAAAD//9H/BQAEAAoAAAAAANj/AgAAAAAABAD+/77/AgAAAAAABAD9/97/BgAAAAAAAAD9/+j/BgAAAAAAAAA=")
+tile_set = ExtResource("1_4vy5s")
 
 [node name="walls" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 scale = Vector2(0.99926186, 1)
-tile_set = ExtResource("2_ggt2r")
+tile_map_data = PackedByteArray("AAD//67/AAAAAAAAAAD//6z/AAAAAAQAAAD//6//AAAAAAgAAAACAK//AgAAAAAAAwAAAPb/BAAAAAAAAAD///b/BAAIAAAAAAAAAPX/BAAMAAAAAAD//+3/BgABAA0AAAACAMH/AwAQAAAAAAABAMH/AwAOAAQAAAAAAMH/AwAQAAgAAAAAALz/AwAAABAAAAACAOL/BQAAAA4AAAABAOn/BwAEAAMAAAD9/+n/BwAAAAMAAAACANv/AwAEAAAAAAACAN3/BgAMABEAAAACANj/BAACAAoAAAD+/9H/BAACAAYAAAD+/9P/BAAAAAoAAAAAAMv/BgASAAwAAAAAAOH/BQAWAA4AAAABAOH/BQANABAAAAABAOL/BQAEABAAAAD//+b/BQAFABQAAAACAMD/BAAGAAYAAAACANz/BgAMABQAAAACANr/BgAMABQAAAABAN3/BgAMABcAAAABANv/BgAMABcAAAACANf/BAAEAAoAAAD+/9L/BAAEAAoAAAABANj/BAAGAAoAAAD9/9P/BAAGAAoAAAAAANf/BAAKAAkAAAD//9f/BAAOAAkAAAAAAMr/BgAPAAwAAAD//8v/BgARABEAAAD9/7j/BAAGAAYAAAD9/7n/BAAKAAkAAAD8/7n/BAAOAAkAAAD//7z/AwAEABAAAAD+/7z/AwAKABAAAAD+//j/AgAAAAAAAQACAOf/AgAAAAAAAQD+/8//AgAAAAAAAQACAMr/AgAAAAAAAQD+/8T/AgAAAAAAAQACAM//BgAAABMAAAABAM//BgAGABQAAAACAM7/BgACABMAAAAAAOX/BQAQABMAAAAAAOb/BQAAABMAAAAAANb/BAAGAAYAAAD+//D/AgAAAAAAAQAAAMb/BQAAABgAAAAAAMX/BQAEABgAAAD//8f/BQAIABgAAAAAAO3/BgAAAAsAAAABAO3/BgAQAAAAAAA=")
+tile_set = ExtResource("2_svt2u")
 
 [node name="duckables" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_set = ExtResource("3_7pf8q")
+tile_map_data = PackedByteArray("AAD9//v/AQAGAAAAAAD///r/AQAGAAQAAAD+//v/AQAJAAQAAAD//+n/AAAAAAIAAAD9/+f/AQAGAAAAAAD//+b/AQAGAAQAAAD+/+f/AQAJAAQAAAD+/9b/AwAEAAYAAAD+/+H/BQAUAA4AAAD//+r/AAAAAAUAAAABAOn/AAAAAAcAAAD9/9v/AAAHAAIAAAD+/9z/AAAHAAYAAAD+/9v/AAAKAAQAAAD+//H/AwAEAAYAAAD+//L/AwAIAAkAAAD9//L/AwAMAAkAAAD+/9f/AwAIAAkAAAD9/9f/AwAMAAkAAAD+/+z/BgAFAA4AAAD9/+3/BgAFABEAAAD+/+3/BgAGABMAAAA=")
+tile_set = ExtResource("3_fp22a")
 
 [node name="background" type="TileMapLayer" parent="."]
 
-[connection signal="body_entered" from="jumpables/Cat" to="jumpables/Cat" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/fish" to="jumpables/fish" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@177268" to="jumpables/@Area2D@177268" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@177269" to="jumpables/@Area2D@177269" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@177270" to="jumpables/@Area2D@177270" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@177271" to="jumpables/@Area2D@177271" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@177272" to="jumpables/@Area2D@177272" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@177273" to="jumpables/@Area2D@177273" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@177274" to="jumpables/@Area2D@177274" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@177275" to="jumpables/@Area2D@177275" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@177276" to="jumpables/@Area2D@177276" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@177277" to="jumpables/@Area2D@177277" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@177278" to="jumpables/@Area2D@177278" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@177279" to="jumpables/@Area2D@177279" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@177280" to="jumpables/@Area2D@177280" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@177281" to="jumpables/@Area2D@177281" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@177282" to="jumpables/@Area2D@177282" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@177283" to="jumpables/@Area2D@177283" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@177284" to="jumpables/@Area2D@177284" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@177285" to="jumpables/@Area2D@177285" method="_on_body_entered"]
+[connection signal="body_entered" from="jumpables/@Area2D@177286" to="jumpables/@Area2D@177286" method="_on_body_entered"]
+[connection signal="body_entered" from="walls/finish line" to="walls/finish line" method="_on_body_entered"]
+[connection signal="body_entered" from="walls/Cat" to="walls/Cat" method="_on_body_entered"]
+[connection signal="body_entered" from="walls/@Area2D@177287" to="walls/@Area2D@177287" method="_on_body_entered"]
+[connection signal="body_entered" from="walls/@Area2D@177288" to="walls/@Area2D@177288" method="_on_body_entered"]
+[connection signal="body_entered" from="walls/@Area2D@177289" to="walls/@Area2D@177289" method="_on_body_entered"]
+[connection signal="body_entered" from="walls/@Area2D@177290" to="walls/@Area2D@177290" method="_on_body_entered"]
+[connection signal="body_entered" from="walls/@Area2D@177291" to="walls/@Area2D@177291" method="_on_body_entered"]

@@ -15,11 +15,16 @@ run/main_scene="uid://ca6ljsq1v1aml"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://bp7m04srv0aml"
+
 [autoload]
 
 PlayerprogressSavefile="*res://resource/playerprogress_savefile.gd"
 GlobalControl="*res://resource/control.gd"
 StageResource="*res://resource/stage_resource.gd"
+Homepageaudio="*res://homepageaudio.tscn"
 
 [display]
 

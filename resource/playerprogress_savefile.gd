@@ -1,8 +1,8 @@
 extends Node2D
 
 
-@export var money_1 : int = 10000
-@export var money_2 : int = 300
+@export var money_1 : int = 200
+@export var money_2 : int = 0
 @export var level_progress : int = 0
 
 @export var first_times : Dictionary = {
@@ -17,13 +17,13 @@ extends Node2D
 }
 @export var booster_invincible : Dictionary = {
 	"count" : 0,
-	"image" : "res://assets/boosters/Sedot.png",
-	"value" : 50,
+	"image" : "res://assets/boosters/Inpisibel.png",
+	"value" : 250,
 }
 @export var booster_heart : Dictionary = {
 	"count" : 0,
 	"image" : "res://assets/boosters/Heart to heart.png",
-	"value" : 50,
+	"value" : 150,
 }
 
 @export var last_lobby : String
@@ -74,25 +74,25 @@ extends Node2D
 
 @export var inventory_furniture : Dictionary = {
 	0 : {
-		"count" : 2,
+		"count" : 1,
 		"image": "res://assets/kasur/awan.png",
 		"furniture_scene" : "res://extra assets/Furnitures/furniture_1.tscn",
 		"value" :50
 		},
 	1 : {
-		"count" : 5,
+		"count" : 1,
 		"image": "res://assets/kasur/bunga.png",
 		"furniture_scene" : "res://extra assets/Furnitures/furniture_2.tscn",
 		"value" :50
 		},
 	2 : {
-		"count" : 3,
+		"count" : 1,
 		"image": "res://assets/kasur/kodok.png",
 		"furniture_scene" : "res://extra assets/Furnitures/furniture_3.tscn",
 		"value" :50
 		},
 	3 : {
-		"count" : 1,
+		"count" : 0,
 		"image": "res://assets/kasur/ori 2.png",
 		"furniture_scene" : "res://extra assets/Furnitures/furniture_4.tscn",
 		"value" :50
@@ -132,6 +132,12 @@ extends Node2D
 		"image": "res://assets/furniture tall/bunga.png",
 		"furniture_scene" : "res://extra assets/Furnitures/furniture_10.tscn",
 		"value" : 150
+	},
+	10 : {
+		"count" : 0,
+		"image": "res://assets/playroom/awan.png",
+		"furniture_scene" : "res://extra assets/Furnitures/furniture_11.tscn",
+		"value" : 150
 	}
 }
 #array because i dont know how to handle new instances of rooms with unique names (or not) in a dictionary
@@ -150,12 +156,12 @@ extends Node2D
 		"cat_scene" : "res://extra assets/cats/cat_1.tscn",
 	},
 	2 : {
-		"count": 2, 
+		"count": 1, 
 		"image": "res://icon.svg",
 		"cat_scene" : "res://extra assets/cats/cat_2.tscn",
 	},
 	3 : {
-		"count": 3, 
+		"count": 1, 
 		"image": "res://icon.svg",
 		"cat_scene" : "res://extra assets/cats/cat_3.tscn",
 	},
@@ -236,5 +242,5 @@ func load_data():
 		first_times = file.get_var()
 
 	else:
-		print("no save here")
+		print("no save")
 # array format -> cats = [<cat type>, <location>]   |     furniture in inventory = [<furniture>, <amount>]

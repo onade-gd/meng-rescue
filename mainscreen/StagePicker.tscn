@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bqc1kjjvjvixu"]
+[gd_scene load_steps=45 format=3 uid="uid://bqc1kjjvjvixu"]
 
 [ext_resource type="Script" uid="uid://cjp2yan454jqr" path="res://mainscreen/stage_picker.gd" id="1_ik7lt"]
 [ext_resource type="Texture2D" uid="uid://b5ikt85w3gap5" path="res://assets/MENGRESCUE MAP.png" id="2_w6ipm"]
@@ -28,6 +28,9 @@
 [ext_resource type="Texture2D" uid="uid://cos6p10jniebs" path="res://assets/boosters/Heart to heart.png" id="14_gbter"]
 [ext_resource type="Texture2D" uid="uid://bj27x50ostfjp" path="res://assets/boosters/Inpisibel.png" id="15_dsgy6"]
 [ext_resource type="Texture2D" uid="uid://oq6xquqh3d0y" path="res://assets/boosters/Sedot.png" id="16_j7g5s"]
+[ext_resource type="Script" uid="uid://bi3hna1r8gpuh" path="res://mainscreen/audiocontroller.gd" id="24_20o6b"]
+[ext_resource type="AudioStream" uid="uid://cfleldn7gt74h" path="res://audio/computer-mouse-click-352734-IN.ogg" id="30_jg5la"]
+[ext_resource type="AudioStream" uid="uid://c216jr8u6dxkj" path="res://audio/computer-mouse-click-352734-OUT.ogg" id="31_8qrer"]
 
 [sub_resource type="Gradient" id="Gradient_3dxm6"]
 offsets = PackedFloat32Array(0, 0.55333334)
@@ -107,7 +110,7 @@ theme_override_constants/separation = 0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer2/HBoxContainer"]
 layout_mode = 2
-scroll_vertical = 100
+scroll_vertical = 12717
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
@@ -1798,6 +1801,7 @@ expand_mode = 2
 stretch_mode = 5
 
 [node name="Heart" type="Button" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/GridContainer/VBoxContainer/HBoxContainer/TextureRect"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1829,6 +1833,7 @@ expand_mode = 2
 stretch_mode = 5
 
 [node name="Invincible" type="Button" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/GridContainer/VBoxContainer/HBoxContainer/TextureRect2"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1854,12 +1859,14 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="TextureRect3" type="TextureRect" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/GridContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 texture = ExtResource("16_j7g5s")
 expand_mode = 2
 stretch_mode = 4
 
 [node name="Magnet" type="Button" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/GridContainer/VBoxContainer/HBoxContainer/TextureRect3"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1870,6 +1877,7 @@ mouse_behavior_recursive = 2
 toggle_mode = true
 
 [node name="Label" type="Label" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/GridContainer/VBoxContainer/HBoxContainer/TextureRect3"]
+visible = false
 clip_contents = true
 layout_mode = 1
 anchors_preset = 3
@@ -1961,10 +1969,17 @@ size_flags_horizontal = 3
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+max_value = 1.0
+step = 0.001
 
 [node name="SoundFX" type="HSlider" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("24_20o6b")
+bus_name = "sfx"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -1986,10 +2001,17 @@ size_flags_horizontal = 3
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+max_value = 1.0
+step = 0.001
 
 [node name="BGM" type="HSlider" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("24_20o6b")
+bus_name = "music"
 
 [node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -2026,6 +2048,7 @@ size_flags_vertical = 3
 mouse_behavior_recursive = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -2078,10 +2101,40 @@ mouse_filter = 1
 mouse_behavior_recursive = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_16ic3")
 
+[node name="ClickIN" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_jg5la")
+bus = &"sfx"
+
+[node name="ClickOUT" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_8qrer")
+bus = &"sfx"
+
 [connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map0/Button0" to="." method="_on_button_pressed" binds= [0]]
 [connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map1/Button1" to="." method="_on_button_pressed" binds= [1]]
 [connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map2/Button2" to="." method="_on_button_pressed" binds= [2]]
 [connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map3/Button3" to="." method="_on_button_pressed" binds= [3]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map4/Button3" to="." method="_on_button_pressed" binds= [4]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map5/Button3" to="." method="_on_button_pressed" binds= [5]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map6/Button3" to="." method="_on_button_pressed" binds= [6]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map7/Button3" to="." method="_on_button_pressed" binds= [7]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map8/Button3" to="." method="_on_button_pressed" binds= [8]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map9/Button3" to="." method="_on_button_pressed" binds= [9]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map10/Button3" to="." method="_on_button_pressed" binds= [10]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map11/Button3" to="." method="_on_button_pressed" binds= [11]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map12/Button3" to="." method="_on_button_pressed" binds= [12]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map13/Button3" to="." method="_on_button_pressed" binds= [13]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map14/Button3" to="." method="_on_button_pressed" binds= [14]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map15/Button3" to="." method="_on_button_pressed" binds= [15]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map16/Button3" to="." method="_on_button_pressed" binds= [16]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map17/Button3" to="." method="_on_button_pressed" binds= [17]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map18/Button3" to="." method="_on_button_pressed" binds= [18]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map19/Button3" to="." method="_on_button_pressed" binds= [19]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map20/Button3" to="." method="_on_button_pressed" binds= [20]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map21/Button3" to="." method="_on_button_pressed" binds= [21]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map22/Button3" to="." method="_on_button_pressed" binds= [22]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map23/Button3" to="." method="_on_button_pressed" binds= [23]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map24/Button3" to="." method="_on_button_pressed" binds= [24]]
+[connection signal="pressed" from="ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control/Map25/Button3" to="." method="_on_button_pressed" binds= [25]]
 [connection signal="pressed" from="ScrollContainer2/HBoxContainer/MarginContainer/VBoxContainer/EndlessButton" to="." method="_on_endless_button_pressed"]
 [connection signal="toggled" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/GridContainer/VBoxContainer/HBoxContainer/TextureRect/Heart" to="." method="_on_heart_toggled"]
 [connection signal="toggled" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/GridContainer/VBoxContainer/HBoxContainer/TextureRect2/Invincible" to="." method="_on_invincible_toggled"]
@@ -2090,6 +2143,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_16ic3")
 [connection signal="pressed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/HBoxContainer/Close" to="." method="_on_close_pressed" binds= ["confirm"]]
 [connection signal="pressed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/Close" to="." method="_on_close_pressed" binds= ["settings"]]
 [connection signal="value_changed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/SoundFX" to="." method="_on_sound_fx_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/SoundFX" to="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/SoundFX" method="_on_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/BGM" to="." method="_on_bgm_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/BGM" to="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/BGM" method="_on_value_changed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/HomeButton" to="." method="_on_home_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/ShopButton" to="." method="_on_shop_button_pressed"]

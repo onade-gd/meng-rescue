@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b586ipguvmiul"]
+[gd_scene load_steps=11 format=3 uid="uid://b586ipguvmiul"]
 
 [ext_resource type="Script" uid="uid://s2unc87alrql" path="res://mainscreen/endless.gd" id="1_8ct7w"]
 [ext_resource type="PackedScene" uid="uid://c05uhf3e2e131" path="res://stages endless/0.tscn" id="2_bkct7"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ct6scr2dqbdmj" path="res://resource/MainCharController.tscn" id="4_bkct7"]
 [ext_resource type="PackedScene" uid="uid://ep800oxm3d5w" path="res://resource/MainChar.tscn" id="5_2ny74"]
 [ext_resource type="PackedScene" uid="uid://bwrj7yih23guk" path="res://UI_InGame.tscn" id="6_bkct7"]
+[ext_resource type="AudioStream" uid="uid://toamr4uhtp70" path="res://audio/game-start-317318.ogg" id="7_dqbcy"]
+[ext_resource type="AudioStream" uid="uid://dm2tcid3kdeb0" path="res://audio/endless game.ogg" id="8_il7hm"]
 
 [sub_resource type="Gradient" id="Gradient_3dxm6"]
 offsets = PackedFloat32Array(0, 0.55333334)
@@ -59,6 +61,14 @@ layer = 3
 offset_right = 8.0
 offset_bottom = 8.0
 scale = Vector2(11.142898, 13.399999)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_dqbcy")
+bus = &"sfx"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_il7hm")
+bus = &"music"
 
 [connection signal="direction" from="MoveForward/MainChar" to="MoveForward/MainCharController" method="_on_main_char_direction"]
 [connection signal="finishline" from="MoveForward/MainChar" to="." method="_on_main_char_finishline"]

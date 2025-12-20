@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://4ughjpctlpdw"]
+[gd_scene load_steps=8 format=3 uid="uid://4ughjpctlpdw"]
 
 [ext_resource type="Script" uid="uid://g3itputcxdhg" path="res://extra assets/fish.gd" id="1_pqyra"]
 [ext_resource type="Texture2D" uid="uid://c0qggmuo6jwvc" path="res://assets/fishsheet.png" id="1_s62vr"]
+[ext_resource type="AudioStream" uid="uid://csglhw1g2msw3" path="res://audio/coin.ogg" id="3_f6fll"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pqyra"]
 size = Vector2(108, 110)
@@ -46,6 +47,8 @@ _data = {
 }
 
 [node name="fish" type="Area2D"]
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("1_pqyra")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -62,5 +65,9 @@ vframes = 2
 libraries = {
 &"": SubResource("AnimationLibrary_f6fll")
 }
+
+[node name="pling" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_f6fll")
+bus = &"sfx"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

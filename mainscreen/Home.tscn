@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cxqikudjbhsl1"]
+[gd_scene load_steps=26 format=3 uid="uid://cxqikudjbhsl1"]
 
 [ext_resource type="Script" uid="uid://jxkqltfollis" path="res://mainscreen/home.gd" id="1_jmugw"]
 [ext_resource type="FontFile" uid="uid://b1l66bm4r85jp" path="res://assets/mabook font/Mabook.otf" id="2_3yp1s"]
@@ -17,6 +17,9 @@
 [ext_resource type="Script" uid="uid://ca2wwbwk56ydi" path="res://mainscreen/test_get_owner.gd" id="8_75df2"]
 [ext_resource type="Texture2D" uid="uid://7q2yh6cm05s0" path="res://assets/bar/vlm bar .png" id="11_75df2"]
 [ext_resource type="Texture2D" uid="uid://dr66n34a5vp1t" path="res://assets/bar/music bar.png" id="12_3yp1s"]
+[ext_resource type="Script" uid="uid://bi3hna1r8gpuh" path="res://mainscreen/audiocontroller.gd" id="14_ptl1b"]
+[ext_resource type="AudioStream" uid="uid://cfleldn7gt74h" path="res://audio/computer-mouse-click-352734-IN.ogg" id="18_jk0yn"]
+[ext_resource type="AudioStream" uid="uid://c216jr8u6dxkj" path="res://audio/computer-mouse-click-352734-OUT.ogg" id="19_ptl1b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3yp1s"]
 bg_color = Color(1, 0.7882353, 0.48235294, 1)
@@ -54,6 +57,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jmugw")
@@ -307,10 +312,16 @@ size_flags_horizontal = 3
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+max_value = 1.0
+step = 0.001
 
 [node name="SoundFX" type="HSlider" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+max_value = 1.0
+step = 0.001
+script = ExtResource("14_ptl1b")
+bus_name = "sfx"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -332,10 +343,16 @@ size_flags_horizontal = 3
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+max_value = 1.0
+step = 0.001
 
 [node name="BGM" type="HSlider" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+max_value = 1.0
+step = 0.001
+script = ExtResource("14_ptl1b")
+bus_name = "music"
 
 [node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/screen/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -354,6 +371,7 @@ size_flags_stretch_ratio = 0.15
 mouse_behavior_recursive = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -392,8 +410,19 @@ size_flags_vertical = 3
 texture_normal = ExtResource("6_786yl")
 stretch_mode = 3
 
+[node name="ClickIN" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_jk0yn")
+bus = &"sfx"
+
+[node name="ClickOUT" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_ptl1b")
+bus = &"sfx"
+
 [connection signal="pressed" from="ScrollContainer/HBoxContainer/Button/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/Close" to="." method="_on_close_pressed" binds= ["settings"]]
 [connection signal="value_changed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/SoundFX" to="." method="_on_sound_fx_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/SoundFX" to="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/SoundFX" method="_on_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/BGM" to="." method="_on_bgm_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/BGM" to="VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/BGM" method="_on_value_changed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MapButton" to="." method="_on_map_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer2/ShopButton" to="." method="_on_shop_button_pressed"]

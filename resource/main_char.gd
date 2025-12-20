@@ -73,18 +73,22 @@ func finish(endcondition):
 			queue_free()
 
 func _on_hitbox_front_body_entered(body: Node2D) -> void:
+	
 	if body.get_parent().get_parent().name == "StageParent":
 		if invincible == true:
 			if invc_available == true:
+				$swoosh.play()
 				i_frame()
 				current_hp(1)
 				$Timer.start(10.0)
 				invc_available = false
 			else:
+				$hit.play()
 				current_hp(3)
 				$sweat.play("hurt")
 				print("hit")
 		else:
+			$hit.play()
 			current_hp(3)
 			$sweat.play("hurt")
 			print("hit")
@@ -92,16 +96,19 @@ func _on_hitbox_left_body_entered(body: Node2D) -> void:
 	if body.get_parent().get_parent().name == "StageParent":
 		if invincible == true:
 			if invc_available == true:
+				$swoosh.play()
 				i_frame()
 				$Timer.start(10.0)
 				current_hp(1)
 				invc_available = false
 			else:
+				$hit.play()
 				current_hp(1)
 				direction.emit("left")
 				$sweat.play("hurt")
 				print("hit")
 		else:
+			$hit.play()
 			current_hp(1)
 			direction.emit("left")
 			$sweat.play("hurt")
@@ -110,16 +117,19 @@ func _on_hitbox_right_body_entered(body: Node2D) -> void:
 	if body.get_parent().get_parent().name == "StageParent":
 		if invincible == true:
 			if invc_available == true:
+				$swoosh.play()
 				i_frame()
 				$Timer.start(10.0)
 				current_hp(1)
 				invc_available = false
 			else:
+				$hit.play()
 				current_hp(1)
 				direction.emit("right")
 				$sweat.play("hurt")
 				print("hit")
 		else:
+			$hit.play()
 			current_hp(1)
 			direction.emit("right")
 			$sweat.play("hurt")

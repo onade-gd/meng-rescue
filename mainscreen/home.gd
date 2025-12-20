@@ -3,6 +3,11 @@ var page
 var room = preload("res://mainscreen/room.tscn")
 
 func _ready() -> void:
+	$VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/ProgressBar.value = $VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/SoundFX.value
+	$VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/ProgressBar.value = $VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/BGM.value
+	if Homepageaudio.audio_stream_player.playing == false :
+		Homepageaudio.play_music()
+	else: pass
 	var _menu_option = $VBoxContainer/HBoxContainer2/Menu.get_popup().id_pressed.connect(_on_menu_id_pressed)
 	for i in PlayerprogressSavefile.rooms:
 		$ScrollContainer/HBoxContainer/Button.add_sibling(Control.new())
@@ -129,3 +134,10 @@ func _on_sound_fx_value_changed(value: float) -> void:
 
 func _on_bgm_value_changed(value: float) -> void:
 	$VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/ProgressBar.value = value
+	
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch:
+		if event["pressed"] == true :
+			$ClickIN.play()
+		elif event["pressed"] == false :
+			$ClickOUT.play()

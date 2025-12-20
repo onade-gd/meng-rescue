@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6lu31226fdja"]
+[gd_scene load_steps=6 format=3 uid="uid://c6lu31226fdja"]
 
 [ext_resource type="Script" uid="uid://bdw1h80q4ctr2" path="res://story.gd" id="1_27gb3"]
 [ext_resource type="Texture2D" uid="uid://ch731ssqubvik" path="res://assets/story/Story 1.png" id="1_76aiv"]
+[ext_resource type="AudioStream" uid="uid://cfleldn7gt74h" path="res://audio/computer-mouse-click-352734-IN.ogg" id="3_4nfae"]
+[ext_resource type="AudioStream" uid="uid://c216jr8u6dxkj" path="res://audio/computer-mouse-click-352734-OUT.ogg" id="4_4ukgh"]
+[ext_resource type="AudioStream" uid="uid://n6ta3lgr0x6d" path="res://audio/real-rain-sound-story.mp3" id="5_4ukgh"]
 
 [node name="Story" type="Control"]
 layout_mode = 3
@@ -31,5 +34,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ClickIN" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4nfae")
+bus = &"sfx"
+
+[node name="ClickOUT" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4ukgh")
+bus = &"sfx"
+
+[node name="rain" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_4ukgh")
+volume_db = -12.581
+bus = &"sfx"
+parameters/looping = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

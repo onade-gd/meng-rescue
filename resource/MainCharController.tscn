@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ct6scr2dqbdmj"]
+[gd_scene load_steps=4 format=3 uid="uid://ct6scr2dqbdmj"]
 
 [ext_resource type="Script" uid="uid://b0b8wys54sywq" path="res://resource/main_char_controller.gd" id="1_yl4dq"]
+[ext_resource type="AudioStream" uid="uid://c2mbqdnxqb4gi" path="res://audio/swosh.ogg" id="2_wigvr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8iyh"]
 size = Vector2(126, 128)
@@ -12,3 +13,7 @@ script = ExtResource("1_yl4dq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_g8iyh")
+
+[node name="swoosh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wigvr")
+bus = &"sfx"

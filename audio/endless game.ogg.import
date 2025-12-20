@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dm2tcid3kdeb0"
+path="res://.godot/imported/endless game.ogg-72deec615c28a3fcf0153861951ff80e.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/endless game.ogg"
+dest_files=["res://.godot/imported/endless game.ogg-72deec615c28a3fcf0153861951ff80e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -18,7 +18,10 @@ var tween
 var next_stage
 var spawn = 2400
 func _ready() -> void:
-	pass
+	Homepageaudio.stop_music()
+	$AudioStreamPlayer.play()
+	await $AudioStreamPlayer.finished
+	$AudioStreamPlayer2.play()
 
 func _physics_process(_delta: float) -> void:
 	if $StageParent.get_child_count() < 3:

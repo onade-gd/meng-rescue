@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://budxylqe7vgvt"]
+[gd_scene load_steps=14 format=3 uid="uid://budxylqe7vgvt"]
 
 [ext_resource type="Script" uid="uid://7nc5rx3t84bp" path="res://mainscreen/mainscript.gd" id="1_r0du0"]
 [ext_resource type="PackedScene" uid="uid://ct6scr2dqbdmj" path="res://resource/MainCharController.tscn" id="3_cm0pq"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://dnbvon8n0eenk" path="res://assets/bar/home bar.png" id="7_b1503"]
 [ext_resource type="PackedScene" uid="uid://c7x40h7ouvypr" path="res://winlosescreen.tscn" id="7_ev6ob"]
 [ext_resource type="Texture2D" uid="uid://biutnuk7g1jlj" path="res://assets/bar/retry bar.png" id="8_bcq77"]
+[ext_resource type="AudioStream" uid="uid://toamr4uhtp70" path="res://audio/game-start-317318.ogg" id="9_bcq77"]
+[ext_resource type="AudioStream" uid="uid://ddj3y8ivllh3l" path="res://audio/in game.ogg" id="10_cqjuk"]
+[ext_resource type="AudioStream" uid="uid://bt61bqpj4h07k" path="res://audio/marimba-lose-250960.ogg" id="11_cnaxy"]
 
 [sub_resource type="Gradient" id="Gradient_sdusp"]
 offsets = PackedFloat32Array(0, 0.55333334)
@@ -79,6 +82,18 @@ offset_top = 2060.0
 offset_right = 897.0
 offset_bottom = 2214.0
 texture_normal = ExtResource("8_bcq77")
+
+[node name="gamestart" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_bcq77")
+bus = &"music"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_cqjuk")
+bus = &"music"
+
+[node name="lose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_cnaxy")
+bus = &"music"
 
 [connection signal="direction" from="MoveForward/MainChar" to="MoveForward/MainCharController" method="_on_main_char_direction"]
 [connection signal="finishline" from="MoveForward/MainChar" to="." method="_on_main_char_finishline"]

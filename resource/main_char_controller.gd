@@ -14,9 +14,10 @@ func _physics_process(delta: float) -> void:
 		3: global_position.x = 1120
 	if Input.is_action_just_pressed("ui_left"):
 		pos -= 1
+		$swoosh.play()
 	if Input.is_action_just_pressed("ui_right"):
 		pos += 1
-	
+		$swoosh.play()
 #var min_pos = 180.0
 #var max_pos = 540.0
 #func _physics_process(delta: float) -> void:
@@ -31,7 +32,7 @@ func _physics_process(delta: float) -> void:
 		#if global_position.x != max_pos:
 			#global_position.x = lerp(global_position.x, global_position.x + 180.0, 1)
 
-
+#character knockback if they hit an object
 func _on_main_char_direction(direction) -> void:
 	if direction == "left":
 		pos += 1

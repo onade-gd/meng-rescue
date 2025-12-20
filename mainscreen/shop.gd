@@ -3,6 +3,9 @@ var to_buy
 var furn_or_boost_or_gacha
 var which_booster
 func _ready() -> void:
+	if Homepageaudio.audio_stream_player.playing == false :
+		Homepageaudio.play_music()
+	else: pass
 	print(PlayerprogressSavefile.rooms)
 	$VBoxContainer/MarginContainer/HBoxContainer2/TextureRect/HBoxContainer/Money2.text = str(PlayerprogressSavefile.money_2)
 	$VBoxContainer/MarginContainer/HBoxContainer2/TextureRect2/HBoxContainer/Money1.text = str(PlayerprogressSavefile.money_1)
@@ -42,8 +45,8 @@ func _on_buy_pressed() -> void:
 			if PlayerprogressSavefile.money_1 < PlayerprogressSavefile.inventory_furniture[to_buy]["value"]:
 				pass
 			else:
-				$VBoxContainer/MarginContainer/HBoxContainer2/TextureRect2/HBoxContainer/Money1.text = str(PlayerprogressSavefile.money_1)
 				PlayerprogressSavefile.money_1 -= PlayerprogressSavefile.inventory_furniture[to_buy]["value"]
+				$VBoxContainer/MarginContainer/HBoxContainer2/TextureRect2/HBoxContainer/Money1.text = str(PlayerprogressSavefile.money_1)
 				$ConfirmBuy.visible = false
 				PlayerprogressSavefile.inventory_furniture[to_buy]["count"] += 1
 				PlayerprogressSavefile.save_data()
@@ -147,3 +150,10 @@ func _convert() -> void:
 	$ConfirmBuy/Panel2/Display.texture = preload("res://assets/bar/kaleng.png")
 	$ConfirmBuy/Panel2/Cost.text = str(100)
 	furn_or_boost_or_gacha = "convert"
+	
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch:
+		if event["pressed"] == true :
+			$ClickIN.play()
+		elif event["pressed"] == false :
+			$ClickOUT.play()

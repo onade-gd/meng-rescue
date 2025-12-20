@@ -2,6 +2,11 @@ extends Control
 var page
 
 func _ready() -> void:
+	$VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/ProgressBar.value = $VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/SoundFX.value
+	$VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/ProgressBar.value = $VBoxContainer/screen/HBoxContainer/VBoxContainer/SettingsPanel/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/BGM.value
+	if Homepageaudio.audio_stream_player.playing == false :
+		Homepageaudio.play_music()
+	else: pass
 	var read : int = 0
 	for i in $ScrollContainer2/HBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/Control.get_children():
 		if PlayerprogressSavefile.stages[read]["first_clear"] == true:
@@ -59,10 +64,11 @@ func _on_shop_button_pressed() -> void:
 	PlayerprogressSavefile.last_lobby = "res://mainscreen/StagePicker.tscn"
 
 func _input(_event: InputEvent) -> void:
+	
 	if Input.is_action_just_pressed("touch"):
 		page = $ScrollContainer2.scroll_horizontal
 		print($ScrollContainer2.scroll_horizontal)
-	if Input.is_action_just_released("touch"):
+	elif Input.is_action_just_released("touch"):
 		var tween = create_tween()
 		if $ScrollContainer2.scroll_horizontal < page - 120:
 			tween.tween_property($ScrollContainer2, "scroll_horizontal", page - 1440 ,0.1)
@@ -128,3 +134,10 @@ func _on_magnet_toggled(toggled_on: bool) -> void:
 		StageResource.magnet = true
 	else:
 		$VBoxContainer/screen/HBoxContainer/VBoxContainer/ConfirmPanel/VBoxContainer/MarginContainer3/VBoxContainer/GridContainer/VBoxContainer/HBoxContainer/TextureRect3/Magnet.button_pressed = false
+		
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch:
+		if event["pressed"] == true :
+			$ClickIN.play()
+		elif event["pressed"] == false :
+			$ClickOUT.play()

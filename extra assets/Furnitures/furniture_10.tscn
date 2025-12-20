@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgpiginhgjbt1"]
 
-[ext_resource type="Texture2D" uid="uid://rhb4mx2d1jk8" path="res://assets/furniture tall/bunga.png" id="1_4er6u"]
+[ext_resource type="Texture2D" uid="uid://bqbalrkou455g" path="res://assets/playroom/bunga.png" id="1_4er6u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eosny"]
 size = Vector2(496, 878.5)

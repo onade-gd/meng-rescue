@@ -6,6 +6,9 @@ var chosen_stage
 var tween
 var max_health = 3
 func _ready() -> void:
+	Homepageaudio.stop_music()
+	$gamestart.play()
+	$AudioStreamPlayer.play()
 	$CanvasLayer/winlosescreen/star1.visible = false
 	$CanvasLayer/winlosescreen/star2.visible = false
 	$CanvasLayer/winlosescreen/star3.visible = false
@@ -60,8 +63,10 @@ func _on_main_char_finishline(endcondition) -> void:
 	$CanvasLayer/winlosescreen.visible = true
 	$CanvasLayer/winlosescreen/Win.play("default")
 	$CanvasLayer/winlosescreen/Lose.play("default")
+	$AudioStreamPlayer.stop()
 	await $CanvasLayer/winlosescreen/Win.animation_finished
 	$CanvasLayer/winlosescreen/AnimationPlayer.play("stars_popout")
+	$lose.play()
 
 func _on_exit_pressed() -> void:
 	print("pressed")

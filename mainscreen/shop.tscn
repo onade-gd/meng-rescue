@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://mugkt143g3np"]
+[gd_scene load_steps=27 format=3 uid="uid://mugkt143g3np"]
 
 [ext_resource type="Script" uid="uid://dwcc2wem003um" path="res://mainscreen/shop.gd" id="1_e7rdd"]
 [ext_resource type="Texture2D" uid="uid://bldakocspb8ml" path="res://assets/bar/x bar.png" id="2_cjguc"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://oq6xquqh3d0y" path="res://assets/boosters/Sedot.png" id="8_v31yg"]
 [ext_resource type="Texture2D" uid="uid://d1orrmea784rp" path="res://assets/gacha.png" id="9_wu31g"]
 [ext_resource type="Texture2D" uid="uid://c3hp25inst8sh" path="res://assets/bar/button panjang kecil.png" id="10_hwuhu"]
+[ext_resource type="AudioStream" uid="uid://cfleldn7gt74h" path="res://audio/computer-mouse-click-352734-IN.ogg" id="14_co4k3"]
+[ext_resource type="AudioStream" uid="uid://c216jr8u6dxkj" path="res://audio/computer-mouse-click-352734-OUT.ogg" id="15_sv7f7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4617y"]
 bg_color = Color(1, 0.95686275, 0.8901961, 1)
@@ -598,6 +600,14 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 105
 theme_override_font_sizes/font_size = 170
 text = "YOU GOT!"
+
+[node name="ClickIN" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_co4k3")
+bus = &"sfx"
+
+[node name="ClickOUT" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_sv7f7")
+bus = &"sfx"
 
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer2/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer2/HBoxContainer/ScrollContainer/VBoxContainer/Panel3/Convert/Button" to="." method="_convert"]

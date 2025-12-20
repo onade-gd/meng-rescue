@@ -17,3 +17,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "MainChar" :
 		body.score(1)
 		alive = false
+		match randi_range(0,2):
+			1:$AudioStreamPlayer.stream = preload("res://audio/cat-meow-1-fx-323465.ogg")
+			2:$AudioStreamPlayer.stream = preload("res://audio/cat-meow-4-fx-306180.ogg")
+			3:$AudioStreamPlayer.stream = preload("res://audio/cat-meow-7-fx-306186.ogg")
+		$AudioStreamPlayer.play()

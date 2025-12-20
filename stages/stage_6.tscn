@@ -1,28 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfsodujh62duw"]
+[gd_scene load_steps=4 format=4 uid="uid://b1bh3x1x6m3j5"]
 
-[ext_resource type="TileSet" uid="uid://lgwqni31eef4" path="res://resource/tilemap_jumpable.tres" id="1_u5g3n"]
-[ext_resource type="TileSet" uid="uid://cwhp3lwdusbj2" path="res://resource/tilemap_walls.tres" id="2_8xc3r"]
-[ext_resource type="TileSet" uid="uid://g0lrcp6kq76w" path="res://resource/tilemap_duckables.tres" id="3_tb2br"]
+[ext_resource type="TileSet" uid="uid://lgwqni31eef4" path="res://resource/tilemap_jumpable.tres" id="1_4vy5s"]
+[ext_resource type="TileSet" uid="uid://cwhp3lwdusbj2" path="res://resource/tilemap_walls.tres" id="2_svt2u"]
+[ext_resource type="TileSet" uid="uid://g0lrcp6kq76w" path="res://resource/tilemap_duckables.tres" id="3_fp22a"]
 
 [node name="stage" type="Node2D"]
 y_sort_enabled = true
-metadata/catsneeded = 0
+metadata/catsneeded = 5
 metadata/level = 6
 
 [node name="jumpables" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 2, 0, 0, 0, 0, 0, 1, 0)
-tile_set = ExtResource("1_u5g3n")
+tile_map_data = PackedByteArray("AAAAAPX/BQAFAAgAAAD+/+j/BQALAAYAAAACAPH/BQAFAAgAAAACAOX/BQAIAAgAAAD+/9P/BQAOAAkAAAAAAND/BQAIAA4AAAACANP/BQAOAAkAAAD///X/BQAEAAoAAAABAPH/BQAEAAoAAAD+//b/BQAIAAgAAAD+//X/BQAEAAwAAAD9//X/BQAHAAoAAAD8//X/BQAHAAwAAAD+//L/BQAIAAgAAAD9//H/BQAHAAoAAAD8//H/BQAHAAwAAAD9/+n/BQALAAkAAAD+/+n/BQALAAoAAAABAOT/BQAHAAoAAAAAAOT/BQAHAAwAAAD9/9P/BQANAAsAAAABANP/BQANAAsAAAD+/9L/BQARAAgAAAACANL/BQARAAgAAAAAANH/BQAIABAAAAD//9H/BQAIABEAAAD9/77/AAAOAAwAAAD+/9n/AgAAAAAAAQD+/+X/AgAAAAAAAQACAO3/AgAAAAAAAQAAANP/AgAAAAAAAQD+/9f/AQAMAAAAAAAAANf/AQAMAAAAAAD+/9b/AQAMAAIAAAAAANb/AQAMAAIAAAD9/9f/AQAMAAQAAAD//9f/AQAMAAQAAAD+/77/AAAMAAwAAAAAALb/BQAOAAkAAAD//7b/BQANAAsAAAAAALX/BQARAAgAAAACAMD/AgAAAAAAAQACAMT/BQAIAAgAAAABAMP/BQAHAAoAAAAAAMP/BQAHAAwAAAD9/7//AAAIAAwAAAD+//f/AgAAAAAABAAAAO//AgAAAAAABAAAAPD/AgAAAAAABAAAAPH/AgAAAAAABAAAAN3/AgAAAAAABAAAANv/AgAAAAAABAAAANz/AgAAAAAABAD+//P/AgAAAAAABAAAANj/AgAAAAAABAAAANX/AgAAAAAABAAAAM//AgAAAAAABAAAAM7/AgAAAAAABAD+/8j/AgAAAAAABAD+/8n/AgAAAAAABAD+/8f/AgAAAAAABAAAALj/AgAAAAAABAAAALf/AgAAAAAABAAAALT/AgAAAAAABAAAAMD/AgAAAAAABAD+/8D/AgAAAAAABAA=")
+tile_set = ExtResource("1_4vy5s")
 
 [node name="walls" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 scale = Vector2(0.99926186, 1)
-tile_set = ExtResource("2_8xc3r")
+tile_map_data = PackedByteArray("AAAAAPr/BgAMABEAAAACAPb/BgASAAwAAAD//+3/BgAQAAAAAAACAOn/BgABAAgAAAAAAOP/BQAWAA4AAAACANr/AQAOAAAAAAACAOD/BgAJAAAAAAACAM3/BgASAAwAAAAAAMr/BgAAABMAAAACAL3/BgAQAAAAAAACAK//AgAAAAAAAwD//6//AAAAAAAAAAAAAPn/BgAMABQAAAD///r/BgAMABcAAAACAPX/BgAPAAwAAAABAPb/BgARABEAAAD+/+3/BgAAAAsAAAD9/+3/BgABAA0AAAABAOn/BgAAAAsAAAAAAOn/BgABAA0AAAD//+T/BQAaABEAAAAAAOT/BQAdABEAAAACAOL/BgAJAAQAAAACAOH/BgADAAcAAAACANf/AQAQAAAAAAABANr/AQATAAAAAAAAAMn/BgACABMAAAACAMz/BgAPAAwAAAABAM3/BgARABEAAAD//8r/BgAGABQAAAD+/8T/BgASAAwAAAAAAL3/BgABAA0AAAD//63/AAAAAAQAAAD//7D/AAAAAAgAAAD9/8T/BgARABEAAAABAL3/BgAAAAsAAAD+/8P/BgAPAAwAAAD9/97/AQAGAAAAAAA=")
+tile_set = ExtResource("2_svt2u")
 
 [node name="duckables" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_set = ExtResource("3_tb2br")
+tile_map_data = PackedByteArray("AAD+/+P/BQAUAA4AAAD9/97/AQAGAAAAAAABAOH/BgAGAAAAAAD//7n/AAAAAAUAAAD+/+T/BQAYABEAAAAAAOH/BgAFAAQAAAAAAN7/AQAGAAQAAAD+/97/AQAJAAQAAAABALj/AAAAAAcAAAD//7j/AAAAAAIAAAD+/8z/BgAFAA4AAAAAAML/BgAFAA4AAAAAANr/BgAAABAAAAABAO3/AAAHAAIAAAABALb/AAAHAAIAAAD//8P/BgAFABEAAAAAAMP/BgAGABMAAAACALf/AAAHAAYAAAACALb/AAAKAAQAAAD9/83/BgAFABEAAAD+/83/BgAGABMAAAD//9v/BgACABEAAAAAANv/BgAGABMAAAACAO7/AAAHAAYAAAACAO3/AAAKAAQAAAA=")
+tile_set = ExtResource("3_fp22a")
 
 [node name="background" type="TileMapLayer" parent="."]
-
-[connection signal="body_entered" from="jumpables/Cat" to="jumpables/Cat" method="_on_body_entered"]

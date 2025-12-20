@@ -3,6 +3,7 @@ var page :int = 1
 var tween
 	
 func _ready() -> void:
+	$rain.play()
 	page_animation()
 
 func _on_button_pressed() -> void:
@@ -26,3 +27,10 @@ func page_animation():
 		$TextureRect.position = Vector2(0,-13)
 		tween = create_tween()
 		tween.tween_property($TextureRect, "position", Vector2(0,-624),3.0)
+		
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch:
+		if event["pressed"] == true :
+			$ClickIN.play()
+		elif event["pressed"] == false :
+			$ClickOUT.play()

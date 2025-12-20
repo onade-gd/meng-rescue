@@ -142,17 +142,17 @@ func _on_cancel_pressed() -> void:
 			$FurnitureQueue.get_child(0).queue_free()
 			$Panel.visible = false
 		"edit":
-			PlayerprogressSavefile.inventory_furniture[PlayerprogressSavefile.rooms[current_room][0][furniture_name][0]["furniture_id"]]["count"] += 1
+			PlayerprogressSavefile.inventory_furniture[PlayerprogressSavefile.rooms[current_room][0][furniture_index][0]["furniture_id"]]["count"] += 1
 			#PlayerprogressSavefile.inventory_furniture[PlayerprogressSavefile.rooms[i][0][x][0]["cat_spawn"][y] += 1
 			tween.tween_property($VBoxContainer/HBoxContainer,"size_flags_stretch_ratio",0.75,0.1)
-			$VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer.get_child(PlayerprogressSavefile.rooms[current_room][0][furniture_name][0]["furniture_id"]).get_child(1).text = str(PlayerprogressSavefile.inventory_furniture[PlayerprogressSavefile.rooms[current_room][0][furniture_name][0]["furniture_id"]]["count"])
-			if PlayerprogressSavefile.inventory_furniture[PlayerprogressSavefile.rooms[current_room][0][furniture_name][0]["furniture_id"]]["count"] > 0:
-				$VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer.get_child(PlayerprogressSavefile.rooms[current_room][0][furniture_name][0]["furniture_id"]).visible = true
-			$FurnitureContainer.get_child(furniture_name).queue_free()# save format: [[[[{ "furniture": "res://extra assets/Furnitures/furniture_3.tscn", "pos": (288.0, 1308.0), "cat_spawn": [0] }]],[]],[{cats:[]}]]    
+			$VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer.get_child(PlayerprogressSavefile.rooms[current_room][0][furniture_index][0]["furniture_id"]).get_child(1).text = str(PlayerprogressSavefile.inventory_furniture[PlayerprogressSavefile.rooms[current_room][0][furniture_index][0]["furniture_id"]]["count"])
+			if PlayerprogressSavefile.inventory_furniture[PlayerprogressSavefile.rooms[current_room][0][furniture_index][0]["furniture_id"]]["count"] > 0:
+				$VBoxContainer/HBoxContainer/MarginContainer3/TabContainer/Furnitures/VBoxContainer/GridContainer.get_child(PlayerprogressSavefile.rooms[current_room][0][furniture_index][0]["furniture_id"]).visible = true
+			$FurnitureContainer.get_child(furniture_index).queue_free()# save format: [[[[{ "furniture": "res://extra assets/Furnitures/furniture_3.tscn", "pos": (288.0, 1308.0), "cat_spawn": [0] }]],[]],[{cats:[]}]]    
 																	  #[room[furnitureobject[uselessbracket{array    outdated reference
-			var current_index = furniture_name +1
+			var current_index = furniture_index +1
 			var to_shift : Array
-			PlayerprogressSavefile.rooms[current_room][0].remove_at(furniture_name)
+			PlayerprogressSavefile.rooms[current_room][0].remove_at(furniture_index)
 			while current_index < $FurnitureContainer.get_child_count():   #gets an array of the children that comes after this node
 				var next_index = $FurnitureContainer.get_child(current_index)
 				to_shift.append(next_index)
@@ -167,7 +167,7 @@ func _on_cancel_pressed() -> void:
 func _area_entered_room(area):
 	pass
 func _button_down_furniture(source):
-	print(source)
+	print("source:   ",source)
 	new_or_edit = "edit"
 	$FurnitureQueue.add_child($FurnitureContainer.get_child(source).duplicate())
 	$Panel.visible = true
@@ -175,9 +175,10 @@ func _button_down_furniture(source):
 	snap_furnitures_to_floor()
 	$FurnitureContainer.get_child(source).visible = false
 	$FurnitureContainer.get_child(source).get_child(0).set_collision_layer(2)
-	furniture_name = source
+	furniture_index = source
 
 func _on_confirm_pressed() -> void:
+	print("furniture index:   ", furniture_index)
 	if PlayerprogressSavefile.inventory_furniture[furniture_index]["count"] <= 0:
 		confirmable = false
 	elif PlayerprogressSavefile.inventory_furniture[furniture_index]["count"] > 0 and confirmable == true:
@@ -213,11 +214,11 @@ func _on_confirm_pressed() -> void:
 				$Panel.visible = false
 				print(PlayerprogressSavefile.rooms[current_room][0])
 			"edit":
-				$FurnitureContainer.get_child(furniture_name).position = $FurnitureQueue.get_child(0).position
+				$FurnitureContainer.get_child(furniture_index).position = $FurnitureQueue.get_child(0).position
 				$FurnitureQueue.get_child(0).queue_free()
-				$FurnitureContainer.get_child(furniture_name).visible = true
-				$FurnitureContainer.get_child(furniture_name).get_child(0).set_collision_layer(1)
-				PlayerprogressSavefile.rooms[current_room][0][furniture_name][0]["pos"] = $FurnitureContainer.get_child(furniture_name).position
+				$FurnitureContainer.get_child(furniture_index).visible = true
+				$FurnitureContainer.get_child(furniture_index).get_child(0).set_collision_layer(1)
+				PlayerprogressSavefile.rooms[current_room][0][furniture_index][0]["pos"] = $FurnitureContainer.get_child(furniture_index).position
 				PlayerprogressSavefile.save_data()
 				$Panel.visible = false
 				# save format: [[[{ "furniture": "res://extra assets/Furnitures/furniture_3.tscn", "pos": (288.0, 1308.0), "cat_spawn": [0] }]],[]]    [room[furnitureobject[uselessbracket{array
